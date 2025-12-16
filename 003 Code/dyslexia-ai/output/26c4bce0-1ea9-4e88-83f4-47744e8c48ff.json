@@ -1,0 +1,328 @@
+{
+  "jobId": "26c4bce0-1ea9-4e88-83f4-47744e8c48ff",
+  "fileName": "회의계획서_캡스톤디자인_리딩브릿지.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-21T18:17:54.497599",
+  "completedAt": "2025-09-21T18:18:51.358087",
+  "processingTimeSeconds": 56.860488,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 1,
+    "total_chunks": 1,
+    "total_blocks": 42
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "[붙임5-1] 회의계획서 산학연계 캡스톤디자인 회의 계획서 프로젝트 캡스톤디자인 회의명/과제명 진행 상황 보고 및 피드백/리딩브릿지 - AI 기반 난독증 아동 /팀명 맞춤형 학습 교재 자동 변환 플랫폼 개발 일 시 2025년 09월 08일(월) 17시 00분 ~ 19시 00분 장 소 (주) 버터 회의목적 진행 상황 보고 및 피드백 회의 내부인원 4명 참석인원 외부인원 1명((주)키클롭스) 소요예산 150,000원 회의를 개최하고자 합니다. 2025년 09월 04일 신 청 자 : 최은기 (인) 총괄책임자 : (인) 국립한밭대학교 SW중심대학사업단장 귀하",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "회의 계획서"
+        },
+        {
+          "id": "2",
+          "type": "HEADING2",
+          "text": "산학연계 캡스톤디자인 회의 계획서"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "이 문서는 대학교 프로젝트 회의를 위한 계획서입니다."
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "학생들과 회사가 함께 하는 프로젝트입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "산학연계",
+              "startIndex": 0,
+              "endIndex": 4,
+              "definition": "산업체와 학교가 협력하는 것",
+              "simplifiedDefinition": "회사와 학교가 함께 일하는 것",
+              "examples": [
+                "회사 직원이 학교에 와서 학생들을 가르쳐요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 교육 용어"
+            }
+          ]
+        },
+        {
+          "id": "5",
+          "type": "HEADING3",
+          "text": "프로젝트 정보"
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "text": "프로젝트 이름은 캡스톤디자인입니다."
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "회의 이름은 '진행 상황 보고 및 피드백'입니다."
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "팀 이름은 '리딩브릿지'입니다."
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "이 팀은 특별한 프로그램을 만들고 있습니다."
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "AI를 사용해서 난독증 아동을 도와주는 프로그램입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "난독증",
+              "startIndex": 11,
+              "endIndex": 14,
+              "definition": "글을 읽는 것이 어려운 증상",
+              "simplifiedDefinition": "글자를 읽기 힘든 병",
+              "examples": [
+                "난독증이 있으면 책 읽기가 어려워요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "의학 용어"
+            }
+          ]
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "학습 교재를 자동으로 바꿔주는 플랫폼을 개발합니다.",
+          "blank": true
+        },
+        {
+          "id": "12",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 아동을 위한 회의실 이미지. 테이블 주위에 앉은 대학생들과 회사 직원이 노트북과 자료를 보며 회의하는 모습. 밝은 조명, 친근한 분위기, 만화풍 스타일",
+          "concept": "프로젝트 회의",
+          "alt": "학생들과 회사 직원이 함께 회의하는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/1babca1e-9831-40d3-9e77-e2f807fc397e.svg"
+        },
+        {
+          "id": "13",
+          "type": "HEADING3",
+          "text": "회의 일정"
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "회의 날짜는 2025년 9월 8일 월요일입니다."
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "시간은 오후 5시부터 7시까지입니다."
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "text": "총 2시간 동안 회의를 합니다."
+        },
+        {
+          "id": "17",
+          "type": "TEXT",
+          "text": "회의 장소는 (주) 버터 회사입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "주식회사",
+              "startIndex": 6,
+              "endIndex": 8,
+              "definition": "여러 사람이 돈을 모아 만든 회사",
+              "simplifiedDefinition": "사람들이 함께 만든 회사",
+              "examples": [
+                "삼성, LG 같은 큰 회사들이 주식회사예요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "경제 용어"
+            }
+          ]
+        },
+        {
+          "id": "18",
+          "type": "HEADING3",
+          "text": "회의 목적"
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "이 회의의 목적은 두 가지입니다."
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "첫째, 지금까지 한 일을 보고합니다."
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "둘째, 더 좋은 방법에 대한 조언을 받습니다."
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "피드백을 통해 프로젝트를 개선할 예정입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "피드백",
+              "startIndex": 0,
+              "endIndex": 4,
+              "definition": "다른 사람이 주는 의견이나 조언",
+              "simplifiedDefinition": "다른 사람이 해주는 좋은 말이나 고칠 점",
+              "examples": [
+                "선생님이 숙제에 대해 피드백을 주셨어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "외래어"
+            }
+          ]
+        },
+        {
+          "id": "23",
+          "type": "HEADING3",
+          "text": "참석자 정보"
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "회의에는 총 5명이 참석합니다."
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "내부 인원은 4명입니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "이들은 우리 팀 학생들입니다."
+        },
+        {
+          "id": "27",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 아동을 위한 회의 참석자 이미지. 4명의 대학생과 1명의 회사 직원이 원형 테이블에 앉아 있는 모습. 각자 이름표를 달고 있고, 밝고 친근한 분위기, 만화풍 스타일",
+          "concept": "회의 참석자들",
+          "alt": "회의에 참석하는 5명의 사람들",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/db19935a-59b5-4fb5-9855-e9068b34e2b1.svg"
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "외부 인원은 1명입니다."
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "이 분은 (주)키클롭스 회사에서 오십니다."
+        },
+        {
+          "id": "30",
+          "type": "TEXT",
+          "text": "회사 전문가가 우리를 도와줄 예정입니다.",
+          "blank": true
+        },
+        {
+          "id": "31",
+          "type": "HEADING3",
+          "text": "회의 비용"
+        },
+        {
+          "id": "32",
+          "type": "TEXT",
+          "text": "이번 회의에 드는 돈은 15만원입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "소요예산",
+              "startIndex": 0,
+              "endIndex": 4,
+              "definition": "어떤 일에 필요한 돈의 계획",
+              "simplifiedDefinition": "일을 하는데 필요한 돈",
+              "examples": [
+                "여행 소요예산을 미리 계산해봤어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "경제 전문용어"
+            }
+          ]
+        },
+        {
+          "id": "33",
+          "type": "TEXT",
+          "text": "이 돈은 회의실 대여비와 간식비입니다."
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "참석자들을 위한 준비 비용입니다."
+        },
+        {
+          "id": "35",
+          "type": "HEADING3",
+          "text": "신청자 정보"
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "이 회의를 신청한 사람은 최은기입니다."
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "신청 날짜는 2025년 9월 4일입니다."
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "총괄책임자의 승인을 받아야 합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "총괄책임자",
+              "startIndex": 0,
+              "endIndex": 5,
+              "definition": "전체 일을 관리하고 책임지는 사람",
+              "simplifiedDefinition": "모든 일을 관리하는 가장 중요한 사람",
+              "examples": [
+                "프로젝트 총괄책임자가 모든 계획을 세워요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "조직 관리 용어"
+            }
+          ]
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "승인을 받으면 회의를 열 수 있습니다."
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "국립한밭대학교 SW중심대학사업단장님께 제출합니다."
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "이 계획서로 회의 허가를 요청합니다.",
+          "blank": true
+        },
+        {
+          "id": "42",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 아동을 위한 대학교 건물과 회의 계획서 이미지. 현대적인 대학 건물 앞에서 학생이 서류를 들고 있는 모습. 밝은 하늘, 깔끔한 건물, 희망적인 분위기, 만화풍 스타일",
+          "concept": "대학교 프로젝트 승인 과정",
+          "alt": "대학교에서 회의 계획서를 제출하는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/a75b1952-7251-4e3c-a35f-e0a644a9e707.svg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,496 @@
+{
+  "jobId": "faed36e4-7a4e-409a-ae6f-587e05e1395c",
+  "fileName": "김재용_이력서_및_포트폴리오.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-21T17:38:20.562499",
+  "completedAt": "2025-09-21T17:40:10.669570",
+  "processingTimeSeconds": 110.107071,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 2,
+    "total_chunks": 1,
+    "total_blocks": 86
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "김재용 주니어 백엔드 개발자 . 인적 사항 연락처 Email. electruc@naver.com Phone. 01099181244 기타 Blog. https://yongyong-dev-log.tistory.com Github. https://github.com/lonely-wolf-howl 자기 소개 학습한 내용을 실무에 녹여내며 성과로 연결합니다 단순한 기능 구현에 만족하지 않고, 담당한 프로젝트 내에서 리팩토링을 통해 서비스 응답 속도 개선에 기여한 경험이 있습니다. 한정된 리소스 환경에서도 최대한의 성능을 끌어내기 위해, 지속적으로 개선점을 탐색하고 적용하는 개발을 지향합니다. 새로운 기술에 유연하고 신속하게 적응합니다 개발을 처음 시작했을 당시 아무런 사전 지식 없이 한 달간 몰입하여, 판매를 목표로 한 서비스 수준의 결과물을 직접 개발한 경험이 있습니다. 실무에서도 프로젝트 요구사항을 충족하기 위해 처음 접하는 기술을 빠르게 익히고 안정적으로 적용해왔습니다. 지속적으로 공부하고 이를 문서화하여 함께 성장합니다 매주 개발 관련 서적이나 기술 문서를 읽으며 공부한 내용을 정리하고, 기술 회고를 블로그에 기록하고 있습니다. 정리한 지식은 필요 시 팀원 들과 문서 형태로 공유하며, 개인의 성장을 넘어서 동료들에게도 긍정적인 영향을 줄 수 있도록 노력하고 있습니다. 핵심 역량 NestJS 기반의 RESTful API 서버를 설계하고 운영한 실무 경험 보유 도메인 주도 설계(DDD) 기반의 MSA 구조 설계 및 마이크로서비스 개발 사내 공통 웹훅 · 푸시 알림 서비스 설계 및 개발로 기능 도입 시간 단축 메시지 브로커를 활용한 Saga 패턴 구현으로 분산 트랜잭션 안정성 확보 Docker 및 Github Actions를 활용한 CI / CD 자동화 파이프라인 구성 보유 기술 Language DBMS JavaScript / TypeScript / Python AWS RDS / MySQL / MongoDB Framework Infra Express / NestJS / Next.js / Jest AWS EC2 / Docker / Github Actions / RabbitMQ / Redis 김재용. 주니어 백엔드 개발자 1\n\n경력 (주) 이큐비알홀딩스 2024.04  2025.09 백엔드 개발자 총 1년 6개월 업무 경험 사내 공통 웹훅 서비스 개발 각 서비스에 분산된 웹훅 기능을 단일 서비스로 설계하여 도입 속도 향상 # 기술적 의사결정 이벤트 구독 방식을 도입해 서비스가 필요한 이벤트만 선택적으로 처리 가능 웹훅 전송 실패 시, 지수 백오프 기반 재시도로 이벤트 전달 안정성 확보 B2C · B2B 통합 결제 서비스 개발 도메인 주도 설계(DDD) 기반의 MSA 구조 설계 및 개발 # 기술적 의사결정 오케스트레이션 기반 Saga 패턴 구현으로 분산 트랜잭션 안정성 확보 RBAC 적용을 통한 역할 분리 및 복합 권한 제어 기능 구현 사내 공통 푸시 알림 서비스 개발 RabbitMQ 기반 비동기 처리로 수평 확장형 아키텍처 설계 및 개발 # 기술적 의사결정 다중 서버 환경에서 로컬 캐시와 분산 락을 활용한 중복 전송 방지 처리 Cron 기반 예약 알림 처리 및 실패 알림에 대한 재시도 기능 구현 멤블 마이크로서비스 담당 개발 메시지 브로커를 활용해 느슨한 결합 구조의 마이크로서비스 구현 # 기술적 의사결정 계층형 자료구조 탐색 시간 복잡도 최적화로 응답 속도 15배 이상 향상 분산 락 적용으로 오토 스케일링 환경에서 중복 처리와 충돌 방지 SBT 기반 사내 HR 서비스 개발 MSA 환경에서 도메인 설계 및 NestJS 기반 마이크로서비스 개발 # 기술적 의사결정 스마트 컨트랙트 기반 SBT 사원증 발급 구조 설계 및 인증 흐름 구현 QR · WiFi 인증 수단을 통합한 출퇴근 기록 기능 구현 성능 검사 절차와 실행 방법론 문서화 계획 수립부터 실행, 결과 해석까지 전 과정을 안내하는 문서 작성 비기능 요구사항을 6가지 검사 유형과 지표로 해석하는 전환 기준 정립 JMeter 활용법과 양식 제공으로 검사의 일관성과 재현성 확보 학력 스파르타코딩클럽 2023.05  2023.09 내일배움캠프 Node.js 트랙 수료 충남대학교 2015.03  2023.02 신소재공학과 학사 졸업 김재용. 주니어 백엔드 개발자 2",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "김재용 주니어 백엔드 개발자"
+        },
+        {
+          "id": "2",
+          "type": "HEADING2",
+          "text": "인적 사항"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "이메일: electruc@naver.com"
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "전화번호: 010-9918-1244"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "text": "블로그: https://yongyong-dev-log.tistory.com"
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "text": "깃허브: https://github.com/lonely-wolf-howl"
+        },
+        {
+          "id": "7",
+          "type": "HEADING2",
+          "text": "자기 소개"
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "그리고 좋은 성과를 만들어냅니다."
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "단순한 기능 만들기에 만족하지 않습니다."
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "담당한 프로젝트에서 코드를 개선했습니다."
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "한정된 자원으로도 최고 성능을 만듭니다."
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "계속해서 개선점을 찾고 적용합니다.",
+          "blank": true
+        },
+        {
+          "id": "15",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 백엔드 개발자 소개 이미지. 컴퓨터 앞에서 코딩하는 친근한 개발자, 화면에는 간단한 코드와 성과 그래프. 밝은 색상, 만화풍, 텍스트 금지",
+          "concept": "백엔드 개발자의 업무",
+          "alt": "컴퓨터로 일하는 개발자",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/2953b4fb-a2fd-4ad2-849f-00d20bcf17c5.svg"
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "text": "새로운 기술에 빠르게 적응합니다."
+        },
+        {
+          "id": "17",
+          "type": "TEXT",
+          "text": "개발을 처음 시작했을 때 이야기입니다."
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "한 달 동안 열심히 공부했습니다."
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "그리고 판매할 수 있는 서비스를 만들었습니다."
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "실무에서도 새로운 기술을 빠르게 배웁니다."
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "프로젝트에 필요한 기술을 익힙니다."
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "계속 공부하고 문서로 정리합니다."
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "그래서 함께 성장할 수 있습니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "매주 개발 관련 책을 읽습니다."
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "기술 문서도 공부합니다."
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "정리한 지식을 팀원들과 나눕니다."
+        },
+        {
+          "id": "30",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 지식 공유 이미지. 여러 사람이 둘러앉아 문서를 보며 토론하는 모습, 화면에는 간단한 그래프와 도표. 협력적인 분위기, 밝은 색상, 만화풍",
+          "concept": "팀워크와 지식 공유",
+          "alt": "함께 공부하고 나누는 사람들",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/cc0a9cc2-751b-427c-a6ab-b79778e6f2cb.svg"
+        },
+        {
+          "id": "31",
+          "type": "TEXT",
+          "text": "문서 형태로 공유합니다."
+        },
+        {
+          "id": "32",
+          "type": "TEXT",
+          "text": "개인의 성장을 넘어서 동료들에게도 도움이 됩니다."
+        },
+        {
+          "id": "33",
+          "type": "HEADING2",
+          "text": "핵심 역량"
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "실무 경험이 있습니다."
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "도메인 주도 설계 기반의 구조를 만들었습니다."
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "마이크로서비스를 개발했습니다."
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "푸시 알림 서비스도 개발했습니다."
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "기능 도입 시간을 단축했습니다."
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "메시지 브로커를 활용했습니다."
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "분산 트랜잭션 안정성을 확보했습니다."
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "Docker와 Github Actions를 활용했습니다."
+        },
+        {
+          "id": "45",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 개발 기술 스택 이미지. 다양한 프로그래밍 도구들과 서버, 데이터베이스를 간단한 아이콘으로 표현. 연결선으로 상호작용 표시, 밝은 색상, 만화풍",
+          "concept": "개발 기술과 도구들",
+          "alt": "개발에 사용하는 다양한 도구들",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/774cbe48-b6b4-4dab-a58c-c31c356a13cf.svg"
+        },
+        {
+          "id": "47",
+          "type": "HEADING2",
+          "text": "보유 기술"
+        },
+        {
+          "id": "48",
+          "type": "HEADING3",
+          "text": "프로그래밍 언어"
+        },
+        {
+          "id": "49",
+          "type": "LIST",
+          "items": [
+            "JavaScript",
+            "TypeScript",
+            "Python"
+          ]
+        },
+        {
+          "id": "50",
+          "type": "HEADING3",
+          "text": "데이터베이스"
+        },
+        {
+          "id": "51",
+          "type": "LIST",
+          "items": [
+            "AWS RDS",
+            "MySQL",
+            "MongoDB"
+          ]
+        },
+        {
+          "id": "53",
+          "type": "LIST",
+          "items": [
+            "Express",
+            "NestJS",
+            "Next.js",
+            "Jest"
+          ]
+        },
+        {
+          "id": "54",
+          "type": "HEADING3",
+          "text": "인프라"
+        },
+        {
+          "id": "55",
+          "type": "LIST",
+          "items": [
+            "AWS EC2",
+            "Docker",
+            "Github Actions",
+            "RabbitMQ",
+            "Redis"
+          ]
+        },
+        {
+          "id": "56",
+          "type": "HEADING2",
+          "text": "경력"
+        },
+        {
+          "id": "57",
+          "type": "TEXT",
+          "text": "회사명: (주) 이큐비알홀딩스"
+        },
+        {
+          "id": "58",
+          "type": "TEXT",
+          "text": "기간: 2024년 4월 ~ 2025년 9월"
+        },
+        {
+          "id": "59",
+          "type": "TEXT",
+          "text": "직책: 백엔드 개발자"
+        },
+        {
+          "id": "60",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 회사 업무 환경 이미지. 현대적인 사무실에서 여러 개발자들이 협업하는 모습, 모니터에는 코드와 그래프. 전문적이지만 친근한 분위기, 밝은 색상",
+          "concept": "회사에서의 개발 업무",
+          "alt": "회사에서 일하는 개발자들",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/180bf226-ebd3-48dc-8070-7a174a0b4f16.svg"
+        },
+        {
+          "id": "61",
+          "type": "TEXT",
+          "text": "총 1년 6개월 업무 경험이 있습니다.",
+          "blank": true
+        },
+        {
+          "id": "62",
+          "type": "HEADING3",
+          "text": "사내 공통 웹훅 서비스 개발"
+        },
+        {
+          "id": "63",
+          "type": "TEXT",
+          "text": "각 서비스에 흩어진 웹훅 기능을 모았습니다."
+        },
+        {
+          "id": "64",
+          "type": "TEXT",
+          "text": "하나의 서비스로 설계했습니다."
+        },
+        {
+          "id": "65",
+          "type": "TEXT",
+          "text": "그래서 도입 속도가 빨라졌습니다."
+        },
+        {
+          "id": "67",
+          "type": "TEXT",
+          "text": "서비스가 필요한 이벤트만 선택할 수 있습니다."
+        },
+        {
+          "id": "68",
+          "type": "TEXT",
+          "text": "웹훅 전송이 실패하면 다시 시도합니다."
+        },
+        {
+          "id": "69",
+          "type": "TEXT",
+          "text": "지수 백오프 기반으로 재시도합니다."
+        },
+        {
+          "id": "70",
+          "type": "TEXT",
+          "text": "이벤트 전달 안정성을 확보했습니다.",
+          "blank": true
+        },
+        {
+          "id": "71",
+          "type": "HEADING3",
+          "text": "B2C·B2B 통합 결제 서비스 개발"
+        },
+        {
+          "id": "72",
+          "type": "TEXT",
+          "text": "도메인 주도 설계 기반으로 만들었습니다."
+        },
+        {
+          "id": "74",
+          "type": "TEXT",
+          "text": "오케스트레이션 기반 Saga 패턴을 구현했습니다."
+        },
+        {
+          "id": "75",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 결제 시스템 이미지. 온라인 쇼핑몰에서 결제하는 과정을 단계별로 표현. 카드, 휴대폰, 컴퓨터가 연결된 모습. 안전하고 신뢰할 수 있는 느낌, 밝은 색상",
+          "concept": "온라인 결제 시스템",
+          "alt": "안전한 온라인 결제 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/662a93c3-6a90-437e-ae90-3fce7f376809.svg"
+        },
+        {
+          "id": "76",
+          "type": "TEXT",
+          "text": "분산 트랜잭션 안정성을 확보했습니다."
+        },
+        {
+          "id": "77",
+          "type": "TEXT",
+          "text": "RBAC을 적용했습니다."
+        },
+        {
+          "id": "79",
+          "type": "HEADING3",
+          "text": "사내 공통 푸시 알림 서비스 개발",
+          "blank": true
+        },
+        {
+          "id": "80",
+          "type": "TEXT",
+          "text": "RabbitMQ 기반 비동기 처리를 했습니다."
+        },
+        {
+          "id": "81",
+          "type": "TEXT",
+          "text": "수평 확장형 구조로 설계하고 개발했습니다."
+        },
+        {
+          "id": "82",
+          "type": "TEXT",
+          "text": "다중 서버 환경에서 작업했습니다."
+        },
+        {
+          "id": "84",
+          "type": "TEXT",
+          "text": "중복 전송을 방지했습니다."
+        },
+        {
+          "id": "85",
+          "type": "TEXT",
+          "text": "Cron 기반 예약 알림을 처리했습니다."
+        },
+        {
+          "id": "86",
+          "type": "TEXT",
+          "text": "실패한 알림에 대한 재시도 기능을 구현했습니다.",
+          "blank": true
+        },
+        {
+          "id": "87",
+          "type": "HEADING3",
+          "text": "멤블 마이크로서비스 담당 개발"
+        },
+        {
+          "id": "88",
+          "type": "TEXT",
+          "text": "메시지 브로커를 활용했습니다."
+        },
+        {
+          "id": "90",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 마이크로서비스 구조 이미지. 여러 개의 작은 서비스 박스들이 메시지로 연결된 모습. 각 박스는 다른 색상, 화살표로 소통 표현. 깔끔하고 체계적인 느낌",
+          "concept": "마이크로서비스 아키텍처",
+          "alt": "작은 서비스들이 연결된 시스템",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/8b8e6c35-c24f-4fdd-96c6-06f7c9ca2b33.svg"
+        },
+        {
+          "id": "91",
+          "type": "TEXT",
+          "text": "계층형 자료구조 탐색 시간을 최적화했습니다."
+        },
+        {
+          "id": "92",
+          "type": "TEXT",
+          "text": "응답 속도가 15배 이상 향상되었습니다."
+        },
+        {
+          "id": "93",
+          "type": "TEXT",
+          "text": "분산 락을 적용했습니다."
+        },
+        {
+          "id": "94",
+          "type": "TEXT",
+          "text": "오토 스케일링 환경에서 중복 처리를 방지했습니다."
+        },
+        {
+          "id": "95",
+          "type": "TEXT",
+          "text": "충돌도 방지했습니다.",
+          "blank": true
+        },
+        {
+          "id": "96",
+          "type": "HEADING3",
+          "text": "SBT 기반 사내 HR 서비스 개발"
+        },
+        {
+          "id": "97",
+          "type": "TEXT",
+          "text": "MSA 환경에서 도메인을 설계했습니다."
+        },
+        {
+          "id": "98",
+          "type": "TEXT",
+          "text": "NestJS 기반 마이크로서비스를 개발했습니다."
+        },
+        {
+          "id": "100",
+          "type": "TEXT",
+          "text": "발급 구조를 설계하고 인증 흐름을 구현했습니다."
+        },
+        {
+          "id": "101",
+          "type": "TEXT",
+          "text": "QR과 WiFi 인증 수단을 통합했습니다."
+        },
+        {
+          "id": "102",
+          "type": "TEXT",
+          "text": "출퇴근 기록 기능을 구현했습니다.",
+          "blank": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+services:
+  app:
+    image: openjdk:17-slim
+    container_name: dyslexia_app
+    env_file: .env
+    ports:
+      - "8084:8084"
+    volumes:
+      - ./app.jar:/app/app.jar
+    restart: unless-stopped
+    command: [ "java", "-jar", "/app/app.jar" ]

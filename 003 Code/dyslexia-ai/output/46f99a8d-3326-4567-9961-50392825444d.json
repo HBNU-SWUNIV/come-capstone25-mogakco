@@ -1,0 +1,573 @@
+{
+  "jobId": "46f99a8d-3326-4567-9961-50392825444d",
+  "fileName": "NLP_발표_1.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-21T17:57:03.683704",
+  "completedAt": "2025-09-21T17:58:33.864859",
+  "processingTimeSeconds": 90.181155,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 6,
+    "total_chunks": 1,
+    "total_blocks": 83
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "9:41 다람쥐 Research 대전대 심리학과 저도 로맨스 영화 좋아해요! 얼마 전에 ‘너의 이름은’ 다시 봤는데 정말 좋더라구 LLM 기반 멀티모달 매칭 시스템 요 ㅎㅎ 다시 또 보고 싶어요 오후 3:14 와 정말로? 저도 그 영화 진짜 좋아해요! 몇 번을 봐도 감동이에요! 사용자 매칭 정확도 향상을 위한 하이브리드 접근법 오후 3:14 저도 그 영화 진짜 좋아해요! 취향이 비슷하네요! 혹시 시간 되시면 같 이 영화 보러 가실래요? 오후 3:15 취향이 비슷하네요! 혹시 시간 되시면 같이 좋아요! 이번 주말에 시간 괜찮으시면 어 떨까요? 영화 보러 가실래요? 오후 3:15 좋아요 오후 3:15 토요일 오후 어떠세요? 대전 시내 CGV 에서 만날까요? 오후 3:15 메시지를 입력하세요\n\n주제 소개 AI로 사용자의 글, 사진 스타일, 행동 패턴까지 종합 분석해서 '결'이 맞는 사람을 찾아주는 차세대 매칭 시스템에 대한 연구 기존 외모, 스타일 벡터 추출 영화 영화 “데이팅\" 도메인에 대한 파인튜닝 수행 llama-3-Korean-Bllossom-8B 베이스 모델 제 이상형은... 대화 스타일, 이성 간 대화 성향 분석 액션 로맨스 저는 액션 영화를 좋아해요 저도 그 영화 진짜 좋아해요! 키워드 기반 매칭의 한계 Text 서비스 내 다양한 정보에 대한 벡터 추출\n\n연구 과정 단계별 성능 비교 실험\n\n연구 주요 과제 및 해결 방안 해외 논문 참고 사용자가 프로필의 내용이 실제 선호도와 다를 수 있다. 행동 데이터 분석 및 잠재 선호도를 학습 시 매칭 성공율이 최대 45% 향상 프로필 텍스트에 의존 → 잘못된 추천 Online Dating Recommendations: Matching Markets and Learning Preferences - 2014. 04. 07.\n\nAuthors: Kun Tu, Bruno Ribeiro, David Jensen, Don Towsley, Benyuan Liu, Hua Jiang, Xiaodong Wang 사진에 의도와 무관한 배경, 텍스트의 모호한 표현 데이터 증강, 대조 학습 등 최신 기법으로\n\n더 강건한 특징을 학습할 수 있다 노이즈에 의해 핵심 특징 추출에 방해 DiffCL: A Diffusion-Based Contrastive Learning Framework with Semantic Alignment for Multimodal Recommendations - 2025. 2. 2.\n\nAuthors: Qiya Song, Jiajun Hu, Lin Xiao, Bin Sun, Xieping Gao, Shutao Li 얼굴 이미지만으로도 얼굴 사진만으로 의미있는 특징을 추론해낼 수 있나? 그 사람의 관심사, 선호도, 가치관 등\n\n관심사, 선호도, 태도에 대한 유사성 내면적 특성 도출 가능 Learning Preference-Based Similarities from Face Images using Siamese\n\nMulti-Task CNNs - 2020. 2. 25.\n\nAuthors: Nils Gessert, Alexander Schlaefer\n\n평가 지표 AI로 사용자의 글, 사진 스타일, 행동 패턴까지 종합 분석해서 '결'이 맞는 사람을 찾아주는 차세대 매칭 시스템에 대한 연구 Pointwise 실 사용자들의 선호와 비선호 행동을 정답데이터로 활용 남 여 사용자 간 양방향 좋아요 시스템 구조 다양한 사례 수집 가능 Negative Sample (Label: 0) 암묵적으로 받은 좋아요를 수락하지 않아 거절 마음에 들지 않아 “괜찮아요\" 를 수행하여 거절 서로 마음에 들어 양방향 좋아요 발신 Positive Sample (Label: 1)\n\n연구 방법 기술적으로 어떻게 진행할 것인지 정의 개인정보\n\n익명화 수행\n\n평가 과제 정의 → 평가셋 준비 → 테스트 환경 구성 및 실행",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "AI 매칭 시스템 연구"
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "text": "대전대학교 심리학과에서 새로운 연구를 진행했습니다."
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "AI가 사람들의 글과 사진을 분석합니다."
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "그리고 행동 패턴도 함께 살펴봅니다."
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "text": "이렇게 해서 잘 맞는 사람을 찾아줍니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "패턴",
+              "startIndex": 5,
+              "endIndex": 7,
+              "definition": "반복되는 일정한 형태나 방식",
+              "simplifiedDefinition": "계속 반복되는 행동 방식",
+              "examples": [
+                "매일 아침 7시에 일어나는 것이 생활 패턴이에요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념어"
+            }
+          ]
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "text": "이것을 차세대 매칭 시스템이라고 부릅니다.",
+          "blank": true
+        },
+        {
+          "id": "7",
+          "type": "HEADING2",
+          "text": "연구의 시작"
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "두 사람이 채팅으로 대화를 나누고 있습니다."
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "한 사람이 말했습니다."
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "\"저도 로맨스 영화 좋아해요!\""
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "\"얼마 전에 '너의 이름은' 다시 봤는데 정말 좋더라구요.\""
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "text": "상대방이 대답했습니다."
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "\"와 정말로? 저도 그 영화 진짜 좋아해요!\""
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "\"몇 번을 봐도 감동이에요!\""
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "첫 번째 사람이 제안했습니다."
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "text": "\"취향이 비슷하네요!\""
+        },
+        {
+          "id": "17",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 온라인 채팅 대화 이미지. 두 개의 말풍선이 있는 스마트폰 화면, 로맨스 영화 포스터가 작게 보임. 밝은 색상, 만화풍, 친근한 분위기",
+          "concept": "온라인 채팅 대화",
+          "alt": "두 사람이 영화에 대해 채팅하는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/77794af0-bd11-43ed-b2cc-a24236eb5a59.svg"
+        },
+        {
+          "id": "18",
+          "type": "TEXT",
+          "text": "\"혹시 시간 되시면 같이 영화 보러 가실래요?\""
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "상대방이 기뻐하며 답했습니다."
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "\"좋아요! 이번 주말에 시간 괜찮으시면 어떨까요?\""
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "\"토요일 오후 어떠세요?\""
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "\"대전 시내 CGV에서 만날까요?\""
+        },
+        {
+          "id": "23",
+          "type": "TEXT",
+          "text": "이렇게 두 사람이 만나게 되었습니다.",
+          "blank": true,
+          "vocabularyAnalysis": [
+            {
+              "word": "CGV",
+              "startIndex": 8,
+              "endIndex": 11,
+              "definition": "영화관 체인점 이름",
+              "simplifiedDefinition": "영화를 보는 곳의 이름",
+              "examples": [
+                "CGV는 큰 영화관이에요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "브랜드명"
+            }
+          ]
+        },
+        {
+          "id": "24",
+          "type": "HEADING2",
+          "text": "AI 매칭 시스템이란?"
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "AI는 사용자의 여러 정보를 분석합니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "글을 쓰는 스타일을 살펴봅니다."
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "사진의 스타일도 확인합니다."
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "행동 패턴까지 종합해서 분석합니다."
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "그래서 '결'이 맞는 사람을 찾아줍니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "결",
+              "startIndex": 4,
+              "endIndex": 5,
+              "definition": "성격이나 취향이 잘 맞는 정도",
+              "simplifiedDefinition": "서로 잘 어울리는 정도",
+              "examples": [
+                "우리는 결이 잘 맞아서 친구가 되었어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념어"
+            }
+          ]
+        },
+        {
+          "id": "30",
+          "type": "TEXT",
+          "text": "이것이 차세대 매칭 시스템입니다.",
+          "blank": true
+        },
+        {
+          "id": "31",
+          "type": "HEADING2",
+          "text": "기존 방법의 문제점"
+        },
+        {
+          "id": "32",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 AI 분석 과정 이미지. 컴퓨터가 텍스트, 사진, 행동 데이터를 분석하는 모습. 화살표로 연결된 단계별 과정, 밝은 색상, 만화풍",
+          "concept": "AI 데이터 분석 과정",
+          "alt": "AI가 여러 정보를 분석하는 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/9533d785-8bcc-4480-a690-22cb3f78fe8a.svg"
+        },
+        {
+          "id": "33",
+          "type": "TEXT",
+          "text": "기존에는 키워드만으로 사람을 매칭했습니다."
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "예를 들어 '액션 영화'라는 단어만 보았습니다."
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "하지만 이 방법에는 한계가 있었습니다."
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "사용자가 프로필에 쓴 내용이 실제와 다를 수 있습니다."
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "그래서 잘못된 추천을 하게 됩니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "프로필",
+              "startIndex": 3,
+              "endIndex": 6,
+              "definition": "개인의 정보나 특성을 소개하는 글",
+              "simplifiedDefinition": "자신을 소개하는 글",
+              "examples": [
+                "프로필에 취미와 관심사를 적었어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "외래어"
+            }
+          ]
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "사진에도 문제가 있었습니다."
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "배경이나 다른 요소들이 방해가 되었습니다."
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "텍스트의 표현도 모호할 때가 많았습니다.",
+          "blank": true
+        },
+        {
+          "id": "41",
+          "type": "HEADING2",
+          "text": "새로운 해결 방법"
+        },
+        {
+          "id": "42",
+          "type": "TEXT",
+          "text": "연구팀은 새로운 방법을 개발했습니다."
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "행동 데이터를 분석하기 시작했습니다."
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "숨겨진 선호도를 학습하게 했습니다."
+        },
+        {
+          "id": "45",
+          "type": "TEXT",
+          "text": "그 결과 매칭 성공률이 45% 향상되었습니다."
+        },
+        {
+          "id": "46",
+          "type": "TEXT",
+          "text": "데이터 증강이라는 기법도 사용했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "데이터 증강",
+              "startIndex": 0,
+              "endIndex": 5,
+              "definition": "기존 데이터를 변형하여 더 많은 학습 데이터를 만드는 기법",
+              "simplifiedDefinition": "컴퓨터가 더 잘 배울 수 있도록 자료를 늘리는 방법",
+              "examples": [
+                "사진을 회전시켜서 데이터 증강을 했어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "47",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 매칭 성공률 향상 그래프. 기존 방법과 새로운 방법을 비교하는 막대그래프, 45% 향상을 보여주는 화살표, 밝은 색상, 간단한 디자인",
+          "concept": "매칭 성공률 향상",
+          "alt": "새로운 방법으로 성공률이 45% 향상된 그래프",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/45cc07a3-bd19-4aa9-a3d4-54259ff08784.svg"
+        },
+        {
+          "id": "48",
+          "type": "TEXT",
+          "text": "대조 학습이라는 방법도 적용했습니다."
+        },
+        {
+          "id": "49",
+          "type": "TEXT",
+          "text": "이렇게 해서 더 강한 특징을 학습할 수 있었습니다."
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "노이즈에 방해받지 않게 되었습니다.",
+          "blank": true
+        },
+        {
+          "id": "51",
+          "type": "HEADING2",
+          "text": "얼굴 사진 분석"
+        },
+        {
+          "id": "52",
+          "type": "TEXT",
+          "text": "연구팀은 흥미로운 질문을 했습니다."
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "\"얼굴 사진만으로도 그 사람을 알 수 있을까?\""
+        },
+        {
+          "id": "54",
+          "type": "TEXT",
+          "text": "관심사나 선호도를 알 수 있을까요?"
+        },
+        {
+          "id": "55",
+          "type": "TEXT",
+          "text": "가치관까지도 추론할 수 있을까요?",
+          "vocabularyAnalysis": [
+            {
+              "word": "가치관",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "무엇이 중요하고 옳다고 생각하는 개인의 기준",
+              "simplifiedDefinition": "무엇이 중요하다고 생각하는 마음",
+              "examples": [
+                "가족을 소중히 여기는 것이 제 가치관이에요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념어"
+            }
+          ]
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "연구 결과 놀라운 사실을 발견했습니다."
+        },
+        {
+          "id": "57",
+          "type": "TEXT",
+          "text": "얼굴 사진만으로도 의미 있는 특징을 찾을 수 있었습니다."
+        },
+        {
+          "id": "58",
+          "type": "TEXT",
+          "text": "내면적 특성도 어느 정도 알 수 있었습니다."
+        },
+        {
+          "id": "59",
+          "type": "TEXT",
+          "text": "이것은 매우 중요한 발견이었습니다.",
+          "blank": true
+        },
+        {
+          "id": "60",
+          "type": "HEADING2",
+          "text": "평가 방법"
+        },
+        {
+          "id": "61",
+          "type": "TEXT",
+          "text": "연구팀은 실제 사용자들의 행동을 관찰했습니다."
+        },
+        {
+          "id": "62",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 얼굴 분석 AI 이미지. 컴퓨터가 얼굴 사진을 보고 성격이나 취향을 분석하는 모습, 밝은 색상, 친근한 로봇 캐릭터, 만화풍",
+          "concept": "얼굴 사진 AI 분석",
+          "alt": "AI가 얼굴 사진으로 성격을 분석하는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/0a4800ea-0ce2-4eb7-a9ab-9d417a2494e9.svg"
+        },
+        {
+          "id": "63",
+          "type": "TEXT",
+          "text": "좋아요를 누르는 행동을 정답 데이터로 사용했습니다."
+        },
+        {
+          "id": "64",
+          "type": "TEXT",
+          "text": "남녀 사용자 간의 양방향 좋아요 시스템을 만들었습니다."
+        },
+        {
+          "id": "65",
+          "type": "TEXT",
+          "text": "다양한 사례를 수집할 수 있었습니다."
+        },
+        {
+          "id": "66",
+          "type": "TEXT",
+          "text": "긍정적인 샘플과 부정적인 샘플로 나누었습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "샘플",
+              "startIndex": 4,
+              "endIndex": 6,
+              "definition": "전체를 대표하는 일부분의 예시",
+              "simplifiedDefinition": "전체를 보여주는 작은 예시",
+              "examples": [
+                "이 샘플을 보면 전체 상품을 알 수 있어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "외래어"
+            }
+          ]
+        },
+        {
+          "id": "67",
+          "type": "TEXT",
+          "text": "서로 마음에 들어 양방향 좋아요를 보낸 경우가 긍정적 샘플입니다."
+        },
+        {
+          "id": "68",
+          "type": "TEXT",
+          "text": "좋아요를 받았지만 수락하지 않은 경우가 부정적 샘플입니다."
+        },
+        {
+          "id": "69",
+          "type": "TEXT",
+          "text": "\"괜찮아요\"를 눌러서 거절한 경우도 부정적 샘플입니다.",
+          "blank": true
+        },
+        {
+          "id": "70",
+          "type": "HEADING2",
+          "text": "연구 방법"
+        },
+        {
+          "id": "71",
+          "type": "TEXT",
+          "text": "연구팀은 체계적으로 연구를 진행했습니다."
+        },
+        {
+          "id": "72",
+          "type": "TEXT",
+          "text": "먼저 개인정보를 익명화했습니다."
+        },
+        {
+          "id": "73",
+          "type": "TEXT",
+          "text": "그 다음 평가 과제를 정의했습니다."
+        },
+        {
+          "id": "74",
+          "type": "TEXT",
+          "text": "평가셋을 준비하고 테스트 환경을 구성했습니다."
+        },
+        {
+          "id": "75",
+          "type": "TEXT",
+          "text": "마지막으로 실행하여 결과를 확인했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "익명화",
+              "startIndex": 8,
+              "endIndex": 11,
+              "definition": "개인을 식별할 수 없도록 정보를 처리하는 것",
+              "simplifiedDefinition": "누구인지 알 수 없게 만드는 것",
+              "examples": [
+                "설문조사에서 이름을 지우고 익명화했어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "76",
+          "type": "TEXT",
+          "text": "이렇게 해서 안전하고 정확한 연구를 할 수 있었습니다.",
+          "blank": true
+        },
+        {
+          "id": "77",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 연구 과정 순서도. 개인정보 보호→평가 과제 정의→테스트 환경 구성→실행의 단계를 화살표로 연결, 밝은 색상, 간단한 아이콘, 만화풍",
+          "concept": "연구 진행 과정",
+          "alt": "연구를 진행하는 단계별 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/5306b92b-9f5f-4e08-97e2-06f36405a59f.svg"
+        },
+        {
+          "id": "78",
+          "type": "HEADING2",
+          "text": "연구의 의미"
+        },
+        {
+          "id": "79",
+          "type": "TEXT",
+          "text": "이 연구는 매우 중요한 의미를 가집니다."
+        },
+        {
+          "id": "80",
+          "type": "TEXT",
+          "text": "사람들이 더 잘 맞는 상대를 찾을 수 있게 도와줍니다."
+        },
+        {
+          "id": "81",
+          "type": "TEXT",
+          "text": "단순한 키워드 매칭을 넘어섰습니다."
+        },
+        {
+          "id": "82",
+          "type": "TEXT",
+          "text": "행동 패턴과 숨겨진 선호도까지 분석합니다."
+        },
+        {
+          "id": "83",
+          "type": "TEXT",
+          "text": "이것이 바로 차세대 매칭 시스템의 힘입니다.",
+          "blank": true
+        }
+      ]
+    }
+  ]
+}

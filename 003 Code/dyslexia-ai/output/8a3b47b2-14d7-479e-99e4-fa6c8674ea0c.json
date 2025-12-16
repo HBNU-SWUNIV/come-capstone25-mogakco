@@ -1,0 +1,464 @@
+{
+  "jobId": "8a3b47b2-14d7-479e-99e4-fa6c8674ea0c",
+  "fileName": "3m 부가축 용접시스템 #3.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-22T05:48:33.435798",
+  "completedAt": "2025-09-22T05:49:47.914954",
+  "processingTimeSeconds": 74.479156,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 2,
+    "total_chunks": 1,
+    "total_blocks": 54
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "용접 작업 관리 소프트웨어 및 아크센싱 모듈 용접로봇시스템 용접작업관리S/W 아크센싱모듈 실시간용접심추적 1. 용접작업경로좌표표시및편집 2. 용접조건설정 3. 용접모션파라미터설정 4. 아크센싱모듈파라미터설정 5. 용접작업모션제어및티칭 6. 용접작업관리 용접기 로봇제어기 용접모션및용접작업관리 다양한용접모션 7. 다양한(수평/수직/곡률/플랜지등) 용접설정\n\n작업영역 확장형 자동 용접로봇 시스템 자동용접토치> 협동로봇직접교시> 용접로봇전용 사용자인터페이스 작업반경: 850 mm < 아크센싱모듈 사용자지정 용접기및피더> 2500mm ❖ 시스템특성 ❖ 용접로봇전용사용자인터페이스 1. 협동로봇을이용한용접위치직접교시 1. 용접위치교시원터치시작정지 2. 좌우수평이동부가축추가에따른용접가능영역확장: ± 1,250 𝑚𝑚 2. 용접위치저장편집기능 3. 실시간용접심추적장치아크센싱모듈탑재 3. 용접조건설정 4. 사용자친화적용접로봇전용사용자인터페이스탑재 4. 용접위치반복재사용기능 5. 용접위빙파형편집 5. 이동형자동용접대차",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "용접 작업 관리 소프트웨어"
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "text": "용접 로봇을 조작하는 컴퓨터 프로그램입니다."
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "이 프로그램은 용접 작업을 쉽게 만들어줍니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "용접",
+              "startIndex": 8,
+              "endIndex": 10,
+              "definition": "금속을 열로 녹여서 붙이는 작업",
+              "simplifiedDefinition": "쇠를 뜨겁게 해서 붙이는 일",
+              "examples": [
+                "철판을 용접해서 배를 만들어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "로봇이 정확한 위치에서 용접할 수 있게 도와줍니다."
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "text": "사람이 직접 하기 어려운 일을 로봇이 대신 합니다.",
+          "blank": true
+        },
+        {
+          "id": "6",
+          "type": "HEADING2",
+          "text": "아크센싱 모듈"
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "아크센싱 모듈은 특별한 센서입니다."
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "이 센서는 용접할 곳을 실시간으로 찾아줍니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "실시간",
+              "startIndex": 12,
+              "endIndex": 15,
+              "definition": "지금 바로 이 순간에",
+              "simplifiedDefinition": "바로 지금 당장",
+              "examples": [
+                "실시간으로 뉴스를 볼 수 있어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "시간 개념 용어"
+            }
+          ]
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "용접하는 선을 따라가면서 정확히 작업합니다."
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "마치 선을 따라 그리는 것처럼 움직입니다.",
+          "blank": true
+        },
+        {
+          "id": "11",
+          "type": "HEADING2",
+          "text": "용접 작업 관리 기능들"
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "text": "이 시스템은 여러 가지 일을 할 수 있습니다."
+        },
+        {
+          "id": "13",
+          "type": "LIST",
+          "items": [
+            "용접할 위치를 화면에 보여주고 수정하기",
+            "용접 조건을 설정하기",
+            "로봇 움직임을 조절하기"
+          ]
+        },
+        {
+          "id": "14",
+          "type": "LIST",
+          "items": [
+            "아크센싱 모듈 설정하기",
+            "용접 작업을 가르치고 조절하기",
+            "전체 용접 작업을 관리하기"
+          ]
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "다양한 모양으로 용접할 수 있습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "다양한",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "여러 가지 종류의",
+              "simplifiedDefinition": "많은 종류의",
+              "examples": [
+                "다양한 색깔의 꽃이 피었어요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "추상적 개념"
+            }
+          ]
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "text": "가로로도 세로로도 용접할 수 있습니다."
+        },
+        {
+          "id": "17",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 아동을 위한 용접 로봇 시스템 이미지. 파란색 로봇 팔이 금속 판을 용접하는 모습. 컴퓨터 화면에 용접 경로가 표시됨. 밝은 색상, 만화풍, 안전한 느낌",
+          "concept": "용접 로봇 시스템",
+          "alt": "용접 로봇이 작업하는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/099d3590-0c1d-4392-ba0a-41fea1305da7.svg"
+        },
+        {
+          "id": "18",
+          "type": "TEXT",
+          "text": "곡선으로도 용접할 수 있습니다.",
+          "blank": true
+        },
+        {
+          "id": "19",
+          "type": "HEADING1",
+          "text": "작업영역 확장형 자동 용접로봇"
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "이 로봇은 넓은 범위에서 일할 수 있습니다."
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "작업 반경이 850mm입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "반경",
+              "startIndex": 3,
+              "endIndex": 5,
+              "definition": "원의 중심에서 가장자리까지의 거리",
+              "simplifiedDefinition": "가운데에서 끝까지의 거리",
+              "examples": [
+                "원의 반경이 5cm예요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "수학 용어"
+            }
+          ]
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "850mm는 약 85cm 정도입니다."
+        },
+        {
+          "id": "23",
+          "type": "TEXT",
+          "text": "로봇 팔이 닿을 수 있는 거리를 말합니다."
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "좌우로 움직이는 부분이 추가되어 있습니다.",
+          "blank": true
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "이 부분 덕분에 더 넓은 곳까지 용접할 수 있습니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "좌우로 1,250mm씩 더 움직일 수 있습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "좌우",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "왼쪽과 오른쪽",
+              "simplifiedDefinition": "왼쪽과 오른쪽",
+              "examples": [
+                "좌우를 살펴보고 길을 건너세요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "방향 개념"
+            }
+          ]
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "1,250mm는 약 125cm입니다."
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "양쪽으로 합치면 250cm나 더 넓어집니다."
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "전체 작업 범위가 2,500mm가 됩니다.",
+          "blank": true
+        },
+        {
+          "id": "30",
+          "type": "HEADING2",
+          "text": "시스템의 특별한 점들"
+        },
+        {
+          "id": "31",
+          "type": "TEXT",
+          "text": "이 로봇 시스템은 여러 가지 좋은 점이 있습니다."
+        },
+        {
+          "id": "32",
+          "type": "PAGE_IMAGE",
+          "prompt": "협동 로봇과 사람이 함께 작업하는 모습. 사람이 로봇 팔을 직접 움직여서 용접 위치를 가르치는 장면. 안전하고 친근한 분위기, 밝은 색상",
+          "concept": "협동 로봇 직접 교시",
+          "alt": "사람이 로봇에게 작업을 가르치는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/b88f5c82-c5ba-4055-959a-09b8da4c6013.svg"
+        },
+        {
+          "id": "33",
+          "type": "TEXT",
+          "text": "협동 로봇을 사용합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "협동",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "함께 힘을 합쳐서 일하는 것",
+              "simplifiedDefinition": "같이 도와서 일하는 것",
+              "examples": [
+                "친구들과 협동해서 청소했어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념"
+            }
+          ]
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "협동 로봇은 사람과 함께 안전하게 일할 수 있습니다."
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "사람이 직접 로봇 팔을 움직여서 가르칠 수 있습니다."
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "마치 손을 잡고 글씨 쓰는 법을 가르치는 것 같습니다.",
+          "blank": true
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "실시간으로 용접할 곳을 찾아주는 장치가 있습니다."
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "이 장치를 아크센싱 모듈이라고 부릅니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "모듈",
+              "startIndex": 11,
+              "endIndex": 13,
+              "definition": "하나의 기능을 하는 부품이나 장치",
+              "simplifiedDefinition": "특별한 일을 하는 부품",
+              "examples": [
+                "컴퓨터에는 여러 모듈이 들어있어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "사용자가 쉽게 사용할 수 있는 화면이 있습니다."
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "이 화면은 용접 로봇만을 위해 특별히 만들어졌습니다."
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "바퀴가 달려서 이동할 수 있는 용접 대차도 있습니다.",
+          "blank": true
+        },
+        {
+          "id": "42",
+          "type": "HEADING2",
+          "text": "사용자 인터페이스 기능들"
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "사용자 인터페이스는 사람과 로봇이 대화하는 방법입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "인터페이스",
+              "startIndex": 4,
+              "endIndex": 9,
+              "definition": "사람과 기계가 소통하는 방법이나 화면",
+              "simplifiedDefinition": "사람과 기계가 대화하는 방법",
+              "examples": [
+                "스마트폰 화면이 인터페이스예요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "컴퓨터 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "이 시스템의 인터페이스는 다음과 같은 일을 할 수 있습니다."
+        },
+        {
+          "id": "45",
+          "type": "LIST",
+          "items": [
+            "용접 위치를 원터치로 시작하고 멈추기",
+            "용접 위치를 저장하고 편집하기",
+            "용접 조건을 설정하기"
+          ]
+        },
+        {
+          "id": "46",
+          "type": "LIST",
+          "items": [
+            "용접 위치를 반복해서 다시 사용하기",
+            "용접할 때 좌우로 흔드는 모양 편집하기"
+          ]
+        },
+        {
+          "id": "47",
+          "type": "PAGE_IMAGE",
+          "prompt": "용접 로봇 전용 사용자 인터페이스 화면. 큰 버튼들과 간단한 아이콘들이 있는 터치스크린. 용접 경로가 그래픽으로 표시됨. 밝고 직관적인 디자인",
+          "concept": "용접 로봇 사용자 인터페이스",
+          "alt": "용접 로봇 조작 화면",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/e4cc1c70-18ce-467c-a36c-ec85bb6f6c96.svg"
+        },
+        {
+          "id": "48",
+          "type": "TEXT",
+          "text": "원터치는 버튼을 한 번만 누르면 된다는 뜻입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "원터치",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "한 번만 터치하거나 누르는 것",
+              "simplifiedDefinition": "한 번만 누르는 것",
+              "examples": [
+                "원터치로 문을 열 수 있어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "49",
+          "type": "TEXT",
+          "text": "복잡한 조작 없이 쉽게 사용할 수 있습니다."
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "용접 위치를 저장해두면 나중에 다시 사용할 수 있습니다."
+        },
+        {
+          "id": "51",
+          "type": "TEXT",
+          "text": "마치 즐겨찾기처럼 자주 쓰는 설정을 기억해둡니다.",
+          "blank": true
+        },
+        {
+          "id": "52",
+          "type": "TEXT",
+          "text": "용접할 때 좌우로 흔드는 동작을 위빙이라고 합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "위빙",
+              "startIndex": 18,
+              "endIndex": 20,
+              "definition": "용접할 때 좌우로 흔들면서 하는 동작",
+              "simplifiedDefinition": "좌우로 흔들면서 용접하는 방법",
+              "examples": [
+                "위빙 동작으로 더 튼튼하게 용접해요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "용접 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "이 동작의 모양을 사용자가 직접 편집할 수 있습니다."
+        },
+        {
+          "id": "54",
+          "type": "TEXT",
+          "text": "이렇게 해서 더 정확하고 튼튼한 용접을 할 수 있습니다."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1195 @@
+{
+  "jobId": "b1f15c3e-e5bb-4f2d-96cf-50d90bf568dc",
+  "fileName": "fine-tuning.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-18T00:04:47.441996",
+  "completedAt": "2025-09-18T00:10:02.950768",
+  "processingTimeSeconds": 315.508772,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 10,
+    "total_chunks": 2,
+    "total_blocks": 147
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "Fine-tuning CLIP Text Encoders with Two-step Paraphrasing HyunjaeKim1 SeunghyunYoon2 TrungBui2 HandongZhao2 QuanTran2 FranckDernoncourt2 JaewooKang1 1KoreaUniversity 2AdobeResearch {hyunjae-kim,kangj}@korea.ac.kr {syoon,bui,hazhao,qtran,dernonco}@adobe.com Abstract (Top-3) Retrieved Images by CLIP Contrastive language-image pre-training (CLIP) models have demonstrated consider- able success across various vision-language tasks,suchastext-to-imageretrieval,wherethe Query A: A newlymarriedcouple walkingdown a street. modelisrequiredtoeffectivelyprocessnatural language input to produce an accurate visual output. However, current models still face limitationsindealingwithlinguisticvariations ininputqueries,suchasparaphrases,making itchallengingtohandleabroadrangeofuser QueryB: A recentlywedcouple strollingdown a road. queriesinreal-worldapplications. Inthisstudy, Figure1:ImageretrievalresultsofCLIP(Radfordetal., we introduce a straightforward fine-tuning 2021)fortwodifferentqueries(thegoldimageisde- approach to enhance the representations of notedbyaboldborder).Despitetheircomparablemean- CLIP models for paraphrases. Our approach ings,themodelyieldsdissimilarretrievalresults,high- involves a two-step paraphrase generation lightingthemodel’sstrugglewithlinguisticvariations. process, where we automatically create two categories of paraphrases from web-scale image captions by leveraging large language Aninherentchallengeinvision-languagetasks models. Subsequently, we fine-tune the lies in the variability of text inputs. Even when CLIP text encoder using these generated paraphraseswhilefreezingtheimageencoder. conveying similar meanings and intentions, they Ourresultingmodel,whichwecallParaCLIP, canexhibitvariationsinvocabularyandstructure exhibitssignificantimprovementsoverbaseline dependingontheparticularuser. Consequently,it CLIP models across various tasks, including becomescrucialtoensurethatCLIP’stextencoders paraphrased retrieval (with rank similarity arerobustenoughtohandlediversesynonymsand scores improved by up to 2.0% and 5.6%), paraphrases in practical scenarios. However, cur- Visual Genome Relation and Attribution, as rent text encoders exhibit limited proficiency in wellassevensemantictextualsimilaritytasks. comprehending linguistic variations, resulting in differentretrievalresultsforuserquerieswithsimi- 1 Introduction larmeanings(Figure1).\n\nContrastive language-image pre-training (CLIP) To address this challenge, we introduce a models(Radfordetal.,2021)havegainedsignifi- straightforwardmethodtoimproveCLIP’stexten- cantattentioninthefieldsofcomputervisionand coders. Specifically,wegeneratedtwocategories naturallanguageprocessingfortheirremarkableca- of paraphrases for image captions sourced from pacitytounderstandtherelationshipbetweentext the web, leveraging recent large language mod- andimages. Theyhavebeenwidelyusedinvarious els(LLM)suchasChatGPT(OpenAI,2022)and vision-languageapplications,includingimageclas- LLaMA(Touvronetal.,2023). Subsequently,we sification(Dengetal.,2009),imageretrieval(Lin utilized image captions and their corresponding et al., 2014; Plummer et al., 2015), and text-to- paraphrases to fine-tune the text encoder, which imagegeneration(Sahariaetal.,2022;Rombach ensures that the representations of captions and etal.,2022),wherethemodelshouldreturndesired paraphrasesclusterinasimilarvectorspace. visualoutputsforagiventext,andviceversa. Wevalidatedtheeffectivenessofourapproach 4202 beF 32 ]VC.sc[ 1v02151.2042:viXra\n\nImage ( ) Caption ( ): Reversible Cake Plate / Chip &Dip -Christmas Mistletoe 𝒙𝒙𝐈𝐈 𝒙𝒙𝐓𝐓 Step 1. Caption-to-paraphrase Generation LLM Prompt: Paraphrase the given text “{text}” concisely while preserving the meaning.\n\nParaphrase ( ): Christmas Mistletoe ReversibleCake Plate and Chip &Dip ′ 𝒙𝒙𝐓𝐓 Step 2. Paraphrase-to-paraphrase Generation LLM Prompt: Paraphrase the given text “{text}” concisely while preserving the meaning and avoiding use of existing words.\n\nParaphrase ( ): A cake plate and chip &dip set that can be flipped overfor Christmas mistletoe design. ′′ 𝒙𝒙𝐓𝐓 Figure 2: Overview of our two-step paraphrasing process. (1) In caption-to-paraphrase generation, the first paraphraseisgeneratedbyremovingnoisefromtheoriginalcaptionandconvertingitintoamoreplainlanguage. (2)Inparaphrase-to-paraphrasegeneration,thesecondparaphraseisgeneratedfromthefirstparaphrase,wherethe word“reversible”ischangedtoasemanticallysimilarexpression“canbeflippedover.” using evaluation tasks that assess models’ under- phrasesthroughatwo-stepparaphrasingprocess, standingoflanguagesemanticsandcomposition: caption-to-paraphrasegenerationandparaphrase- paraphrased retrieval, Visual Genome Relation to-paraphrasegeneration,asillustratedinFigure2. (VG-R),VisualGenomeAttribution(VG-A)(Yuk- Caption-to-paraphrase generation This pro- sekgonuletal.,2023), andsemantictextualsimi- cess directly rewrites original captions. Image larity(STS)tasks(Agirreetal.,2012). Ourmod- captions on the web often contain considerable els,ParaCLIP,significantlyoutperformedbaseline noise, such as superfluous punctuation, product CLIPmodels,whilemaintainingorsometimesim- codes,andfileextensions,whichdifferfromtypi- provingitsrobustperformanceonzero-shotimage calqueries. Thisstepcanbeseenasresponsiblefor classification(Dengetal.,2009),aswellastextand convertingthesenoisycaptionsintoamorestraight- image retrieval (Lin et al., 2014). We emphasize forward text format commonly used in everyday thatthisisthefirststudytoimprovetherepresenta- language. Using the power of LLMs, we synthe- tionsofCLIP’stextencodersduringthefine-tuning sized paraphrases x′ for each caption with the stageusingsyntheticparaphrases. T followingprompt: “Paraphrasethegivencaption 2 Method “text”conciselywhilepreservingthemeaning.”, wheretextissubstitutedwithagivencaption.\n\nOurobjectiveistorefinetheCLIPmodel’straining process,enablingitstextencodertoproducecon- Paraphrase-to-paraphrasegeneration Inthis sistentrepresentationsforvarioussemanticallysim- step, additional paraphrases, x′′, are generated T ilartextualinputsthatthemodelmightencounter for each generated paraphrase, x′ . The para- T inreal-worldscenarios. Certainimage-captioning phrasing process is similar to the previous step, datasetsprovidemultiplecaptionsforasingleim- but with some differences in the prompt as age(Linetal.,2014;Plummeretal.,2015),which follows: “Paraphrase the given text “text” mightbeutilizedassemanticallysimilartextpairs concisely while preserving the meaning and during training. However, the volume of these avoidinguseofexistingwords.”,wheretheunder- datasets is limited, which presents a challenge in linedtextisusedtopromptthemodeltoproduce termsofexposingmodelstodiverselanguagepat- morphologicallydiverseexpressions. terns. Therefore, we automatically generated se- 2.2 TrainingObjectives manticallysimilarpairs(i.e.,paraphrases)formil- lionsofimagecaptionssourcedfromtheweb. LetX I ,X T ,X′ T ,andX′ T ′ bemini-batchesofN ex- amplesofanimagex ,captionx ,andtwotypes I T 2.1 ParaphraseGeneration of paraphrases, x′ and x′′. The final loss is cal- T T Animage-captioningdatasettypicallycomprisesa culated as the summation of three sub-losses as collectionofimage-captionpairs(x ,x ),where follows: L := L (X ,X′′)+L (X ,X′ )+ I T total 1 I T 2 T T x and x represent an image and the corre- L (X′ ,X′′).Thefirstterm,L ,representstheIn- I T 3 T T 1 sponding caption, respectively. For each cap- foNCElossfunctionthatoperatesbetweenimages tion x , we created two categories of para- andtext(Oordetal.,2018). Thislossfunctionis T\n\ncrucialinthepreventionofforgettingCLIP’srep- coderwasinitializedwiththeweightsofRoBERTa- resentations and knowledge acquired during pre- base (Liu et al., 2019) for better linguistic com- training. Weusedtheparaphrasedversionoftext prehension capabilities. (4) LaCLIP (Fan et al., inputX′′ ratherthantheoriginalcaptionsX be- 2023) was pre-trained using the LAION-400m T T causeuserqueriesoftenresembleplaintextrather dataset augmented with automatically generated than the original captions. This choice led to im- paraphrases.2 Specifically,asmallnumberoforig- provedperformanceonthebenchmarkdatasetsdur- inal caption and paraphrase pairs were obtained ing our preliminary experiment. If the target do- fromCOCOtextdescriptions,orcreatedbyChat- maininvolvesdealingwithnoisytextinputs,such GPT,GoogleBARD,andhumans. Theseseedex- asinanonlineshoppingmallcontext,employing ampleswereusedtopromptanLLaMA7Bmodel theoriginalcaptionsmaybemoreeffective. throughain-contextlearningapproach,whichthen Thesecondterm,L ,accountsfortherelation- generatedparaphrasesfortheentireLAION-400m 2 shipbetweencaptionsandtheirparaphrases. Con- dataset. Duringpre-training,astandardInfoNCE ceptually,itservestoestablishaconnectionwithin loss was computed using these paraphrases and the vector space between the representation of correspondingimagesincombinationwithoriginal noisycaptionsandtheplaintextcommonlyused captionandimagepairs. Whileourmethodshares in everyday language. Lastly, L serves to bring somesimilaritieswithLaCLIPintheuseofmodel- 3 together various semantically similar plain texts generatedparaphrases,itshouldbenotedthatours within a vector space. For L and L , we used has unique advantages. First, we enhance CLIP 2 3 theInfoNCEloss. TheresultingCLIPmodelfine- modelsthroughfine-tuningthetextencoderswhile tunedusingthesethreelossesiscalledParaCLIP. freezingtheimageencoders,whichissignificantly moreefficientcomparedtopre-trainingtheentire 3 ExperimentalSetups model from scratch. Despite its efficiency, our methodissignificantlymoreeffectivetoimprove We obtained image-caption pairs using LAION- the CLIP’s robustness to paraphrases, improving 400M (Schuhmann et al., 2021). We initially theperformanceinparaphrasedretrievalbyalarge generated 300K paraphrases using ChatGPT and margin(seeSection4fordetails). instruction-tuned an open-sourced LLM named LLaMA (7B) (Touvron et al., 2023) using these 3.2 Evaluation 300Kdatatogenerateadditionalparaphrases.1 Our final dataset comprises 5M examples of x , x , We evaluated models on the following tasks in I T x′ ,andx′′. Moredetailsandhyperparametersare a zero-shot manner, without fine-tuning them on T T describedinAppendixA. thetargettasks. (1)Paraphrasedretrieval(Cheng etal.,2024)involvesretrievingidenticalimagesfor 3.1 BaselineModels both 4,155 original queries and their correspond- ingparaphrasesfromtheimagesetoftheCOCO We used the following CLIP models as base- 2017validationset(Linetal.,2014). Paraphrases line models, all built upon the ViT-B/32 archi- weregeneratedusingGPT-3(Brownetal.,2020) tecture (Dosovitskiy et al., 2021). (1) OpenAI’s and subsequently verified by humans. This task CLIP (Radford et al., 2021) was trained using is well-suited for assessing models’ ability to ef- a private dataset comprising 400M image-text fectivelyhandleuserqueriesexpressedindiverse pairs sourced from the web. (2) OpenCLIP forms. For metrics, we used the top-10 average models (Cherti et al., 2023) were trained us- overlap(AO@10)andJaccardsimilarity(JS@10) ing the largest open-sourced datasets, LAION- scores,whichmeasurethedegreeofranksimilarity 400M and LAION-2B (Schuhmann et al., 2022). betweenthetop10imagesretrievedfortheoriginal (3) OpenCLIP-RoBERTa was pre-trained using queryandparaphrasedquery. Detaileddescriptions LAION-2B.Incontrasttotheusualpracticewhere ofthemetricscanbefoundinAppendixB. textencodersareinitializedwithrandomweights andsubsequentlytrainedfromscratch,itstexten- (2) VG-R and (3) VG-A (Yuksekgonul et al., 2023)aredevisedtoassessrelationalandattribu- 1WeverifiedthatthedatageneratedbyLLaMAexhibited tiveunderstandingofvision-languagemodels,re- comparablequalitytothatofChatGPT.Additionally,when spectively. They involve determining the correct trainingthemodelusing300KparaphrasesfromLLaMAand anadditional300KparaphrasesfromChatGPT,respectively, weobservedsimilarperformanceinbothcases. 2https://github.com/LijieFan/LaCLIP\n\nParaphrasedRtrv. VG-R VG-A STS Clsf. TRtrv. IRtrv.\n\nModel AO@10 JS@10 Acc Acc Avg. Acc R@5 R@5 OpenAI’sCLIP(400M) 67.2 57.7 59.7 63.2 65.1 63.4 75.0 54.8 +ParaCLIP 72.2 63.3 60.7 64.3 72.2 63.5 77.0 58.8 OpenCLIP(400M) 67.6 58.9 46.4 57.8 67.2 60.2 76.5 59.4 +ParaCLIP 71.3 62.9 55.4 61.7 70.1 60.8 76.1 59.4 OpenCLIP(2B) 70.6 62.1 45.0 61.8 69.6 66.5 80.2 64.8 +ParaCLIP 73.2 65.1 58.8 65.4 71.6 65.5 80.4 63.3 OpenCLIP-RoBERTa(2B) 72.5 64.0 35.6 64.5 71.0 61.8 78.8 62.6 +ParaCLIP 74.5 66.2 43.2 66.5 72.5 61.4 79.4 62.0 LaCLIP(400M) 69.9 62.1 50.6 63.6 58.8 64.5 68.1 55.5 +ParaCLIP 73.5 65.8 60.6 64.6 71.4 64.5 73.6 58.0 Table1: Zero-shotperformanceofbaselineCLIPmodelsandourParaCLIPmodels. Thebestscoresarerepresented inbold. “Acc”: Accuracy. “Avg.”: MacroaverageofSpearman’srankcorrelationsacrossallSTStasks. “Clsf.”: Imageclassification. “TRtrv.”: Textretrieval. “IRtrv.”: Imageretrieval. captionforagivenimagefromtwocandidatecap- Effectoffine-tuningusingparaphrases Across tions, where negative captions are generated by allCLIPmodels,ourapproachconsistentlydemon- interchangingobjectsbasedontheirrelationalcon- stratedimprovedperformanceinthefourprimary textorinterchangingattributesofobjects. Forin- tasks. Notably,themostsignificantimprovements stance,giventhecorrectcaption“thedogisbehind were observed in the paraphrased retrieval task, the tree,” a negative counterpart could be formu- where our ParaCLIP model achieved 72.2% and latedasfollows: “thetreeisbehindthedog.” The 63.3% in AO@10 and JS@10 scores, increasing VG-R and VG-A datasets comprise 23,937 and the performance of OpenAI’s CLIP by 5.0% and 28,748testexamples,respectively. 5.6%,respectively.3 TheimprovementsintheSTS (4)STShasbeenwidelyemployedtoevaluate tasksarealsonoticeable,withthemacro-average thetextrepresentationsofencoders(Conneauetal., scoreimprovingby7.1%. Althoughnotinallcases, 2017;ReimersandGurevych,2019;Chuangetal., our approach generally enhances performance in 2022). Thistaskinvolvesmeasuringsemanticsim- the text retrieval task. This is attributed to our ilarity or relatedness between pairs of text. Fol- model’s capability to encode texts that shares se- lowingGaoetal.(2021),wemeasuredSpearman’s manticsimilaritywithagiveninputimageclosely correlationforeachtaskinthe“all”aggregationset- withinthevectorspace. tingandreportedmacro-averagedscoresacrossthe Effect of initialization with RoBERTa The sevenSTStasks(Agirreetal.,2012,2013,2014, OpenCLIP-RoBERTamodelsignificantlyoutper- 2015,2016;Ceretal.,2017;Marellietal.,2014). formedtheOpenCLIP(2B)modelinparaphrased Additionally, we assessed whether our models retrievalandSTS,highlightingthebenefitsoflever- can maintain or even improve their performance agingpre-trainedlanguagemodelsoverrandomly on standard vision or vision-language tasks after initializedtextencoders. However,evenwiththese beingfine-tuned,includingzero-shotimageclassi- advancements, there is substantial room for im- ficationontheImageNet-1Kvalidationset(Deng provementinperformanceonthesetasks. Ourfine- etal.,2009), andimage-to-textretrievalandtext- tuningapproachfurtherrefinedtheRoBERTatext to-imageretrievalontheCOCOvalidationset(Lin encoder, leading to notable achievements across etal.,2014). Formetrics,top-1accuracy(Acc)and the four primary tasks, with 2.0% (AO@10) and top-5recall(R@5)wereusedintheclassification 2.2%(JS@10)scoresinparaphrasedretrieval. andretrievaltasks,respectively.\n\nComparison with LaCLIP While LaCLIP ex- 4 ResultsandDiscussion hibited superior performance compared to the OpenCLIP(400M)modelinimageclassification, 4.1 MainResults paraphrased retrieval, VG-R, and VG-A, its per- Table 1 shows the zero-shot performance of the 3AcasestudycomparingCLIPandParaCLIPinthepara- baselineandourmodelsintheevaluationtasks. phrasedretrievaltaskcanbefoundinAppendixC.\n\nParaphrasedRtrv. VG-R VG-A STS Clsf. TRtrv. IRtrv.\n\nModel AO@10 JS@10 Acc Acc Avg. Acc R@5 R@5 OpenAI’sCLIP(400M) 67.2 57.7 59.7 63.2 65.1 63.4 75.0 54.8 +L 68.9 59.9 58.0 62.4 68.7 63.7 75.8 58.0 1 +L +L 70.5 61.2 61.5 65.1 74.5 56.7 74.6 51.8 2 3 +L +L′ 70.4 61.7 58.2 63.0 69.1 64.0 76.3 58.7 1 1 +L +L′ +L′′ 71.3 62.8 58.9 63.4 68.8 64.1 76.4 58.8 1 1 1 +L +L 69.1 60.0 59.1 63.3 71.8 63.5 76.1 58.2 1 2 +L′ +L 70.8 62.0 60.4 64.0 71.6 63.7 76.4 58.6 1 2 +L +L +L 69.6 60.5 59.2 63.4 72.4 63.1 76.4 58.1 1 2 3 +L′′+L +L (Ours) 72.2 63.3 60.4 64.2 72.2 63.5 77.0 58.8 1 2 3 Table2: Zero-shotperformanceofOpenAI’sCLIP(400M)withdifferentlossfunctionsapplied. Thebestscoresare representedinboldandthesecondbestscoresareunderlined. “ParaphrasedRtrv.”: Paraphrasedretrieval. “Acc”: Accuracy. “Avg.”: MacroaverageofSpearman’srankcorrelationsacrossallSTStasks. “Clsf.”: Imageclassification. “TRtrv.”: Textretrieval. “IRtrv.”: Imageretrieval. formanceinthetext/imageretrievalandSTStasks ourParaCLIPmodel’sperformance. WhenL′′ was 1 witnessedadecline. Thisindicatesthataugmenting omitted (i.g., L + L ), the model showed the 2 3 paraphrased text data may not consistently yield best performance on the VG-R, VG-A, and STS improvements,withoutincorporatingeffectiveloss tasks,buttheperformanceonimageclassification functionssuchasL andL . Conversely,ourfine- andstandardtextandimageretrievalsignificantly 2 3 tuning method dramatically enhanced LaCLIP’s degraded. This indicates that L′′ was crucial in 1 performance in paraphrased retrieval (+ 3.6% in preserving the representations of CLIP acquired AO@10 and 3.7% in JS@10), VG-R (+ 10.0%), during pre-training. Although simply augment- VG-A(+1.0%),STS(+12.6%),andevenontext ing training data with synthetic paraphrases (i.e., retrieval (+ 5.5%) and image retrieval (+ 2.5%), L + L′ and L + L′ + L′′) generally led to 1 1 1 1 1 highlightingthatourmethodcancomplementLa- performanceimprovements,theimprovementsin CLIPtoachieveoptimalperformance. the STS tasks were not substantial compared to the models with the L and L losses. Apply- 2 3 Lackofcompositionalunderstanding AllCLIP ingL wasparticularlyeffectiveforSTSbecause 3 modelsexhibitedsignificantdeficienciesintheVG- it involved comparing pairs of semantically sim- R and VG-A tasks. These limitations in compo- ilar “plain” text (not pairs of noisy caption and sitionalunderstandingcanleadtoerrorsindown- plaintext),whichalignswellwiththegoalofSTS. stream tasks such as text-to-image synthesis, in- Finally,ourParaCLIPmodel,incorporatingthree cludingunintentionalattributeinterchangesorthe losses(i.e.,L′′ +L +L ),showedthemostbal- 1 2 3 omission of objects in generated images (Feng ancedperformanceacrossalltasksamongthevar- etal.,2023). Infutureresearch,weplantoconduct iousmodelsevaluated. Inparticular,applyingL′′ 1 amorein-depthanalysistoexplorethepotentialof insteadofL provedtobegenerallyeffective. 1 ourapproachtomitigatetheseissues. 5 Conclusion 4.2 AblationStudy Inthisstudy,weproposedatwo-stepparaphrasing We conducted an ablation study to closely exam- approachforenhancingtherepresentationsofCLIP inetheindividualcontributionsofeachlossterm forparaphrasesthatmayoccurintextinputsinreal- (Table 2). In this section, we simplify the nota- tion L (X ,X ), L (X ,X′ ), and L (X ,X′′) world applications. Our ParaCLIP models, fine- 1 I T 1 I T 1 I T toL ,L′,andL′′,respectively. NotethatourPara- tuned using synthetic paraphrases, outperformed 1 1 1 baselinemodelsbyalargemarginonvarioustasks CLIPmodelwastrainedusingthecombinedloss functions,L′′+L +L ,asdetailedinSection2.2. requiring language semantics and compositional 1 2 3 understanding,includingparaphrasedretrieval.\n\nFirst,wefine-tunedtheOpenAI’sCLIPmodel using the same set of image-caption pairs in Limitations LAION-400Masourmodel,excludingparaphrases (referred to as “L ”). While there was an overall Ourmethodsometimesdegradestheperformance 1 improvement in performance, it still fell short of of CLIP on conventional vision and vision-\n\nlanguagetaskssuchaszero-shotclassificationand EnekoAgirre,CarmenBanea,DanielCer,MonaDiab, image retrieval. A significant factor contributing Aitor Gonzalez-Agirre, Rada Mihalcea, German Rigau, and Janyce Wiebe. 2016. SemEval-2016 tothisperformancevariationmaybethesensitiv- task 1: Semantic textual similarity, monolingual ity of the infoNCE loss to changes in batch size. andcross-lingualevaluation. InProceedingsofthe We observed consistent improvements in the im- 10thInternationalWorkshoponSemanticEvaluation ageclassificationandtext/imageretrievaltasksby (SemEval-2016),pages497–511,SanDiego,Califor- nia.AssociationforComputationalLinguistics. scaling up the batch size from 256 to 3K. Unfor- tunately, due to constraints in computational re- Eneko Agirre, Daniel Cer, Mona Diab, and Aitor sources,wewereunabletomatchthebatchsizeto Gonzalez-Agirre. 2012. SemEval-2012 task 6: A thescaleofCLIPhyperparameters(e.g.,OpenAI’s pilotonsemantictextualsimilarity. In*SEM2012: TheFirstJointConferenceonLexicalandCompu- CLIP was pre-trained using a batch size of 32K). tationalSemantics–Volume1: Proceedingsofthe Asaresult,theeffectofbatchsizeincausingthe main conference and the shared task, and Volume observed performance degradation has not been 2: ProceedingsoftheSixthInternationalWorkshop thoroughly validated in this study. Although the onSemanticEvaluation(SemEval2012),pages385– 393, Montréal, Canada. Association for Computa- primarygoalofthispaperwastoshowcasethepo- tionalLinguistics. tential improvements in the CLIP model through synthetic paraphrasing and better generalization EnekoAgirre,DanielCer,MonaDiab,AitorGonzalez- abilityacrossvariousinputqueries,acomprehen- Agirre,andWeiweiGuo.2013. *SEM2013shared task: Semantic textual similarity. In Second Joint sive investigation into the factors contributing to ConferenceonLexicalandComputationalSemantics performance degradation should be conducted in (*SEM),Volume1: ProceedingsoftheMainConfer- futureresearch. enceandtheSharedTask: SemanticTextualSimilar- ity,pages32–43,Atlanta,Georgia,USA.Association forComputationalLinguistics.\n\nAcknowledgements Tom Brown, Benjamin Mann, Nick Ryder, Melanie WethankFabianCabaHeilbronandDongheeChoi Subbiah,JaredDKaplan,PrafullaDhariwal,Arvind for their help and insightful discussions. This re- Neelakantan,PranavShyam,GirishSastry,Amanda search was supported by (1) National Research Askell,etal.2020. Languagemodelsarefew-shot learners. Advancesinneuralinformationprocessing FoundationofKorea(NRF-2023R1A2C3004176), systems,33:1877–1901. (2)ICTCreativeConsilienceProgramthroughthe InstituteofInformation&CommunicationsTech- Daniel Cer, Mona Diab, Eneko Agirre, Iñigo Lopez- Gazpio, and Lucia Specia. 2017. SemEval-2017 nologyPlanning&Evaluation(IITP)grantfunded task1: Semantictextualsimilaritymultilingualand bytheKoreagovernment(MSIT)(IITP-2024-2020- crosslingual focused evaluation. In Proceedings 0-01819),and(3)aKoreaUniversityGrant. of the 11th International Workshop on Semantic Evaluation(SemEval-2017),pages1–14,Vancouver, Canada.AssociationforComputationalLinguistics.\n\nReferences JiachengCheng,HijungValentinaShin,NunoVasconce- los,BryanRussell,andFabianCabaHeilbron.2024.\n\nEneko Agirre, Carmen Banea, Claire Cardie, Daniel Adaptingcliptoparaphrasedretrievalwithpretrained Cer, Mona Diab, Aitor Gonzalez-Agirre, Weiwei languagemodels.\n\nGuo,IñigoLopez-Gazpio,MontseMaritxalar,Rada Mihalcea,GermanRigau,LarraitzUria,andJanyce Mehdi Cherti, Romain Beaumont, Ross Wightman, Wiebe.2015. SemEval-2015task2: Semantictex- MitchellWortsman,GabrielIlharco,CadeGordon, tual similarity, English, Spanish and pilot on inter- ChristophSchuhmann,LudwigSchmidt,andJenia pretability. InProceedingsofthe9thInternational Jitsev. 2023. Reproducible scaling laws for con- WorkshoponSemanticEvaluation(SemEval2015), trastive language-image learning. In Proceedings pages252–263,Denver,Colorado.Associationfor of the IEEE/CVF Conference on Computer Vision ComputationalLinguistics. andPatternRecognition,pages2818–2829.\n\nEnekoAgirre,CarmenBanea,ClaireCardie,DanielCer, Yung-SungChuang,RumenDangovski,HongyinLuo, Mona Diab, Aitor Gonzalez-Agirre, Weiwei Guo, YangZhang, ShiyuChang, Marin Soljacic, Shang- RadaMihalcea,GermanRigau,andJanyceWiebe. WenLi,ScottYih,YoonKim,andJamesGlass.2022.\n\n2014. SemEval-2014task10: Multilingualsemantic DiffCSE:Difference-basedcontrastivelearningfor textualsimilarity. InProceedingsofthe8thInterna- sentence embeddings. In Proceedings of the 2022 tionalWorkshoponSemanticEvaluation(SemEval Conference of the North American Chapter of the 2014),pages81–91,Dublin,Ireland.Associationfor AssociationforComputationalLinguistics: Human ComputationalLinguistics. LanguageTechnologies,pages4207–4218,Seattle,\n\nUnited States. Association for Computational Lin- Ilya Loshchilov and Frank Hutter. 2019. Decoupled guistics. weightdecayregularization. InInternationalConfer- enceonLearningRepresentations.\n\nAlexisConneau,DouweKiela,HolgerSchwenk,Loïc Barrault, and Antoine Bordes. 2017. Supervised MarcoMarelli,StefanoMenini,MarcoBaroni,Luisa learningofuniversalsentencerepresentationsfrom Bentivogli, Raffaella Bernardi, and Roberto Zam- naturallanguageinferencedata. InProceedingsof parelli. 2014. A SICK cure for the evaluation of the2017ConferenceonEmpiricalMethodsinNat- compositional distributional semantic models. In uralLanguageProcessing,pages670–680,Copen- ProceedingsoftheNinthInternationalConference hagen,Denmark.AssociationforComputationalLin- onLanguageResourcesandEvaluation(LREC’14), guistics. pages216–223,Reykjavik,Iceland.EuropeanLan- guageResourcesAssociation(ELRA).\n\nJiaDeng,WeiDong,RichardSocher,Li-JiaLi,KaiLi, andLiFei-Fei.2009. Imagenet: Alarge-scalehier- AaronvandenOord,YazheLi,andOriolVinyals.2018. archicalimagedatabase. In2009IEEEconference Representationlearningwithcontrastivepredictive oncomputervisionandpatternrecognition, pages coding. arXivpreprintarXiv:1807.03748. 248–255.Ieee.\n\nOpenAI.2022. Introducingchatgpt.\n\nAlexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Bryan A Plummer, Liwei Wang, Chris M Cervantes, Thomas Unterthiner, Mostafa Dehghani, Matthias Juan C Caicedo, Julia Hockenmaier, and Svetlana Minderer, Georg Heigold, Sylvain Gelly, Jakob Lazebnik. 2015. Flickr30k entities: Collecting Uszkoreit, and Neil Houlsby. 2021. An image region-to-phrasecorrespondencesforricherimage- is worth 16x16 words: Transformers for image to-sentence models. In Proceedings of the IEEE recognitionatscale. InInternationalConferenceon internationalconferenceoncomputervision,pages LearningRepresentations. 2641–2649.\n\nRonaldFagin,RaviKumar,andDakshinamurthiSivaku- AlecRadford,JongWookKim,ChrisHallacy,Aditya mar.2003. Comparingtopklists. SIAMJournalon Ramesh,GabrielGoh,SandhiniAgarwal,GirishSas- discretemathematics,17(1):134–160. try, Amanda Askell, Pamela Mishkin, Jack Clark, Lijie Fan, Dilip Krishnan, Phillip Isola, Dina Katabi, etal.2021. Learningtransferablevisualmodelsfrom andYonglongTian.2023. Improvingcliptraining naturallanguagesupervision. InInternationalconfer- withlanguagerewrites. AdvancesinNeuralInforma- enceonmachinelearning,pages8748–8763.PMLR. tionProcessingSystems.\n\nNils Reimers and Iryna Gurevych. 2019. Sentence- Weixi Feng, Xuehai He, Tsu-Jui Fu, Varun Jampani, BERT:SentenceembeddingsusingSiameseBERT- Arjun Akula, Pradyumna Narayana, Sugato Basu, networks. InProceedingsofthe2019Conferenceon Xin Eric Wang, and William Yang Wang. 2023. EmpiricalMethodsinNaturalLanguageProcessing Training-freestructureddiffusionguidanceforcom- andthe9thInternationalJointConferenceonNatu- positionaltext-to-imagesynthesis. TheEleventhIn- ralLanguageProcessing(EMNLP-IJCNLP),pages ternationalConferenceonLearningRepresentations. 3982–3992,HongKong,China.AssociationforCom- putationalLinguistics.\n\nTianyu Gao, Xingcheng Yao, and Danqi Chen. 2021.\n\nSimCSE:Simplecontrastivelearningofsentenceem- RobinRombach,AndreasBlattmann,DominikLorenz, beddings. In Proceedings of the 2021 Conference Patrick Esser, and Björn Ommer. 2022. High- onEmpiricalMethodsinNaturalLanguageProcess- resolutionimagesynthesiswithlatentdiffusionmod- ing,pages6894–6910,OnlineandPuntaCana,Do- els. In Proceedings of the IEEE/CVF conference minican Republic. Association for Computational oncomputervisionandpatternrecognition, pages Linguistics. 10684–10695.\n\nPaulJaccard.1912. Thedistributionoftheflorainthe Chitwan Saharia, William Chan, Saurabh Saxena, alpinezone.1. Newphytologist,11(2):37–50.\n\nLala Li, Jay Whang, Emily L Denton, Kam- Tsung-YiLin,MichaelMaire,SergeBelongie,James yar Ghasemipour, Raphael Gontijo Lopes, Burcu Hays, Pietro Perona, Deva Ramanan, Piotr Dollár, Karagol Ayan, Tim Salimans, et al. 2022. Photo- and C Lawrence Zitnick. 2014. Microsoft coco: realistic text-to-image diffusion models with deep Common objects in context. In Computer Vision– languageunderstanding. AdvancesinNeuralInfor- ECCV 2014: 13th European Conference, Zurich, mationProcessingSystems,35:36479–36494.\n\nSwitzerland, September 6-12, 2014, Proceedings, Christoph Schuhmann, Romain Beaumont, Richard PartV13,pages740–755.Springer.\n\nVencu,CadeGordon,RossWightman,MehdiCherti, YinhanLiu,MyleOtt,NamanGoyal,JingfeiDu,Man- Theo Coombes, Aarush Katta, Clayton Mullis, dar Joshi, Danqi Chen, Omer Levy, Mike Lewis, MitchellWortsman,etal.2022. Laion-5b: Anopen Luke Zettlemoyer, and Veselin Stoyanov. 2019. large-scaledatasetfortrainingnextgenerationimage- Roberta: A robustly optimized bert pretraining ap- text models. Advances in Neural Information Pro- proach. arXivpreprintarXiv:1907.11692. cessingSystems,35:25278–25294.\n\nChristophSchuhmann,RichardVencu,RomainBeau- mont,RobertKaczmarczyk,ClaytonMullis,Aarush Katta,TheoCoombes,JeniaJitsev,andAranKomat- suzaki. 2021. Laion-400m: Open dataset of clip- filtered400millionimage-textpairs. NeurIPSData- CentricAIWorkshop2021.\n\nHugoTouvron,ThibautLavril,GautierIzacard,Xavier Martinet,Marie-AnneLachaux,TimothéeLacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al. 2023. Llama: Open and effi- cient foundation language models. arXiv preprint arXiv:2302.13971.\n\nMertYuksekgonul,FedericoBianchi,PratyushaKalluri, DanJurafsky,andJamesZou.2023. Whenandwhy vision-languagemodelsbehavelikebags-of-words, and what to do about it? In The Eleventh Interna- tionalConferenceonLearningRepresentations.",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "CLIP 텍스트 인코더 개선하기"
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "text": "이 연구는 CLIP 모델을 더 좋게 만드는 방법을 다룹니다."
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "CLIP은 글과 그림을 함께 이해하는 인공지능입니다."
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "하지만 같은 뜻의 다른 표현을 잘 이해하지 못합니다."
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "text": "예를 들어 '새로 결혼한 부부'와 '신혼부부'는 같은 뜻입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "신혼부부",
+              "startIndex": 25,
+              "endIndex": 29,
+              "definition": "새로 결혼한 부부",
+              "simplifiedDefinition": "갓 결혼한 남자와 여자",
+              "examples": [
+                "신혼부부가 여행을 떠났어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "복합어"
+            }
+          ]
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "text": "하지만 CLIP은 이 둘을 다르게 생각합니다."
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "그래서 같은 그림을 찾을 때 다른 결과를 보여줍니다.",
+          "blank": true
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "연구진은 이 문제를 해결하는 방법을 찾았습니다."
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "바로 '패러프레이즈'라는 기술을 사용하는 것입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "패러프레이즈",
+              "startIndex": 4,
+              "endIndex": 10,
+              "definition": "같은 뜻을 다른 말로 표현하는 것",
+              "simplifiedDefinition": "같은 의미를 다른 단어로 바꿔 말하기",
+              "examples": [
+                "'큰 집'을 '넓은 집'으로 패러프레이즈할 수 있어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "외래어 전문용어"
+            }
+          ]
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "패러프레이즈는 같은 뜻을 다른 말로 바꾸는 것입니다."
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "이 방법으로 CLIP이 다양한 표현을 이해하게 했습니다."
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "text": "결과적으로 더 똑똑한 AI가 되었습니다."
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "이 새로운 모델을 'ParaCLIP'이라고 부릅니다.",
+          "blank": true
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "ParaCLIP은 기존 CLIP보다 훨씬 좋은 성능을 보였습니다."
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "특히 비슷한 뜻의 다른 문장들을 잘 이해합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "성능",
+              "startIndex": 20,
+              "endIndex": 22,
+              "definition": "기계나 시스템이 일을 처리하는 능력",
+              "simplifiedDefinition": "얼마나 잘 작동하는지를 나타내는 정도",
+              "examples": [
+                "이 컴퓨터는 성능이 좋아서 빨라요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념어"
+            }
+          ]
+        },
+        {
+          "id": "16",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 CLIP과 ParaCLIP 비교 이미지. 왼쪽에는 기존 CLIP이 '새로 결혼한 부부'와 '신혼부부'를 다르게 인식하는 모습, 오른쪽에는 ParaCLIP이 같은 의미로 인식하는 모습. 밝은 색상, 간단한 아이콘, 만화풍",
+          "concept": "CLIP과 ParaCLIP의 차이점",
+          "alt": "CLIP과 ParaCLIP이 같은 의미의 다른 표현을 처리하는 방식 비교",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/ba7e27ac-2db7-4fa7-9355-ae8908561312.svg"
+        },
+        {
+          "id": "17",
+          "type": "HEADING2",
+          "text": "연구 방법"
+        },
+        {
+          "id": "18",
+          "type": "TEXT",
+          "text": "연구진은 두 단계로 패러프레이즈를 만들었습니다."
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "첫 번째 단계는 원래 문장을 깔끔하게 바꾸는 것입니다."
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "인터넷의 그림 설명은 종종 지저분합니다."
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "불필요한 기호나 숫자가 많이 들어있습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "불필요한",
+              "startIndex": 0,
+              "endIndex": 4,
+              "definition": "꼭 필요하지 않은",
+              "simplifiedDefinition": "없어도 되는",
+              "examples": [
+                "불필요한 물건은 버려주세요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "한자어 복합어"
+            }
+          ]
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "그래서 이런 것들을 제거하고 자연스럽게 만듭니다."
+        },
+        {
+          "id": "23",
+          "type": "TEXT",
+          "text": "두 번째 단계는 더 다양한 표현을 만드는 것입니다."
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "같은 뜻이지만 완전히 다른 단어를 사용합니다.",
+          "blank": true
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "예를 들어 '뒤집을 수 있는'을 '돌릴 수 있는'으로 바꿉니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "이렇게 해서 수백만 개의 패러프레이즈를 만들었습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "수백만",
+              "startIndex": 9,
+              "endIndex": 12,
+              "definition": "백만의 몇 배가 되는 매우 큰 수",
+              "simplifiedDefinition": "100만보다 훨씬 많은 수",
+              "examples": [
+                "수백만 명의 사람들이 축제에 참여했어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "큰 수 개념"
+            }
+          ]
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "그리고 이 데이터로 CLIP을 다시 훈련시켰습니다."
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "훈련할 때는 세 가지 방법을 함께 사용했습니다."
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "첫째, 그림과 새로운 문장을 연결했습니다."
+        },
+        {
+          "id": "30",
+          "type": "TEXT",
+          "text": "둘째, 원래 문장과 첫 번째 패러프레이즈를 연결했습니다."
+        },
+        {
+          "id": "31",
+          "type": "TEXT",
+          "text": "셋째, 두 패러프레이즈를 서로 연결했습니다.",
+          "blank": true
+        },
+        {
+          "id": "32",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 두 단계 패러프레이즈 과정 설명 이미지. 원래 문장 → 1단계 깔끔한 문장 → 2단계 다양한 표현으로 변화하는 과정을 화살표와 간단한 텍스트 박스로 표현. 밝은 파란색과 초록색, 만화풍",
+          "concept": "두 단계 패러프레이즈 생성 과정",
+          "alt": "패러프레이즈가 두 단계를 거쳐 만들어지는 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/54143f0c-b0ad-4f98-8262-c6c936044d2d.svg"
+        },
+        {
+          "id": "33",
+          "type": "HEADING2",
+          "text": "실험 결과"
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "ParaCLIP은 여러 가지 테스트에서 좋은 결과를 보였습니다."
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "특히 비슷한 뜻의 문장으로 그림 찾기에서 뛰어났습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "뛰어났습니다",
+              "startIndex": 25,
+              "endIndex": 31,
+              "definition": "다른 것보다 훨씬 좋았다",
+              "simplifiedDefinition": "매우 잘했다",
+              "examples": [
+                "수학 시험에서 뛰어난 성적을 거두었어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 표현"
+            }
+          ]
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "기존 CLIP보다 5.6%나 더 정확했습니다."
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "문장의 의미를 이해하는 테스트에서도 7.1% 향상되었습니다."
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "다른 여러 AI 모델들과 비교해도 더 좋았습니다."
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "심지어 기본 기능들도 그대로 유지되었습니다.",
+          "blank": true
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "연구진은 각 단계가 얼마나 중요한지도 확인했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "확인했습니다",
+              "startIndex": 25,
+              "endIndex": 31,
+              "definition": "정확한지 살펴보았다",
+              "simplifiedDefinition": "맞는지 알아보았다",
+              "examples": [
+                "숙제를 다 했는지 확인했어요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "일상어이지만 명확성을 위해"
+            }
+          ]
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "세 가지 훈련 방법을 모두 사용할 때 가장 좋았습니다."
+        },
+        {
+          "id": "42",
+          "type": "TEXT",
+          "text": "하나라도 빠지면 성능이 떨어졌습니다."
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "특히 그림과 문장을 연결하는 부분이 가장 중요했습니다."
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "이것이 없으면 원래 CLIP의 능력을 잃어버렸습니다."
+        },
+        {
+          "id": "45",
+          "type": "TEXT",
+          "text": "모든 부분이 함께 작동해야 최고 성능이 나왔습니다.",
+          "blank": true
+        },
+        {
+          "id": "46",
+          "type": "TEXT",
+          "text": "다른 비슷한 연구인 LaCLIP과도 비교했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "비교했습니다",
+              "startIndex": 20,
+              "endIndex": 26,
+              "definition": "서로 견주어 보았다",
+              "simplifiedDefinition": "어느 것이 더 좋은지 살펴보았다",
+              "examples": [
+                "두 제품의 가격을 비교했어요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "일상어이지만 명확성을 위해"
+            }
+          ]
+        },
+        {
+          "id": "47",
+          "type": "TEXT",
+          "text": "ParaCLIP이 LaCLIP보다 훨씬 더 좋은 결과를 보였습니다."
+        },
+        {
+          "id": "48",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 ParaCLIP 성능 비교 차트. 막대그래프로 기존 CLIP 대비 ParaCLIP의 향상된 성능을 보여줌. 5.6%, 7.1% 등의 수치를 큰 글씨로 표시. 밝은 초록색과 파란색, 간단한 디자인",
+          "concept": "ParaCLIP의 성능 향상 결과",
+          "alt": "ParaCLIP이 기존 CLIP보다 얼마나 더 좋아졌는지 보여주는 그래프",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/7a3fe945-ce38-487b-9b6f-e011cb57afbb.svg"
+        },
+        {
+          "id": "49",
+          "type": "HEADING2",
+          "text": "연구의 한계점"
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "하지만 이 연구에도 몇 가지 문제점이 있습니다."
+        },
+        {
+          "id": "51",
+          "type": "TEXT",
+          "text": "때로는 기본 기능이 조금 떨어지기도 했습니다."
+        },
+        {
+          "id": "52",
+          "type": "TEXT",
+          "text": "예를 들어 일반적인 그림 분류에서 성능이 낮아졌습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "분류",
+              "startIndex": 15,
+              "endIndex": 17,
+              "definition": "종류별로 나누어 정리하는 것",
+              "simplifiedDefinition": "비슷한 것끼리 모아서 나누는 것",
+              "examples": [
+                "동물을 포유류와 조류로 분류했어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념어"
+            }
+          ]
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "이는 훈련할 때 사용한 데이터 양 때문일 수 있습니다."
+        },
+        {
+          "id": "54",
+          "type": "TEXT",
+          "text": "더 많은 컴퓨터 자원이 있다면 해결될 문제입니다.",
+          "blank": true
+        },
+        {
+          "id": "55",
+          "type": "TEXT",
+          "text": "또한 복잡한 문장 구조를 이해하는 데는 여전히 한계가 있습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "복잡한",
+              "startIndex": 3,
+              "endIndex": 6,
+              "definition": "여러 부분이 얽혀서 이해하기 어려운",
+              "simplifiedDefinition": "어렵고 헷갈리는",
+              "examples": [
+                "복잡한 수학 문제를 풀었어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념어"
+            }
+          ]
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "예를 들어 '개가 나무 뒤에 있다'와 '나무가 개 뒤에 있다'를 구분하기 어렵습니다."
+        },
+        {
+          "id": "57",
+          "type": "TEXT",
+          "text": "이런 문제들은 앞으로 더 연구해야 할 부분입니다."
+        },
+        {
+          "id": "58",
+          "type": "HEADING2",
+          "text": "결론"
+        },
+        {
+          "id": "59",
+          "type": "TEXT",
+          "text": "이 연구는 CLIP을 더 똑똑하게 만드는 새로운 방법을 제시했습니다."
+        },
+        {
+          "id": "60",
+          "type": "TEXT",
+          "text": "패러프레이즈 기술을 사용해서 같은 뜻의 다른 표현들을 잘 이해하게 했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "제시했습니다",
+              "startIndex": 30,
+              "endIndex": 36,
+              "definition": "새로운 아이디어나 방법을 보여주었다",
+              "simplifiedDefinition": "새로운 방법을 알려주었다",
+              "examples": [
+                "선생님이 문제 해결 방법을 제시했어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "한자어"
+            }
+          ]
+        },
+        {
+          "id": "61",
+          "type": "TEXT",
+          "text": "결과적으로 ParaCLIP은 기존 모델보다 훨씬 좋은 성능을 보였습니다."
+        },
+        {
+          "id": "62",
+          "type": "TEXT",
+          "text": "특히 사용자가 다양한 방식으로 질문해도 정확한 답을 찾을 수 있게 되었습니다."
+        },
+        {
+          "id": "63",
+          "type": "TEXT",
+          "text": "이는 실제 생활에서 AI를 사용할 때 매우 유용할 것입니다.",
+          "blank": true
+        },
+        {
+          "id": "64",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 연구 결론 요약 이미지. ParaCLIP이 다양한 표현을 이해하여 더 정확한 결과를 제공하는 모습을 간단한 아이콘과 화살표로 표현. 밝은 색상, 성공을 나타내는 체크마크와 웃는 얼굴 포함",
+          "concept": "ParaCLIP 연구의 성공적인 결과",
+          "alt": "ParaCLIP이 다양한 표현을 잘 이해하게 된 연구 성과",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/e6321115-fc80-444b-901b-c24bfca88ce0.svg"
+        },
+        {
+          "id": "65",
+          "type": "TEXT",
+          "text": "앞으로 이 기술은 더 많은 AI 시스템에 적용될 수 있을 것입니다."
+        },
+        {
+          "id": "66",
+          "type": "TEXT",
+          "text": "사람들이 자연스럽게 말하는 대로 AI와 소통할 수 있게 될 것입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "소통할",
+              "startIndex": 25,
+              "endIndex": 28,
+              "definition": "서로 의견이나 정보를 주고받다",
+              "simplifiedDefinition": "서로 이야기하고 이해하다",
+              "examples": [
+                "친구와 소통하는 것이 중요해요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념어"
+            }
+          ]
+        },
+        {
+          "id": "67",
+          "type": "TEXT",
+          "text": "이것이 바로 이 연구의 가장 큰 의미입니다."
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "original_content": "A ImplementationDetails intwolistsasfollows: In the data generation process, we used the |Lk ∩Lk| JS@k(L ,L ) := a b , (2) gpt-35-turbo-0301 model with the temper- a b |Lk ∪Lk| a b ature of 1.0 and top-p of 0.1. We paid approxi- mately 130 USD for using ChatGPT to generate where|Lk ∪Lk|isthecardinalityofthesetunion a b 300Kparaphrasesforcaptionsand300Kadditional betweenLk andLk. JS@kequals0whenLk and a b a paraphrasesforgeneratedparaphrases. Lk aredisjointandequals1whenLk andLk con- b a b We used the checkpoints of CLIP mod- tainthesameretrievalresults(althoughnotneces- els provided in the official OpenCLIP GitHub sarilyinthesameorder). Unliketheaverageover- repository.4 We used openai for Ope- lap, the Jaccard similarity does not assign more nAI’s CLIP, laion400m_e32 for OpenCLIP weighttothehigher-rankedretrievalresults. (400M), laion2b_s34b_b79k for OpenCLIP C CaseStudy (2B),andlaion2b_s12b_b32kforOpenCLIP- RoBERTa. OurParaCLIPmodelsweretrainedfor Figure 3 shows several examples where our Par- oneepochusingtheAdamWoptimizer(Loshchilov aCLIP model yieled better retrieval results than and Hutter, 2019), coupled with a cosine anneal- OpenAI’s CLIP for paraphrased queries. In the ingscheduler,oneightA10080GGPUs. Forfine- firstexample,theparaphrasedquery(queryB)con- tuning,alearningrateof5e-7,abatchsizeof3,072, tainedseveralsynonymssuchas“picture,”“guy,” and a weight decay rate of 0.001 were used. All “cutting,”and“tiny,”replacingthewords“image,” reportedscoresweremeasuredonasinglerun. “man,”“slicing,”and“small,”respectively. While the CLIP model output dissimilar results for the B MetricsinParaphrasedRetrieval giventwoqueries,resultinginaperformancedrop forqueryB,ParaCLIPconsistentlyproducediden- Average overlap The top-k average overlap tical results for both queries. In the second ex- (AO@k) (Fagin et al., 2003) quantifies the rank ample, the only difference between the queries similarity between the top-k elements of the two wastheword“was.” Despitethisminorvariation, lists. Let L and L be ordered lists of retrieved a b CLIP generated different sets of images. On the imagesfortwodifferentqueries. AO@kbetween other hand, ParaCLIP returned the same images the two lists is calculated based on the weighted for both queries and achieved a better recall for sumofintersectionsoftruncatedlistsasfollows: queryB,althoughtherecallscoreforqueryAwas AO@k(L a ,L b ) := 1 (cid:88) k |Ld a ∩Ld b | , (1) s p l l i e g , h q tl u y er lo y w B er w th as an cr t e h a a t t e o d f b C y L e I x P p . a In nd th in e g la th st e e s x h a o m rt - k d d=1 queryAintolongerexpressions. Forinstance,the concisephrase“aremotecontrol”wastransformed where Ld = L [1 : d] and Ld = L [1 : d] repre- a a b b intothemoreelaboratephrase“acontrollerfora sent the truncated lists at depth d and |Ld ∩ Ld| a b televisionthatiswirelesslyoperated.” WhileCLIP indicatesthecardinalityofthesetintersectionbe- exhibitedhighsensitivitytothislongparaphrased tweenthesetruncatedlists. WhenAO@kequals1, query,ParaCLIPdemonstratedgreaterrobustness, itmeansthatthetop-kelementsofL andL are a b resulting in more consistent results and superior exactlythesame. Conversely,whenAO@kequals recallscores. 0, it implies that there is no overlap whatsoever betweenthetop-kelementsofL andL . AO@k a b gives more weight to the higher-ranked retrieval results because they contribute to more terms in theoverallsummationcomparedtolower-ranked results.\n\nJaccardsimilarity Thetop-kJaccardsimilarity (JS@k)(Jaccard,1912)iscalculatedastheratioof theintersectiontotheunionofthetop-kelements 4https://github.com/mlfoundations/open_clip\n\nCLIP ParaCLIP (Ours) Query A:an image of a man slicing a small pizza Query B:A picture of a guy cutting a tiny pizza.\n\nQuery A: A boy standing in the grass with a frisbee.\n\nQuery B: A boy wasstanding in the grass with a frisbee.\n\nQuery A: A remote control on a wooden table in front of a television.\n\nQuery B: A controller for a television that is wirelessly operated and is placed on a flat surface made of wood that is in front of the television.\n\nFigure 3: Examples of retrieved images by the CLIP (Radford et al., 2021) and our ParaCLIP models for two different queries. Note that the queries are obtained from the paraphrased retrieval dataset, and query B is a paraphraseforqueryA.Thegoldimagesaredenotedbyaboldborder.",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "구현 세부사항"
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "text": "데이터 생성 과정에서 우리는 특별한 모델을 사용했습니다."
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "gpt-35-turbo-0301 모델을 사용했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "모델",
+              "startIndex": 17,
+              "endIndex": 19,
+              "definition": "컴퓨터가 학습하여 만든 인공지능 프로그램",
+              "simplifiedDefinition": "컴퓨터가 똑똑해지도록 만든 프로그램",
+              "examples": [
+                "ChatGPT도 하나의 모델이에요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "온도는 1.0으로 설정했습니다."
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "text": "top-p는 0.1로 설정했습니다."
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "text": "ChatGPT를 사용하는 데 약 130달러를 지불했습니다."
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "30만 개의 문장을 다시 쓰는 작업을 했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "패러프레이즈",
+              "startIndex": 0,
+              "endIndex": 6,
+              "definition": "같은 뜻을 다른 말로 표현하는 것",
+              "simplifiedDefinition": "같은 내용을 다른 말로 바꿔 쓰는 것",
+              "examples": [
+                "'큰 집'을 '넓은 집'으로 바꿔 쓰는 것"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "외래어"
+            }
+          ]
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "추가로 30만 개의 문장을 더 만들었습니다.",
+          "blank": true
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "우리는 CLIP 모델의 체크포인트를 사용했습니다."
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "이것은 공식 OpenCLIP GitHub 저장소에서 가져왔습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "저장소",
+              "startIndex": 25,
+              "endIndex": 28,
+              "definition": "컴퓨터 프로그램을 보관하는 온라인 공간",
+              "simplifiedDefinition": "프로그램을 저장해두는 인터넷 공간",
+              "examples": [
+                "GitHub는 프로그램 저장소예요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "여러 종류의 모델을 사용했습니다."
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "text": "OpenAI용으로는 openai를 사용했습니다."
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "OpenCLIP 400M용으로는 laion400m_e32를 사용했습니다."
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "OpenCLIP 2B용으로는 laion2b_s34b_b79k를 사용했습니다."
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "OpenCLIP-RoBERTa용으로는 laion2b_s12b_b32k를 사용했습니다."
+        },
+        {
+          "id": "16",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 AI 모델 학습 과정 이미지. 컴퓨터와 데이터, 학습 과정을 나타내는 간단한 아이콘들. 밝은 파란색과 초록색, 만화풍 스타일, 텍스트 없음",
+          "concept": "AI 모델 학습 과정",
+          "alt": "컴퓨터가 데이터로 학습하는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/9b085c4b-0711-4d88-9d48-953830921aea.svg"
+        },
+        {
+          "id": "17",
+          "type": "TEXT",
+          "text": "우리의 ParaCLIP 모델은 한 번의 학습 과정을 거쳤습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "에포크",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "전체 데이터를 한 번 학습하는 과정",
+              "simplifiedDefinition": "모든 자료를 한 번 공부하는 것",
+              "examples": [
+                "책을 처음부터 끝까지 한 번 읽는 것과 같아요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "18",
+          "type": "TEXT",
+          "text": "AdamW 최적화 도구를 사용했습니다."
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "코사인 스케줄러도 함께 사용했습니다."
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "8개의 A100 80G GPU를 사용했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "GPU",
+              "startIndex": 12,
+              "endIndex": 15,
+              "definition": "그래픽 처리 장치, 컴퓨터 연산을 빠르게 하는 부품",
+              "simplifiedDefinition": "컴퓨터를 빠르게 만드는 특별한 부품",
+              "examples": [
+                "게임이나 AI 학습에 사용해요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "세밀한 조정을 위해 특별한 설정을 사용했습니다.",
+          "blank": true
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "학습률은 5e-7로 설정했습니다."
+        },
+        {
+          "id": "23",
+          "type": "TEXT",
+          "text": "배치 크기는 3,072로 설정했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "배치",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "한 번에 처리하는 데이터의 묶음",
+              "simplifiedDefinition": "한 번에 공부하는 자료의 양",
+              "examples": [
+                "한 번에 10개씩 문제를 푸는 것과 같아요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "가중치 감소율은 0.001로 설정했습니다."
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "모든 점수는 한 번의 실행으로 측정했습니다."
+        },
+        {
+          "id": "26",
+          "type": "HEADING2",
+          "text": "다시 쓴 문장 검색의 측정 방법"
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "평균 겹침 정도를 측정하는 방법이 있습니다."
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "상위 k개 평균 겹침(AO@k)이라고 합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "겹침",
+              "startIndex": 8,
+              "endIndex": 10,
+              "definition": "두 개 이상이 같은 부분을 가지는 것",
+              "simplifiedDefinition": "같은 것이 있는 정도",
+              "examples": [
+                "두 명단에서 같은 이름이 나오는 것"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "개념 설명 필요"
+            }
+          ]
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "이것은 두 목록의 순위 유사성을 측정합니다."
+        },
+        {
+          "id": "30",
+          "type": "TEXT",
+          "text": "La와 Lb를 서로 다른 질문의 검색 결과라고 합시다."
+        },
+        {
+          "id": "31",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 두 목록 비교 이미지. 두 개의 순서가 있는 목록과 겹치는 부분을 화살표로 표시. 밝은 색상, 간단한 도형, 만화풍",
+          "concept": "목록 비교와 겹침",
+          "alt": "두 목록에서 같은 항목을 찾는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/2ad23b9d-5679-4608-829b-68f9d30ba44d.svg"
+        },
+        {
+          "id": "32",
+          "type": "TEXT",
+          "text": "AO@k는 잘린 목록들의 교집합을 기반으로 계산됩니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "교집합",
+              "startIndex": 15,
+              "endIndex": 18,
+              "definition": "두 집합에서 공통으로 들어있는 원소들의 집합",
+              "simplifiedDefinition": "두 그룹에서 같은 것들만 모은 것",
+              "examples": [
+                "A그룹{1,2,3}과 B그룹{2,3,4}의 교집합은 {2,3}"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "수학 용어"
+            }
+          ]
+        },
+        {
+          "id": "33",
+          "type": "TEXT",
+          "text": "가중치가 적용된 합으로 계산합니다."
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "AO@k가 1이면 상위 k개 요소가 완전히 같습니다."
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "AO@k가 0이면 겹치는 부분이 전혀 없습니다."
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "AO@k는 높은 순위의 결과에 더 큰 가중치를 줍니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "가중치",
+              "startIndex": 15,
+              "endIndex": 18,
+              "definition": "각각의 중요도나 영향력을 나타내는 수치",
+              "simplifiedDefinition": "얼마나 중요한지를 나타내는 숫자",
+              "examples": [
+                "시험에서 수학이 50%, 국어가 30% 비중을 차지하는 것"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "수학 용어"
+            }
+          ]
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "높은 순위 결과가 전체 합계에 더 많이 기여하기 때문입니다.",
+          "blank": true
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "자카드 유사도라는 다른 측정 방법도 있습니다."
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "상위 k개 자카드 유사도(JS@k)라고 합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "자카드",
+              "startIndex": 6,
+              "endIndex": 9,
+              "definition": "두 집합의 유사성을 측정하는 방법의 이름",
+              "simplifiedDefinition": "두 그룹이 얼마나 비슷한지 재는 방법",
+              "examples": [
+                "두 반 학생들이 얼마나 비슷한지 비교하는 것"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "이것은 교집합과 합집합의 비율로 계산됩니다."
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "상위 k개 요소들을 사용합니다."
+        },
+        {
+          "id": "42",
+          "type": "TEXT",
+          "text": "공식은 |Lka ∩ Lkb| / |Lka ∪ Lkb| 입니다."
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "|Lka ∪ Lkb|는 합집합의 크기입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "합집합",
+              "startIndex": 11,
+              "endIndex": 14,
+              "definition": "두 집합의 모든 원소를 합친 집합",
+              "simplifiedDefinition": "두 그룹의 모든 것을 합친 것",
+              "examples": [
+                "A그룹{1,2,3}과 B그룹{3,4,5}의 합집합은 {1,2,3,4,5}"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "수학 용어"
+            }
+          ]
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "Lka와 Lkb 사이의 합집합입니다."
+        },
+        {
+          "id": "45",
+          "type": "TEXT",
+          "text": "JS@k는 Lka와 Lkb가 완전히 다르면 0입니다."
+        },
+        {
+          "id": "46",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 집합 연산 설명 이미지. 두 원이 겹치는 벤다이어그램으로 교집합과 합집합을 표현. 밝은 색상, 간단한 도형, 만화풍",
+          "concept": "교집합과 합집합",
+          "alt": "두 원이 겹치는 부분과 전체 영역을 보여주는 그림",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/d584bd63-0bf2-47a8-becb-57a23807697b.svg"
+        },
+        {
+          "id": "47",
+          "type": "TEXT",
+          "text": "JS@k는 같은 검색 결과를 가지면 1입니다."
+        },
+        {
+          "id": "48",
+          "type": "TEXT",
+          "text": "순서가 같을 필요는 없습니다."
+        },
+        {
+          "id": "49",
+          "type": "TEXT",
+          "text": "평균 겹침과 달리 자카드 유사도는 다릅니다."
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "높은 순위 검색 결과에 더 큰 가중치를 주지 않습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "순위",
+              "startIndex": 2,
+              "endIndex": 4,
+              "definition": "등급이나 서열을 나타내는 위치",
+              "simplifiedDefinition": "몇 번째인지를 나타내는 것",
+              "examples": [
+                "시험에서 1등, 2등, 3등 같은 것"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "개념 설명 필요"
+            }
+          ]
+        },
+        {
+          "id": "51",
+          "type": "HEADING2",
+          "text": "사례 연구"
+        },
+        {
+          "id": "52",
+          "type": "TEXT",
+          "text": "그림 3은 여러 예시를 보여줍니다."
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "우리의 ParaCLIP 모델이 더 좋은 검색 결과를 만들었습니다."
+        },
+        {
+          "id": "54",
+          "type": "TEXT",
+          "text": "OpenAI의 CLIP보다 다시 쓴 질문에서 더 잘했습니다."
+        },
+        {
+          "id": "55",
+          "type": "TEXT",
+          "text": "첫 번째 예시에서 다시 쓴 질문(질문 B)을 살펴봅시다.",
+          "blank": true
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "여러 동의어가 포함되어 있었습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "동의어",
+              "startIndex": 2,
+              "endIndex": 5,
+              "definition": "뜻이 같거나 비슷한 단어들",
+              "simplifiedDefinition": "같은 뜻을 가진 다른 말들",
+              "examples": [
+                "'크다'와 '거대하다'는 동의어예요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "언어학 용어"
+            }
+          ]
+        },
+        {
+          "id": "57",
+          "type": "TEXT",
+          "text": "'picture', 'guy', 'cutting', 'tiny' 같은 단어들이었습니다."
+        },
+        {
+          "id": "58",
+          "type": "TEXT",
+          "text": "이것들은 'image', 'man', 'slicing', 'small'을 대체했습니다."
+        },
+        {
+          "id": "59",
+          "type": "TEXT",
+          "text": "CLIP 모델은 두 질문에 대해 다른 결과를 만들었습니다."
+        },
+        {
+          "id": "60",
+          "type": "TEXT",
+          "text": "질문 B의 성능이 떨어졌습니다."
+        },
+        {
+          "id": "61",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 AI 모델 비교 이미지. 두 개의 AI 로봇이 같은 질문에 다른 답을 하는 모습. 하나는 혼란스러워하고 하나는 정확한 답을 제시. 밝은 색상, 만화풍",
+          "concept": "AI 모델 성능 비교",
+          "alt": "두 AI가 같은 질문에 다르게 답하는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/e42768ee-b36d-498d-824e-fb871b9b9370.svg"
+        },
+        {
+          "id": "62",
+          "type": "TEXT",
+          "text": "하지만 ParaCLIP은 일관되게 같은 결과를 만들었습니다."
+        },
+        {
+          "id": "63",
+          "type": "TEXT",
+          "text": "두 질문 모두에 대해 동일한 결과였습니다."
+        },
+        {
+          "id": "64",
+          "type": "TEXT",
+          "text": "두 번째 예시에서는 질문들 사이의 차이가 작았습니다."
+        },
+        {
+          "id": "65",
+          "type": "TEXT",
+          "text": "유일한 차이는 'was'라는 단어였습니다."
+        },
+        {
+          "id": "66",
+          "type": "TEXT",
+          "text": "이런 작은 변화에도 불구하고 CLIP은 다른 이미지들을 만들었습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "불구하고",
+              "startIndex": 10,
+              "endIndex": 14,
+              "definition": "어떤 상황이나 조건에 관계없이",
+              "simplifiedDefinition": "~해도 상관없이",
+              "examples": [
+                "비가 와도 불구하고 소풍을 갔어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "문법 용어"
+            }
+          ]
+        },
+        {
+          "id": "67",
+          "type": "TEXT",
+          "text": "반면에 ParaCLIP은 같은 이미지들을 반환했습니다."
+        },
+        {
+          "id": "68",
+          "type": "TEXT",
+          "text": "두 질문 모두에 대해 같은 결과였습니다."
+        },
+        {
+          "id": "69",
+          "type": "TEXT",
+          "text": "질문 B에 대해 더 좋은 재현율을 달성했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "재현율",
+              "startIndex": 10,
+              "endIndex": 13,
+              "definition": "찾아야 할 것 중에서 실제로 찾은 것의 비율",
+              "simplifiedDefinition": "찾아야 할 것을 얼마나 잘 찾았는지의 비율",
+              "examples": [
+                "숨은 보물 10개 중 8개를 찾으면 재현율은 80%"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "통계 용어"
+            }
+          ]
+        },
+        {
+          "id": "70",
+          "type": "TEXT",
+          "text": "질문 A의 재현율 점수는 CLIP보다 약간 낮았습니다."
+        },
+        {
+          "id": "71",
+          "type": "TEXT",
+          "text": "마지막 예시에서는 CLIP이 짧은 질문을 확장했습니다.",
+          "blank": true
+        },
+        {
+          "id": "72",
+          "type": "TEXT",
+          "text": "질문 A를 더 긴 표현으로 바꿨습니다."
+        },
+        {
+          "id": "73",
+          "type": "TEXT",
+          "text": "예를 들어 간단한 구문 'a remote control'이 있었습니다."
+        },
+        {
+          "id": "74",
+          "type": "TEXT",
+          "text": "이것이 더 자세한 구문으로 바뀌었습니다."
+        },
+        {
+          "id": "75",
+          "type": "TEXT",
+          "text": "'a controller for a television that is wirelessly operated'로 바뀌었습니다."
+        },
+        {
+          "id": "76",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 문장 확장 개념 이미지. 짧은 문장이 긴 문장으로 변하는 과정을 화살표로 표현. 리모컨과 TV 그림 포함. 밝은 색상, 만화풍",
+          "concept": "문장 확장과 변환",
+          "alt": "짧은 문장이 긴 문장으로 바뀌는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/70170fc0-7434-4170-b6a5-9ff773f638a2.svg"
+        },
+        {
+          "id": "77",
+          "type": "TEXT",
+          "text": "CLIP은 이런 긴 다시 쓴 질문에 높은 민감도를 보였습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "민감도",
+              "startIndex": 15,
+              "endIndex": 18,
+              "definition": "작은 변화에도 크게 반응하는 정도",
+              "simplifiedDefinition": "작은 변화에도 크게 영향받는 정도",
+              "examples": [
+                "온도계가 1도만 올라가도 바로 반응하는 것"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "과학 용어"
+            }
+          ]
+        },
+        {
+          "id": "78",
+          "type": "TEXT",
+          "text": "ParaCLIP은 더 큰 견고함을 보여주었습니다."
+        },
+        {
+          "id": "79",
+          "type": "TEXT",
+          "text": "더 일관된 결과를 만들었습니다."
+        },
+        {
+          "id": "80",
+          "type": "TEXT",
+          "text": "더 우수한 재현율 점수를 얻었습니다."
+        }
+      ]
+    }
+  ]
+}

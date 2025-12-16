@@ -1,0 +1,558 @@
+{
+  "jobId": "afd6dfd9-0b69-44e3-8f4e-0368ef59015e",
+  "fileName": "피터팬.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-24T01:58:09.630997",
+  "completedAt": "2025-09-24T02:00:26.524190",
+  "processingTimeSeconds": 136.893193,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 1,
+    "total_chunks": 1,
+    "total_blocks": 101
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "Chapter III.\n\nCOME AWAY, COME AWAY!\n\nFor a moment after Mr. and Mrs. Darling left the house the night-lights by the beds of the three children continued to burn clearly. They were awfully nice little night-lights, and one cannot help wishing that they could have kept awake to see Peter; but Wendy’s light blinked and gave such a yawn that the other two yawned also, and before they could close their mouths all the three went out.\n\nThere was another light in the room now, a thousand times brighter than the night-lights, and in the time we have taken to say this, it had been in all the drawers in the nursery, looking for Peter’s shadow, rummaged the wardrobe and turned every pocket inside out. It was not really a light; it made this light by flashing about so quickly, but when it came to rest for a second you saw it was a fairy, no longer than your hand, but still growing. It was a girl called Tinker Bell exquisitely gowned in a skeleton leaf, cut low and square, through which her figure could be seen to the best advantage. She was slightly inclined to embonpoint.\n\nA moment after the fairy’s entrance the window was blown open by the breathing of the little stars, and Peter dropped in. He had carried Tinker Bell part of the way, and his hand was still messy with the fairy dust. “Tinker Bell,” he called softly, after making sure that the children were asleep, “Tink, where are you?” She was in a jug for the moment, and liking it extremely; she had never been in a jug before. “Oh, do come out of that jug, and tell me, do you know where they put my shadow?” The loveliest tinkle as of golden bells answered him. It is the fairy language. You ordinary children can never hear it, but if you were to hear it you would know that you had heard it once before.\n\nTink said that the shadow was in the big box. She meant the chest of drawers, and Peter jumped at the drawers, scattering their contents to the floor with both hands, as kings toss ha’pence to the crowd. In a moment he had recovered his shadow, and in his delight he forgot that he had shut Tinker Bell up in the drawer.\n\nIf he thought at all, but I don’t believe he ever thought, it was that he and his shadow, when brought near each other, would join like drops of water, and when they did not he was appalled. He tried to stick it on with soap from the bathroom, but that also failed. A shudder passed through Peter, and he sat on the floor and cried.\n\nHis sobs woke Wendy, and she sat up in bed. She was not alarmed to see a stranger crying on the nursery floor; she was only pleasantly interested. “Boy,” she said courteously, “why are you crying?” Peter could be exceeding polite also, having learned the grand manner at fairy ceremonies, and he rose and bowed to her beautifully. She was much pleased, and bowed beautifully to him from the bed. “What’s your name?” he asked. “Wendy Moira Angela Darling,” she replied with some satisfaction. “What is your name?” “Peter Pan.” She was already sure that he must be Peter, but it did seem a comparatively short name. “Is that all?” “Yes,” he said rather sharply. He felt for the first time that it was a shortish name. “I’m so sorry,” said Wendy Moira Angela. “It doesn’t matter,” Peter gulped.\n\nShe asked where he lived. “Second to the right,” said Peter, “and then straight on till morning.” “What a funny address!” Peter had a sinking. For the first time he felt that perhaps it was a funny address. “No, it isn’t,” he said. “I mean,” Wendy said nicely, remembering that she was hostess, “is that what they put on the letters?” He wished she had not mentioned letters. “Don’t get any letters,” he said contemptuously. “But your mother gets letters?” “Don’t have a mother,” he said. Not only had he no mother, but he had not the slightest desire to have one. He thought them very over-rated persons. Wendy, however, felt at once that she was in the presence of a tragedy. “O Peter, no wonder you were crying,” she said, and got out of bed and ran to him. “I wasn’t crying about mothers,” he said rather indignantly. “I was crying because I can’t get my shadow to stick on. Besides, I wasn’t crying.” “It has come off?” “Yes.” Then Wendy saw the shadow on the floor, looking so draggled, and she was frightfully sorry for Peter. “How awful!” she said, but she could not help smiling when she saw that he had been trying to stick it on with soap. How exactly like a boy!\n\nFortunately she knew at once what to do. “It must be sewn on,” she said, just a little patronisingly. “What’s sewn?” he asked. “You’re dreadfully ignorant.” “No, I’m not.” But she was exulting in his ignorance. “I shall sew it on for you, my little man,” she said, though he was tall as herself, and she got out her housewife, and sewed the shadow on to Peter’s foot. “I daresay it will hurt a little,” she warned him. “Oh, I shan’t cry,” said Peter, who was already of the opinion that he had never cried in his life. And he clenched his teeth and did not cry, and soon his shadow was behaving properly, though still a little creased. “Perhaps I should have ironed it,” Wendy said thoughtfully, but Peter, boylike, was indifferent to appearances, and he was now jumping about in the wildest glee. Alas, he had already forgotten that he owed his bliss to Wendy. He thought he had attached the shadow himself. “How clever I am!” he crowed rapturously, “oh, the cleverness of me!” It is humiliating to have to confess that this conceit of Peter was one of his most fascinating qualities. To put it with brutal frankness, there never was a cockier boy.\n\nBut for the moment Wendy was shocked. “You conceit,” she exclaimed, with frightful sarcasm; “of course I did nothing!” “You did a little,” Peter said carelessly, and continued to dance.",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "제3장"
+        },
+        {
+          "id": "2",
+          "type": "HEADING2",
+          "text": "어서 와, 어서 와!"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "달링 부부가 집을 떠난 후였습니다."
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "세 아이의 침대 옆 야간등이 밝게 타고 있었습니다."
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "text": "정말 예쁜 작은 야간등들이었습니다."
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "하지만 웬디의 등이 깜빡이며 하품을 했습니다."
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "그러자 다른 두 등도 따라 하품했습니다."
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "입을 다물기도 전에 세 등 모두 꺼져버렸습니다.",
+          "blank": true
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "그때 방에 다른 빛이 나타났습니다."
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "야간등보다 천 배나 더 밝은 빛이었습니다."
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "피터의 그림자를 찾고 있었습니다."
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "옷장도 뒤지고 모든 주머니를 뒤집었습니다."
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "사실 그것은 진짜 빛이 아니었습니다."
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "text": "너무 빨리 움직여서 빛처럼 보인 것이었습니다."
+        },
+        {
+          "id": "17",
+          "type": "TEXT",
+          "text": "잠깐 멈춰 서자 그것이 요정임을 알 수 있었습니다.",
+          "blank": true
+        },
+        {
+          "id": "18",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 팅커벨 요정 이미지. 손바닥 크기의 작은 요정이 나뭇잎 드레스를 입고 아이 방에서 빛나며 날아다니는 모습. 밝은 금색 빛, 만화풍, 따뜻한 색감",
+          "concept": "팅커벨 요정의 첫 등장",
+          "alt": "나뭇잎 드레스를 입고 빛나는 팅커벨 요정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/558683c6-b9d3-4a62-b76e-299186c27787.jpg"
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "손바닥만한 크기의 요정이었습니다."
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "하지만 아직 자라고 있었습니다."
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "나뭇잎으로 만든 아름다운 드레스를 입고 있었습니다."
+        },
+        {
+          "id": "23",
+          "type": "TEXT",
+          "text": "드레스는 네모나게 파여 있어서 몸매가 잘 보였습니다."
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "팅커벨은 조금 통통한 편이었습니다.",
+          "blank": true
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "요정이 들어온 직후 창문이 열렸습니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "작은 별들의 숨결이 창문을 밀어 열었습니다."
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "그리고 피터가 뛰어 들어왔습니다."
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "그래서 손에 요정 가루가 묻어 있었습니다."
+        },
+        {
+          "id": "30",
+          "type": "TEXT",
+          "text": "피터가 아이들이 잠든 것을 확인했습니다."
+        },
+        {
+          "id": "31",
+          "type": "TEXT",
+          "text": "그리고 조용히 말했습니다."
+        },
+        {
+          "id": "32",
+          "type": "TEXT",
+          "text": "\"팅커벨, 팅크, 어디 있니?\"",
+          "blank": true
+        },
+        {
+          "id": "33",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 피터팬이 아이 방 창문으로 들어오는 장면. 초록색 옷을 입은 소년이 열린 창문을 통해 들어오고, 작은 요정이 물병 안에 있는 모습. 밤 배경, 별빛, 만화풍",
+          "concept": "피터팬의 등장과 팅커벨",
+          "alt": "창문으로 들어오는 피터팬과 물병 속 팅커벨",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/b18f5583-dae7-4ff8-9dc4-33ed58e314d5.jpg"
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "팅커벨은 그 순간 물병 안에 있었습니다."
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "물병 안이 매우 마음에 들었습니다."
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "물병 안에 들어가 본 것은 처음이었거든요."
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "피터가 말했습니다."
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "\"내 그림자를 어디에 뒀는지 아니?\""
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "가장 아름다운 방울소리가 대답했습니다."
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "황금 방울 같은 소리였습니다."
+        },
+        {
+          "id": "42",
+          "type": "TEXT",
+          "text": "그것이 요정의 언어입니다."
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "보통 아이들은 들을 수 없습니다."
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "하지만 들을 수 있다면 전에 들어본 소리라고 느낄 거예요.",
+          "blank": true
+        },
+        {
+          "id": "45",
+          "type": "TEXT",
+          "text": "팅크가 그림자는 큰 상자에 있다고 말했습니다."
+        },
+        {
+          "id": "46",
+          "type": "TEXT",
+          "text": "서랍장을 말하는 것이었습니다."
+        },
+        {
+          "id": "47",
+          "type": "TEXT",
+          "text": "피터는 서랍으로 뛰어갔습니다."
+        },
+        {
+          "id": "49",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 피터팬이 서랍을 뒤지는 장면. 초록 옷 소년이 서랍장에서 물건들을 바닥에 흩뜨리며 그림자를 찾는 모습. 어수선한 방, 밝은 색상, 만화풍",
+          "concept": "피터팬이 그림자를 찾는 모습",
+          "alt": "서랍을 뒤지며 그림자를 찾는 피터팬",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/6aaaab62-f6d0-4c96-a83d-47966cd35e61.jpg"
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "왕이 군중에게 동전을 던지듯이 말이에요."
+        },
+        {
+          "id": "51",
+          "type": "TEXT",
+          "text": "곧 피터는 자신의 그림자를 찾았습니다."
+        },
+        {
+          "id": "52",
+          "type": "TEXT",
+          "text": "너무 기뻐서 팅커벨을 서랍에 가둔 것을 잊었습니다.",
+          "blank": true
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "피터는 생각이 있었다면 말이지만요."
+        },
+        {
+          "id": "55",
+          "type": "TEXT",
+          "text": "자신과 그림자가 가까이 가면 물방울처럼 합쳐질 거라고 생각했습니다."
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "하지만 그렇게 되지 않자 깜짝 놀랐습니다."
+        },
+        {
+          "id": "57",
+          "type": "TEXT",
+          "text": "화장실에서 비누를 가져와 붙여보려 했습니다."
+        },
+        {
+          "id": "58",
+          "type": "TEXT",
+          "text": "하지만 그것도 실패했습니다."
+        },
+        {
+          "id": "59",
+          "type": "TEXT",
+          "text": "피터는 몸을 떨며 바닥에 앉아 울었습니다.",
+          "blank": true
+        },
+        {
+          "id": "60",
+          "type": "TEXT",
+          "text": "피터의 울음소리에 웬디가 깨어났습니다."
+        },
+        {
+          "id": "61",
+          "type": "TEXT",
+          "text": "웬디는 침대에 앉아 일어났습니다."
+        },
+        {
+          "id": "62",
+          "type": "TEXT",
+          "text": "아이 방 바닥에서 우는 낯선 사람을 보고도 놀라지 않았습니다."
+        },
+        {
+          "id": "64",
+          "type": "TEXT",
+          "text": "웬디가 정중하게 말했습니다."
+        },
+        {
+          "id": "65",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 웬디가 피터팬을 처음 만나는 장면. 침대에 앉은 소녀가 바닥에서 우는 초록 옷 소년을 바라보는 모습. 따뜻한 아이 방, 부드러운 조명, 만화풍",
+          "concept": "웬디와 피터팬의 첫 만남",
+          "alt": "침대의 웬디와 바닥에서 우는 피터팬",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/daf465c9-6164-4ab2-879d-17568a44b54d.jpg"
+        },
+        {
+          "id": "66",
+          "type": "TEXT",
+          "text": "\"소년아, 왜 울고 있니?\""
+        },
+        {
+          "id": "67",
+          "type": "TEXT",
+          "text": "피터도 매우 정중할 수 있었습니다."
+        },
+        {
+          "id": "69",
+          "type": "TEXT",
+          "text": "피터는 일어나서 웬디에게 아름답게 인사했습니다."
+        },
+        {
+          "id": "70",
+          "type": "TEXT",
+          "text": "웬디는 매우 기뻐하며 침대에서 아름답게 인사를 돌려주었습니다."
+        },
+        {
+          "id": "71",
+          "type": "TEXT",
+          "text": "웬디가 물었습니다."
+        },
+        {
+          "id": "72",
+          "type": "TEXT",
+          "text": "\"이름이 뭐니?\""
+        },
+        {
+          "id": "73",
+          "type": "TEXT",
+          "text": "피터가 물었습니다."
+        },
+        {
+          "id": "74",
+          "type": "TEXT",
+          "text": "\"웬디 모이라 안젤라 달링이에요.\""
+        },
+        {
+          "id": "76",
+          "type": "TEXT",
+          "text": "\"당신 이름은 뭐예요?\""
+        },
+        {
+          "id": "77",
+          "type": "TEXT",
+          "text": "\"피터 팬이야.\""
+        },
+        {
+          "id": "78",
+          "type": "TEXT",
+          "text": "웬디는 이미 그가 피터일 거라고 확신했습니다."
+        },
+        {
+          "id": "79",
+          "type": "TEXT",
+          "text": "하지만 비교적 짧은 이름인 것 같았습니다.",
+          "blank": true
+        },
+        {
+          "id": "80",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 웬디와 피터팬이 서로 인사하는 장면. 침대의 소녀와 서 있는 초록 옷 소년이 정중하게 인사를 나누는 모습. 따뜻한 실내, 부드러운 색감, 만화풍",
+          "concept": "웬디와 피터팬의 정중한 인사",
+          "alt": "서로 인사하는 웬디와 피터팬",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/72fff7df-72d5-40bc-95c5-53eaae31a0e6.jpg"
+        },
+        {
+          "id": "81",
+          "type": "TEXT",
+          "text": "\"그게 다야?\""
+        },
+        {
+          "id": "82",
+          "type": "TEXT",
+          "text": "\"응.\" 피터가 다소 날카롭게 말했습니다."
+        },
+        {
+          "id": "83",
+          "type": "TEXT",
+          "text": "처음으로 자신의 이름이 짧다고 느꼈습니다."
+        },
+        {
+          "id": "84",
+          "type": "TEXT",
+          "text": "\"미안해요.\" 웬디 모이라 안젤라가 말했습니다."
+        },
+        {
+          "id": "86",
+          "type": "TEXT",
+          "text": "웬디가 어디에 사는지 물었습니다."
+        },
+        {
+          "id": "87",
+          "type": "TEXT",
+          "text": "\"오른쪽으로 두 번째.\" 피터가 말했습니다."
+        },
+        {
+          "id": "88",
+          "type": "TEXT",
+          "text": "\"그리고 아침까지 쭉 직진이야.\""
+        },
+        {
+          "id": "89",
+          "type": "TEXT",
+          "text": "\"정말 재미있는 주소네요!\""
+        },
+        {
+          "id": "90",
+          "type": "TEXT",
+          "text": "피터는 가슴이 철렁했습니다."
+        },
+        {
+          "id": "91",
+          "type": "TEXT",
+          "text": "처음으로 그것이 재미있는 주소일지도 모른다고 느꼈습니다."
+        },
+        {
+          "id": "92",
+          "type": "TEXT",
+          "text": "\"아니야, 그렇지 않아.\" 피터가 말했습니다.",
+          "blank": true
+        },
+        {
+          "id": "93",
+          "type": "TEXT",
+          "text": "웬디가 친절하게 말했습니다."
+        },
+        {
+          "id": "95",
+          "type": "TEXT",
+          "text": "\"편지에도 그렇게 쓰나요?\""
+        },
+        {
+          "id": "96",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 피터팬이 당황하는 표정의 클로즈업. 초록 옷을 입은 소년이 편지에 대한 질문을 받고 당황하는 모습. 표정 중심, 따뜻한 색감, 만화풍",
+          "concept": "편지에 대해 당황하는 피터팬",
+          "alt": "편지 이야기에 당황하는 피터팬",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/8089548d-29ce-4205-987d-2dcf6388c59b.jpg"
+        },
+        {
+          "id": "97",
+          "type": "TEXT",
+          "text": "피터는 웬디가 편지를 언급하지 않았으면 좋았을 텐데 생각했습니다."
+        },
+        {
+          "id": "99",
+          "type": "TEXT",
+          "text": "\"하지만 엄마는 편지를 받으시죠?\""
+        },
+        {
+          "id": "100",
+          "type": "TEXT",
+          "text": "\"엄마가 없어.\" 피터가 말했습니다."
+        },
+        {
+          "id": "101",
+          "type": "TEXT",
+          "text": "엄마가 없을 뿐만 아니라 엄마를 갖고 싶은 마음도 전혀 없었습니다."
+        },
+        {
+          "id": "103",
+          "type": "TEXT",
+          "text": "하지만 웬디는 즉시 비극 앞에 있다고 느꼈습니다.",
+          "blank": true
+        },
+        {
+          "id": "104",
+          "type": "TEXT",
+          "text": "\"오 피터, 그래서 울고 있었구나.\""
+        },
+        {
+          "id": "105",
+          "type": "TEXT",
+          "text": "웬디가 말하며 침대에서 나와 피터에게 달려갔습니다."
+        },
+        {
+          "id": "106",
+          "type": "TEXT",
+          "text": "\"엄마 때문에 운 게 아니야.\""
+        },
+        {
+          "id": "107",
+          "type": "TEXT",
+          "text": "피터가 다소 화를 내며 말했습니다."
+        },
+        {
+          "id": "108",
+          "type": "TEXT",
+          "text": "\"그림자가 붙지 않아서 울었어.\""
+        },
+        {
+          "id": "109",
+          "type": "TEXT",
+          "text": "\"게다가 나는 울지 않았어.\""
+        },
+        {
+          "id": "111",
+          "type": "TEXT",
+          "text": "\"응.\""
+        },
+        {
+          "id": "112",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 바닥에 떨어진 그림자와 웬디가 피터를 위로하는 장면. 소녀가 소년에게 다가가고, 바닥에 구겨진 검은 그림자가 있는 모습. 따뜻한 실내, 부드러운 조명, 만화풍",
+          "concept": "웬디가 피터를 위로하고 그림자를 발견",
+          "alt": "바닥의 그림자와 피터를 위로하는 웬디",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/5e93b2a5-5441-46e9-b0b6-c42ed5852f64.jpg"
+        },
+        {
+          "id": "113",
+          "type": "TEXT",
+          "text": "그때 웬디는 바닥에 있는 그림자를 보았습니다."
+        },
+        {
+          "id": "114",
+          "type": "TEXT",
+          "text": "그림자가 너무 구겨져 보였습니다."
+        },
+        {
+          "id": "115",
+          "type": "TEXT",
+          "text": "웬디는 피터가 너무 불쌍했습니다."
+        },
+        {
+          "id": "116",
+          "type": "TEXT",
+          "text": "\"정말 끔찍해요!\" 웬디가 말했습니다."
+        }
+      ]
+    }
+  ]
+}

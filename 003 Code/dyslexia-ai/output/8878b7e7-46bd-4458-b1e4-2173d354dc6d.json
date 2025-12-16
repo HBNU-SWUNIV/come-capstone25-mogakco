@@ -1,0 +1,466 @@
+{
+  "jobId": "8878b7e7-46bd-4458-b1e4-2173d354dc6d",
+  "fileName": "java-api-examples_shipping at main · UPS-API_java-api-examples.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-21T10:03:25.058441",
+  "completedAt": "2025-09-21T10:05:18.630189",
+  "processingTimeSeconds": 113.571748,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 5,
+    "total_chunks": 1,
+    "total_blocks": 82
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "Code Issues 4 Pull requests 2 Actions Projects Security Insights java-api-examples/shipping/ Add file rcmasey Update Shipment.json misspelling. c023c6e · 2 years ago History Name Name Last commit date .. docs initial push 3 years ago src Update Shipment.json misspelling. 2 years ago .gitignore initial push 3 years ago pom.xml pre release (#3) 2 years ago readme.md pre release (#3) 2 years ago readme.md Shipping Introduction The Shipping Package RESTful API gives your applications many ways to manage the shipment of packages to their destination. UPS offers a range of delivery time frames from same day to standard ground transportation. Shipments may be within the United States or international, and they may range from documents to large packages. UPS also supports many valued added services for shipments, including collect on delivery (COD), declared value, delivery confirmation, and automatic notification of delivery status.\n\nGetting Started Prerequisites You will need to have Maven and the Java Development Kit installed.\n\nDownload You can either download a local copy or clone the repository: git clone https://github.com/UPS-API/java-api-examples.git Insert Your Information\n\napi.oauth.partner.secret Update your client information in any tags marked with \"< >\" within the /src/main/resources/ json files. For this API there are the following fields: Property Name <Shipper Number> <your email address> <your From EMail Address> <your Account Number> <your UndeliverableEMailAddress address> <youre Tracking Number> < PreDeparture ITN Number> <Tax Identification Number> <Invoice Number> <Purchase Order Number> <Entry Number> Build and run Build the project using Maven cd <project home> mvn clean package Run the project that is generated in the /target directory. java -jar shipping-x.x.x.jar Check the console for the application's REST response.\n\nCode Walk Through There are 3 notable class in this tutorial, namely com.ups.api.app.AppConfig and com.ups.api.app.PickupDemo. The AppConfig class is a configuration class leveraging Spring injection to incorporate the property value from src/main/resources/application.properties file. The TnTDemo is to illustrate how to use the TNT api.\n\nGet an access token via OAuth client_credentials grant type. // Prepare shipping api access. final String accessToken = Util.getAccessToken(appConfig, restTemplate); ShipApi shipApi = api.get(); if (null == shipApi) {\n\ninitializeShipApi function is to create a ship api object with the base url and populated the HTTP Authorization header with the access token. ##Shipping code //this code for shipmentReques SHIPRequestWrapper shipmentRequest = Util.createRequestFromJsonFile( entry.getValue().get(AppConfig.SCENARIO_PROPERTIES_JSON_FILE_NAME), SHIPRequestWrapper.class, appConfig); final String transId = UUID.randomUUID().toString().replaceAll(\"-\", \"\"); final ShipApi shipApi = getShipApi(restTemplate, appConfig); SHIPResponseWrapper shipResponseWrapper = Util.jsonResultPreprocess( shipApi.shipment(appConfig.getShippingVersion(), shipmentRequest, transId, appConfig.getTransactionSrc(), null), Util.getJsonToObjectConversionMap(), SHIPResponseWrapper.class); ShipmentResponse shipmentResponse = shipResponseWrapper.getShipmentResponse(); if (trackingNumber == null) { trackingNumber = shipmentResponse.getShipmentResults().getPackageResults().getTrackingNumber(); shipmentIdentificationNumber = shipmentResponse.getShipmentResults() .getShipmentIdentificationNumber(); } It reconstructs a SHIPRequestWrapper object from a json file. In a typical application, a SHIPRequestWrapper object would be created via a default constructor and calling setter to populate the attribute instead. A SHIPResponseWrapper will be returned from backend server for a particular shipment specified in the SHIPResponseWrapper object. The SHIPResponseWrapper would have a validation error if there is any as well as emsResponse, which includes a list of available UPS service and service detail, to a successful request. ##Label Recovery LABELRECOVERYRequestWrapper labelRecoveryRequest = Util.createRequestFromJsonFile( entry.getValue().get(AppConfig.SCENARIO_PROPERTIES_JSON_FILE_NAME), LABELRECOVERYRequestWrapper.class, appConfig); java-api-examples/shipping/ Top final String transId = UUID.randomUUID().toString().replaceAll(\"-\", \"\"); final ShipApi shipApi = getShipApi(restTemplate, appConfig); LABELRECOVERYResponseWrapper labelrecoveryResponseWrapper = shipApi.labelRecovery( appConfig.getShippingVersion(), labelRecoveryRequest, transId, appConfig.getTransactionSrc()); appConfig.getTransactionSrc(), trackingNumber); It reconstructs a LABELRECOVERYRequestWrapper object from a json file. In a typical application, a LABELRECOVERYRequestWrapper object would be created via a default constructor and calling setter to populate the attribute instead. A LABELRECOVERYResponseWrapper will be returned from backend server for a particular shipment specified in the LABELRECOVERYResponseWrapper object. The LABELRECOVERYResponseWrapper would have a validation error if there is any as well as LABELRECOVERYResponseWrapper, which includes a list of available UPS service and service detail, to a successful request. ##Label Recovery final ShipApi shipApi = getShipApi(restTemplate, appConfig); final String transId = UUID.randomUUID().toString().replace(\"-\", \"\"); VOIDSHIPMENTResponseWrapper voidshipmentResponseWrapper = shipApi.voidShipment( appConfig.getShippingVersion(), shipmentIdentificationNumber, transId, appConfig.getTransactionSrc(), trackingNumber);\n\nData Schema Request Schema SHIPRequestWrapper Response Schema SHIPResponseWrapper Request Schema LABELRECOVERYRequestWrapper Response Schema LABELRECOVERYResponseWrapper Response Schema VOIDSHIPMENTResponseWrapper Sample Request Negotiated Rates The Shipping Package RESTful API provides access to Published Rates and Negotiated Rates. A negotiated rate is established by contract between the customer and UPS.\n\nSample Request Negotiated Rates Sample Response Negotiated Rates Shipping Request with International Forms Shipping Request with International Forms Sample Response International Forms Shipping Dry Ice or Lithium Batteries Shipping Request Shipping Dry Ice or Lithium Batteries Sample Response Shipping Dry Ice or Lithium Batteries Shipping Hazmat Goods Request Customers must computer generate the UPS Hazardous Materials Shipping Paper or Shipper's Declaration. There is no validation for a hazardous materials shipment request Shipping Request Shipping Hazmat Goods Request Sample Response Shipping Hazmat Goods Billing Third Party Shipping Request Billing Third Party Sample Response Billing Third Party Multi-Piece Shipping Shipping Request Multi-Piece Shipping\n\nSample Response Ship to a UPS Access Point Proactive Response Shipping Shipping Request Proactive Response Shipping Sample Response Proactive Response Shipping World Wide Economy Shipping UPS Worldwide Economy (WWE) allows shippers to manifest low weight, low value goods destined for international consignees. Shippers can either consolidate their WWE shipments into a larger “Master Carton” for shipping to an in country UPS Export Facility; or they can provide their own transportation of the WWE shipments to the UPS Export Facility. WWE shipments that have been consolidated into a Master Carton are linked via a MasterCartonID, which provides enhanced tracking capability between the WWE shipments contained within and the Master Carton itself.\n\nShipping Request WorldWide Economy Shipping Sample Response WorldWide Economy Shipping Label Recovery Request Shipping Request Label Recovery Sample Response Label Recovery",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "UPS 배송 API 가이드"
+        },
+        {
+          "id": "2",
+          "type": "HEADING2",
+          "text": "배송 소개"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "배송 패키지 API는 여러 가지 방법을 제공합니다."
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "이 API로 패키지를 목적지까지 배송할 수 있습니다."
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "text": "당일 배송부터 일반 육상 운송까지 있습니다."
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "미국 내 배송과 국제 배송이 가능합니다."
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "문서부터 큰 패키지까지 보낼 수 있습니다.",
+          "blank": true
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "UPS는 많은 추가 서비스를 지원합니다."
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "배송 확인과 자동 알림 서비스도 있습니다."
+        },
+        {
+          "id": "12",
+          "type": "HEADING2",
+          "text": "시작하기"
+        },
+        {
+          "id": "13",
+          "type": "HEADING3",
+          "text": "필요한 것들"
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "이 도구들을 먼저 설치해야 합니다."
+        },
+        {
+          "id": "16",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 UPS 배송 API 개념도. 컴퓨터에서 UPS 트럭으로 연결되는 화살표, 패키지들, 간단한 아이콘들. 밝은 파란색과 갈색 톤, 만화풍 스타일, 텍스트 없음",
+          "concept": "UPS 배송 API 시스템",
+          "alt": "UPS 배송 API 연결 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/21/1e616565-9873-4423-a0a1-4c7c231013a6.svg"
+        },
+        {
+          "id": "17",
+          "type": "HEADING3",
+          "text": "다운로드"
+        },
+        {
+          "id": "18",
+          "type": "TEXT",
+          "text": "로컬 복사본을 다운로드할 수 있습니다."
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "다음 명령어를 사용하세요:"
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "git clone https://github.com/UPS-API/java-api-examples.git"
+        },
+        {
+          "id": "22",
+          "type": "HEADING3",
+          "text": "정보 입력하기"
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "< > 표시가 있는 태그를 찾으세요."
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "/src/main/resources/ 폴더의 JSON 파일에 있습니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "다음 필드들을 채워야 합니다:",
+          "blank": true
+        },
+        {
+          "id": "27",
+          "type": "LIST",
+          "items": [
+            "배송업체 번호",
+            "이메일 주소",
+            "발신 이메일 주소",
+            "계정 번호",
+            "배송 불가 이메일 주소"
+          ]
+        },
+        {
+          "id": "28",
+          "type": "LIST",
+          "items": [
+            "추적 번호",
+            "출발 전 ITN 번호",
+            "세금 식별 번호",
+            "송장 번호",
+            "구매 주문 번호"
+          ]
+        },
+        {
+          "id": "29",
+          "type": "HEADING3",
+          "text": "빌드하고 실행하기"
+        },
+        {
+          "id": "31",
+          "type": "TEXT",
+          "text": "프로젝트 홈 디렉토리로 이동하세요:"
+        },
+        {
+          "id": "32",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 프로그래밍 빌드 과정 이미지. 컴퓨터 화면에 코드, 화살표, 완성된 프로그램 아이콘. 초록색과 파란색 톤, 단순한 만화 스타일, 텍스트 없음",
+          "concept": "프로그램 빌드 과정",
+          "alt": "코드를 프로그램으로 만드는 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/21/c80f1a3a-ddc3-4c20-896b-b88bdd212ea0.svg"
+        },
+        {
+          "id": "33",
+          "type": "TEXT",
+          "text": "cd <project home>"
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "mvn clean package"
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "/target 디렉토리에 생성된 프로젝트를 실행하세요."
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "java -jar shipping-x.x.x.jar"
+        },
+        {
+          "id": "38",
+          "type": "HEADING2",
+          "text": "코드 살펴보기"
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "com.ups.api.app.AppConfig와 com.ups.api.app.PickupDemo입니다."
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "AppConfig 클래스는 설정 클래스입니다."
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "src/main/resources/application.properties 파일에서 가져옵니다."
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "TnTDemo는 TNT API 사용법을 보여줍니다.",
+          "blank": true
+        },
+        {
+          "id": "45",
+          "type": "HEADING3",
+          "text": "액세스 토큰 받기"
+        },
+        {
+          "id": "47",
+          "type": "TEXT",
+          "text": "배송 API 액세스를 준비합니다:"
+        },
+        {
+          "id": "48",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 API 인증 과정 이미지. 열쇠 아이콘, 컴퓨터, 서버, 체크 표시가 연결된 단순한 다이어그램. 초록색과 파란색, 만화풍, 텍스트 없음",
+          "concept": "API 인증 과정",
+          "alt": "API 접근 권한을 받는 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/21/92ea3005-a3c7-482c-b1cc-e8c390207e20.svg"
+        },
+        {
+          "id": "49",
+          "type": "TEXT",
+          "text": "final String accessToken = Util.getAccessToken(appConfig, restTemplate);"
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "ShipApi shipApi = api.get();"
+        },
+        {
+          "id": "51",
+          "type": "TEXT",
+          "text": "if (null == shipApi) {"
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "기본 URL과 HTTP 인증 헤더를 설정합니다."
+        },
+        {
+          "id": "54",
+          "type": "TEXT",
+          "text": "액세스 토큰으로 헤더를 채웁니다."
+        },
+        {
+          "id": "55",
+          "type": "HEADING3",
+          "text": "배송 코드"
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "이 코드는 배송 요청을 위한 것입니다:"
+        },
+        {
+          "id": "57",
+          "type": "TEXT",
+          "text": "SHIPRequestWrapper shipmentRequest = Util.createRequestFromJsonFile("
+        },
+        {
+          "id": "58",
+          "type": "TEXT",
+          "text": "entry.getValue().get(AppConfig.SCENARIO_PROPERTIES_JSON_FILE_NAME),"
+        },
+        {
+          "id": "59",
+          "type": "TEXT",
+          "text": "SHIPRequestWrapper.class, appConfig);"
+        },
+        {
+          "id": "61",
+          "type": "TEXT",
+          "text": "일반적인 응용 프로그램에서는 다르게 만듭니다."
+        },
+        {
+          "id": "63",
+          "type": "TEXT",
+          "text": "백엔드 서버에서 SHIPResponseWrapper가 반환됩니다.",
+          "blank": true
+        },
+        {
+          "id": "64",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 배송 요청 처리 과정. 컴퓨터에서 서버로 가는 화살표, 패키지 아이콘, 응답 메시지. 파란색과 초록색 톤, 간단한 만화 스타일, 텍스트 없음",
+          "concept": "배송 요청 처리",
+          "alt": "배송 요청을 서버에서 처리하는 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/21/8e502634-2d8b-4e35-91cb-e382b02b6faf.svg"
+        },
+        {
+          "id": "65",
+          "type": "TEXT",
+          "text": "특정 배송에 대한 응답이 포함됩니다."
+        },
+        {
+          "id": "66",
+          "type": "TEXT",
+          "text": "SHIPResponseWrapper 객체에 명시된 배송입니다."
+        },
+        {
+          "id": "67",
+          "type": "TEXT",
+          "text": "검증 오류가 있으면 포함됩니다."
+        },
+        {
+          "id": "68",
+          "type": "TEXT",
+          "text": "성공한 요청에는 emsResponse가 포함됩니다."
+        },
+        {
+          "id": "70",
+          "type": "TEXT",
+          "text": "서비스 세부 정보도 함께 제공됩니다."
+        },
+        {
+          "id": "71",
+          "type": "HEADING3",
+          "text": "라벨 복구"
+        },
+        {
+          "id": "72",
+          "type": "TEXT",
+          "text": "LABELRECOVERYRequestWrapper labelRecoveryRequest = Util.createRequestFromJsonFile("
+        },
+        {
+          "id": "73",
+          "type": "TEXT",
+          "text": "entry.getValue().get(AppConfig.SCENARIO_PROPERTIES_JSON_FILE_NAME),"
+        },
+        {
+          "id": "74",
+          "type": "TEXT",
+          "text": "LABELRECOVERYRequestWrapper.class, appConfig);"
+        },
+        {
+          "id": "75",
+          "type": "TEXT",
+          "text": "JSON 파일에서 LABELRECOVERYRequestWrapper 객체를 만듭니다."
+        },
+        {
+          "id": "77",
+          "type": "TEXT",
+          "text": "기본 생성자와 setter를 사용해서 속성을 채웁니다."
+        },
+        {
+          "id": "78",
+          "type": "TEXT",
+          "text": "백엔드 서버에서 LABELRECOVERYResponseWrapper가 반환됩니다."
+        },
+        {
+          "id": "79",
+          "type": "TEXT",
+          "text": "특정 배송에 대한 응답이 포함됩니다."
+        },
+        {
+          "id": "80",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 라벨 복구 과정 이미지. 배송 라벨, 복구 화살표, 프린터 아이콘. 주황색과 파란색 톤, 단순한 만화 스타일, 텍스트 없음",
+          "concept": "배송 라벨 복구",
+          "alt": "배송 라벨을 다시 받는 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/21/007ed118-a7f9-4cd1-95f1-dda81cfe037d.svg"
+        },
+        {
+          "id": "81",
+          "type": "TEXT",
+          "text": "LABELRECOVERYResponseWrapper 객체에 명시된 배송입니다."
+        },
+        {
+          "id": "82",
+          "type": "TEXT",
+          "text": "검증 오류가 있으면 포함됩니다."
+        },
+        {
+          "id": "83",
+          "type": "TEXT",
+          "text": "성공한 요청에는 LABELRECOVERYResponseWrapper가 포함됩니다."
+        },
+        {
+          "id": "84",
+          "type": "TEXT",
+          "text": "사용 가능한 UPS 서비스 목록이 들어있습니다."
+        },
+        {
+          "id": "86",
+          "type": "HEADING3",
+          "text": "배송 취소"
+        },
+        {
+          "id": "87",
+          "type": "TEXT",
+          "text": "final ShipApi shipApi = getShipApi(restTemplate, appConfig);"
+        },
+        {
+          "id": "88",
+          "type": "TEXT",
+          "text": "final String transId = UUID.randomUUID().toString().replace(\"-\", \"\");"
+        },
+        {
+          "id": "89",
+          "type": "TEXT",
+          "text": "VOIDSHIPMENTResponseWrapper voidshipmentResponseWrapper = shipApi.voidShipment("
+        },
+        {
+          "id": "90",
+          "type": "TEXT",
+          "text": "appConfig.getShippingVersion(), shipmentIdentificationNumber, transId,"
+        },
+        {
+          "id": "91",
+          "type": "TEXT",
+          "text": "appConfig.getTransactionSrc(), trackingNumber);"
+        },
+        {
+          "id": "92",
+          "type": "HEADING2",
+          "text": "데이터 스키마"
+        },
+        {
+          "id": "94",
+          "type": "TEXT",
+          "text": "응답 스키마: SHIPResponseWrapper"
+        },
+        {
+          "id": "95",
+          "type": "TEXT",
+          "text": "요청 스키마: LABELRECOVERYRequestWrapper"
+        },
+        {
+          "id": "96",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 데이터 스키마 개념도. 폴더, 문서, 화살표로 연결된 데이터 흐름. 보라색과 초록색 톤, 간단한 아이콘들, 텍스트 없음",
+          "concept": "데이터 스키마 구조",
+          "alt": "데이터 구조를 보여주는 도표",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/21/3e486dc6-012c-44b0-bb38-d420d8dc13b0.svg"
+        },
+        {
+          "id": "97",
+          "type": "TEXT",
+          "text": "응답 스키마: LABELRECOVERYResponseWrapper"
+        },
+        {
+          "id": "98",
+          "type": "TEXT",
+          "text": "응답 스키마: VOIDSHIPMENTResponseWrapper"
+        },
+        {
+          "id": "99",
+          "type": "HEADING2",
+          "text": "샘플 요청"
+        }
+      ]
+    }
+  ]
+}

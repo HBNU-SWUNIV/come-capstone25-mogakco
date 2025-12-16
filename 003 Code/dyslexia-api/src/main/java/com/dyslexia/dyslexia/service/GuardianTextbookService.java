@@ -1,0 +1,178 @@
+package com.dyslexia.dyslexia.service;
+
+import com.dyslexia.dyslexia.dto.TextbookDetailResponseDto;
+import com.dyslexia.dyslexia.dto.TextbookDto;
+import com.dyslexia.dyslexia.entity.Guardian;
+import com.dyslexia.dyslexia.entity.Student;
+import com.dyslexia.dyslexia.entity.StudentTextbookAssignment;
+import com.dyslexia.dyslexia.entity.Textbook;
+import com.dyslexia.dyslexia.exception.ApplicationException;
+import com.dyslexia.dyslexia.exception.ExceptionCode;
+import com.dyslexia.dyslexia.mapper.TextbookMapper;
+import com.dyslexia.dyslexia.repository.GuardianRepository;
+import com.dyslexia.dyslexia.repository.StudentRepository;
+import com.dyslexia.dyslexia.repository.StudentTextbookAssignmentRepository;
+import com.dyslexia.dyslexia.repository.TextbookRepository;
+import com.dyslexia.dyslexia.repository.TextbookThumbnailRepository;
+import com.dyslexia.dyslexia.util.JwtTokenProvider;
+import java.time.LocalDateTime;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@RequiredArgsConstructor
+@Slf4j
+@Transactional(readOnly = true)
+public class GuardianTextbookService {
+
+    private final GuardianRepository guardianRepository;
+    private final TextbookRepository textbookRepository;
+    private final StudentRepository studentRepository;
+    private final StudentTextbookAssignmentRepository assignmentRepository;
+    private final TextbookThumbnailRepository thumbnailRepository;
+    private final TextbookMapper textbookMapper;
+    private final JwtTokenProvider jwtTokenProvider;
+
+    /**
+     * 현재 인증된 보호자의 교재 목록 조회
+     */
+    public List<TextbookDto> getMyTextbooks() {
+        String currentClientId = jwtTokenProvider.getCurrentClientId();
+        Guardian guardian = guardianRepository.findByClientId(currentClientId)
+            .orElseThrow(() -> new ApplicationException(ExceptionCode.GUARDIAN_NOT_FOUND));
+
+        log.info("교재 목록 조회 - 보호자 ID: {}", guardian.getId());
+        List<Textbook> textbooks = textbookRepository.findByGuardianIdOrderByUpdatedAtDesc(guardian.getId());
+        log.info("조회된 교재 수: {}", textbooks.size());
+
+        return textbooks.stream()
+            .map(textbook -> {
+                log.info("교재 처리 중 - ID: {}, Title: {}", textbook.getId(), textbook.getTitle());
+                TextbookDto dto = textbookMapper.toDto(textbook);
+
+                // 썸네일 URL 추가
+                var thumbnailOpt = thumbnailRepository.findByTextbookId(textbook.getId());
+                log.info("교재 ID {} 썸네일 조회 결과: {}", textbook.getId(), thumbnailOpt.isPresent() ? "존재" : "없음");
+
+                thumbnailOpt.ifPresent(thumbnail -> {
+                    log.info("썸네일 URL 설정: {}", thumbnail.getThumbnailUrl());
+                    dto.setThumbnailUrl(thumbnail.getThumbnailUrl());
+                });
+
+                log.info("최종 DTO 썸네일 URL: {}", dto.getThumbnailUrl());
+                return dto;
+            })
+            .toList();
+    }
+
+    /**
+     * 현재 인증된 보호자가 학생에게 교재 할당
+     */
+    @Transactional
+    public void assignTextbookToStudent(Long studentId, Long textbookId, String notes) {
+        String currentClientId = jwtTokenProvider.getCurrentClientId();
+        Guardian guardian = guardianRepository.findByClientId(currentClientId)
+            .orElseThrow(() -> new ApplicationException(ExceptionCode.GUARDIAN_NOT_FOUND));
+
+        Student student = studentRepository.findById(studentId)
+            .orElseThrow(() -> new ApplicationException(ExceptionCode.STUDENT_NOT_FOUND));
+
+        Textbook textbook = textbookRepository.findById(textbookId)
+            .orElseThrow(() -> new ApplicationException(ExceptionCode.ENTITY_NOT_FOUND));
+
+        // 이미 할당된 교재인지 확인
+        assignmentRepository.findByStudentIdAndTextbookId(studentId, textbookId)
+            .ifPresent(a -> {
+                throw new ApplicationException(ExceptionCode.BAD_REQUEST_ERROR);
+            });
+
+        // 할당 정보 생성
+        StudentTextbookAssignment assignment = StudentTextbookAssignment.builder()
+            .student(student)
+            .textbook(textbook)
+            .assignedBy(guardian)
+            .assignedAt(LocalDateTime.now())
+            .notes(notes)
+            .build();
+
+        assignmentRepository.save(assignment);
+    }
+
+    /**
+     * 현재 인증된 보호자가 학생의 교재 할당 취소
+     */
+    @Transactional
+    public void unassignTextbookFromStudent(Long studentId, Long textbookId) {
+        String currentClientId = jwtTokenProvider.getCurrentClientId();
+        Guardian guardian = guardianRepository.findByClientId(currentClientId)
+            .orElseThrow(() -> new ApplicationException(ExceptionCode.GUARDIAN_NOT_FOUND));
+
+        StudentTextbookAssignment assignment = assignmentRepository
+            .findByStudentIdAndTextbookId(studentId, textbookId)
+            .orElseThrow(() -> new ApplicationException(ExceptionCode.ENTITY_NOT_FOUND));
+
+        // 본인이 할당한 교재만 취소 가능
+        if (!assignment.getAssignedBy().getId().equals(guardian.getId())) {
+            throw new ApplicationException(ExceptionCode.ACCESS_DENIED);
+        }
+
+        assignmentRepository.delete(assignment);
+    }
+
+    /**
+     * 현재 인증된 보호자가 특정 학생에게 할당한 교재 목록 조회
+     */
+    public List<TextbookDto> getAssignedTextbooksForStudent(Long studentId) {
+        String currentClientId = jwtTokenProvider.getCurrentClientId();
+        Guardian guardian = guardianRepository.findByClientId(currentClientId)
+            .orElseThrow(() -> new ApplicationException(ExceptionCode.GUARDIAN_NOT_FOUND));
+
+        List<StudentTextbookAssignment> assignments =
+            assignmentRepository.findByAssignedByIdAndStudentId(guardian.getId(), studentId);
+
+        return assignments.stream()
+            .map(StudentTextbookAssignment::getTextbook)
+            .map(textbook -> {
+                TextbookDto dto = textbookMapper.toDto(textbook);
+                // 썸네일 URL 추가
+                thumbnailRepository.findByTextbookId(textbook.getId())
+                    .ifPresent(thumbnail -> dto.setThumbnailUrl(thumbnail.getThumbnailUrl()));
+                return dto;
+            })
+            .toList();
+    }
+
+    /**
+     * 현재 인증된 보호자의 특정 교재 상세 정보 조회
+     */
+    public TextbookDetailResponseDto getTextbookDetail(Long textbookId) {
+        String currentClientId = jwtTokenProvider.getCurrentClientId();
+        Guardian guardian = guardianRepository.findByClientId(currentClientId)
+            .orElseThrow(() -> new ApplicationException(ExceptionCode.GUARDIAN_NOT_FOUND));
+
+        Textbook textbook = textbookRepository.findById(textbookId)
+            .orElseThrow(() -> new ApplicationException(ExceptionCode.ENTITY_NOT_FOUND));
+
+        // 본인의 교재인지 확인
+        if (!textbook.getGuardian().getId().equals(guardian.getId())) {
+            throw new ApplicationException(ExceptionCode.ACCESS_DENIED);
+        }
+
+        // 해당 교재에 할당된 학생 수 조회
+        Long assignedStudentCount = assignmentRepository.countByTextbookId(textbookId);
+
+        return TextbookDetailResponseDto.builder()
+            .textbookId(textbook.getId())
+            .textbookName(textbook.getTitle())
+            .totalPages(textbook.getPageCount())
+            .assignedStudentCount(assignedStudentCount)
+            .createdAt(textbook.getCreatedAt())
+            .convertStatus(textbook.getConvertProcessStatus().name())
+            .originalFileName(textbook.getDocument() != null ? 
+                textbook.getDocument().getOriginalFilename() : null)
+            .build();
+    }
+}

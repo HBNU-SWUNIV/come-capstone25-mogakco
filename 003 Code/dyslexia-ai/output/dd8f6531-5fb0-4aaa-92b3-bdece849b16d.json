@@ -1,0 +1,527 @@
+{
+  "jobId": "dd8f6531-5fb0-4aaa-92b3-bdece849b16d",
+  "fileName": "기업소개 및 대표 경력 _ 씨엠지.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-22T06:30:16.807163",
+  "completedAt": "2025-09-22T06:31:41.475363",
+  "processingTimeSeconds": 84.6682,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 2,
+    "total_chunks": 1,
+    "total_blocks": 61
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "기업소개 1. 개요 및 연혁 • 기 업 명 : 씨엠지 (CMG) • 대 표 자 : 송세환 • 산 업 분 야 : 로봇 자동화 시스템 S/W , H/W 개발 공급 • 설 립 연 도 : 2022년 9월 1일 2. 매출 및 인력 • 매출 천원 구분 2023년 2024년 총매출액 145,357 360,317 • 인력 구분 2023년 2024년 2025년 고용인원수 0 1 1 , (계획:2) 3. 프로젝트 수행 이력\n\n대표 경력  에스엘엠 (2년): 모바일 선저 청소로봇 제어 프로그램 및 하드웨어 개발 팀장 - 선저 청소용 모바일 로봇 제어 프로그램 개발. - 대형 배관 티그 자동 용접 시스템(오비탈용접로봇) 제어 프로그램 및 하드웨어 개발.  한국항공우주산업(3년) : 차세대 전투기 비행제어실 세부계통 제어 프로그램 설계  삼성중공업 (12년) : 선박 건조 자동화 공정 로봇 및 시스템 개발 - 소조립 자동 용접 로봇 모션 제어 프로그램 및 사용자 인터페이스 개발 , PL - 중조립 자동 용접 로봇 모션 제어 프로그램 및 사용자 인터페이스 개발 , PL - 대형 배관 티그 자동 용접 시스템(오비탈용접로봇) 제어프로그램 및 사용자 인터페이스 개발 - LNG 선박 화물창 마킹용 자율 주행 모바일 로봇 제어 프로그램 개발 - 풍력 원형 타워 외부 도장 자동화 로봇 제어 프로그램 개발. - 블록 내부 도장 자동화 로봇 제어 프로그램 개발. - 차세대 드릴십 Information Management System 개발 , PL  세메스(3년) : LCD 제조 전 공정 FPD 장비 개발  나래나노텍(2년) : 반도체 후 공정 장비 개발",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "기업소개"
+        },
+        {
+          "id": "2",
+          "type": "HEADING2",
+          "text": "1. 개요 및 연혁"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "회사 이름은 씨엠지입니다."
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "영어로는 CMG라고 씁니다."
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "text": "대표자는 송세환입니다."
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "text": "이 회사는 로봇을 만드는 회사입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "로봇",
+              "startIndex": 6,
+              "endIndex": 8,
+              "definition": "사람 대신 일을 하는 기계",
+              "simplifiedDefinition": "사람처럼 움직이며 일을 도와주는 기계",
+              "examples": [
+                "청소 로봇이 바닥을 깨끗하게 해줘요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "기술 용어이지만 일반적으로 알려진 단어"
+            }
+          ]
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "로봇이 스스로 일하도록 만드는 시스템을 개발합니다."
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "컴퓨터 프로그램과 기계 부품을 모두 만듭니다."
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "2022년 9월 1일에 회사를 시작했습니다.",
+          "blank": true
+        },
+        {
+          "id": "10",
+          "type": "HEADING2",
+          "text": "2. 매출 및 인력"
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "매출은 회사가 번 돈을 말합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "매출",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "회사가 물건을 팔아서 번 돈",
+              "simplifiedDefinition": "회사가 일해서 받은 돈",
+              "examples": [
+                "빵집의 매출은 빵을 팔아서 번 돈이에요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "경제 용어"
+            }
+          ]
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "text": "2023년에는 145,357천원을 벌었습니다."
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "2024년에는 360,317천원을 벌었습니다."
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "2024년이 2023년보다 훨씬 많이 벌었습니다."
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "회사에서 일하는 사람 수도 늘어났습니다."
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "text": "2023년에는 직원이 0명이었습니다."
+        },
+        {
+          "id": "17",
+          "type": "TEXT",
+          "text": "2024년에는 직원이 1명이 되었습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "직원",
+              "startIndex": 8,
+              "endIndex": 10,
+              "definition": "회사에서 일하는 사람",
+              "simplifiedDefinition": "회사에서 돈을 받고 일하는 사람",
+              "examples": [
+                "우리 아빠는 은행 직원이에요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "일반적인 용어이지만 명확한 설명 필요"
+            }
+          ]
+        },
+        {
+          "id": "18",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 회사 성장 그래프. 2023년과 2024년 매출 비교, 직원 수 증가를 막대그래프로 표현. 밝은 파란색과 초록색, 간단한 아이콘, 만화풍",
+          "concept": "회사 성장",
+          "alt": "씨엠지 회사의 매출과 직원 수 증가 그래프",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/7a825738-3adf-4b34-afb2-f514477df4c1.svg"
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "2025년에는 직원을 2명으로 늘릴 계획입니다.",
+          "blank": true
+        },
+        {
+          "id": "20",
+          "type": "HEADING2",
+          "text": "3. 프로젝트 수행 이력"
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "대표자 송세환의 경력을 소개합니다."
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "여러 회사에서 로봇 개발 일을 했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "개발",
+              "startIndex": 10,
+              "endIndex": 12,
+              "definition": "새로운 것을 만들어내는 일",
+              "simplifiedDefinition": "없던 것을 새로 만드는 일",
+              "examples": [
+                "새로운 게임을 개발했어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념"
+            }
+          ]
+        },
+        {
+          "id": "23",
+          "type": "HEADING3",
+          "text": "에스엘엠 (2년)"
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "배의 바닥을 청소하는 로봇을 만들었습니다."
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "이 로봇은 스마트폰처럼 움직일 수 있습니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "로봇이 어떻게 움직일지 정하는 프로그램을 만들었습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "프로그램",
+              "startIndex": 18,
+              "endIndex": 22,
+              "definition": "컴퓨터에게 일을 시키는 명령어 모음",
+              "simplifiedDefinition": "컴퓨터에게 무엇을 할지 알려주는 명령들",
+              "examples": [
+                "게임도 프로그램으로 만들어져요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "큰 파이프를 자동으로 용접하는 시스템도 만들었습니다."
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "용접은 쇠를 뜨겁게 달궈서 붙이는 일입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "용접",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "금속을 뜨겁게 달궈서 붙이는 기술",
+              "simplifiedDefinition": "쇠를 불로 뜨겁게 해서 붙이는 일",
+              "examples": [
+                "자동차를 만들 때 용접을 해요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "팀장으로 일했습니다.",
+          "blank": true
+        },
+        {
+          "id": "30",
+          "type": "HEADING3",
+          "text": "한국항공우주산업 (3년)"
+        },
+        {
+          "id": "31",
+          "type": "TEXT",
+          "text": "전투기를 만드는 회사에서 일했습니다."
+        },
+        {
+          "id": "32",
+          "type": "TEXT",
+          "text": "전투기가 하늘에서 잘 날 수 있도록 하는 시스템을 만들었습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "전투기",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "군대에서 사용하는 빠른 비행기",
+              "simplifiedDefinition": "군인들이 타고 하늘에서 싸우는 빠른 비행기",
+              "examples": [
+                "전투기는 일반 비행기보다 훨씬 빨라요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "군사 용어"
+            }
+          ]
+        },
+        {
+          "id": "33",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 다양한 로봇들 이미지. 청소 로봇, 용접 로봇, 전투기가 함께 있는 장면. 밝은 색상, 친근한 만화풍, 각 로봇의 특징을 간단하게 표현",
+          "concept": "다양한 로봇과 기계들",
+          "alt": "청소 로봇, 용접 로봇, 전투기가 있는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/116af86b-9664-4bf2-8a92-ff20384e776b.svg"
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "비행제어실은 전투기의 두뇌 같은 곳입니다."
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "여기서 전투기의 모든 움직임을 조종합니다.",
+          "blank": true
+        },
+        {
+          "id": "36",
+          "type": "HEADING3",
+          "text": "삼성중공업 (12년)"
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "배를 만드는 회사에서 가장 오래 일했습니다."
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "12년 동안 여러 가지 로봇을 만들었습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "중공업",
+              "startIndex": 2,
+              "endIndex": 5,
+              "definition": "큰 기계나 배, 자동차 등을 만드는 산업",
+              "simplifiedDefinition": "배나 자동차 같은 큰 것들을 만드는 일",
+              "examples": [
+                "중공업 회사에서는 배와 자동차를 만들어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "산업 분야 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "작은 부품들을 자동으로 용접하는 로봇을 만들었습니다."
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "중간 크기 부품들을 용접하는 로봇도 만들었습니다."
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "사람이 쉽게 사용할 수 있는 화면도 만들었습니다."
+        },
+        {
+          "id": "42",
+          "type": "TEXT",
+          "text": "이런 프로젝트에서 팀장 역할을 했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "프로젝트",
+              "startIndex": 3,
+              "endIndex": 8,
+              "definition": "특정한 목표를 위해 하는 일의 계획",
+              "simplifiedDefinition": "어떤 목표를 이루기 위해 계획해서 하는 일",
+              "examples": [
+                "학교에서 과학 프로젝트를 했어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "외래어"
+            }
+          ]
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "LNG 선박의 화물창에 표시를 하는 로봇도 만들었습니다."
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "이 로봇은 스스로 길을 찾아 움직입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "LNG",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "액화천연가스의 영어 줄임말",
+              "simplifiedDefinition": "차가워서 액체가 된 천연가스",
+              "examples": [
+                "LNG는 요리할 때 쓰는 가스를 차갑게 만든 것이에요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "45",
+          "type": "TEXT",
+          "text": "바람으로 전기를 만드는 풍력 타워도 칠하는 로봇을 만들었습니다."
+        },
+        {
+          "id": "46",
+          "type": "TEXT",
+          "text": "배 안쪽을 칠하는 로봇도 개발했습니다."
+        },
+        {
+          "id": "47",
+          "type": "TEXT",
+          "text": "드릴십의 정보 관리 시스템도 만들었습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "드릴십",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "바다에서 기름을 뽑는 특수한 배",
+              "simplifiedDefinition": "바다 밑에서 기름을 찾아 뽑는 배",
+              "examples": [
+                "드릴십은 바다에서 기름을 찾는 배예요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 선박 용어"
+            }
+          ]
+        },
+        {
+          "id": "48",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 조선소와 로봇들 이미지. 큰 배를 만드는 공장에서 용접 로봇들이 일하는 모습. 밝은 색상, 안전한 느낌, 만화풍",
+          "concept": "조선소의 로봇들",
+          "alt": "배를 만드는 공장에서 로봇들이 일하는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/37ab8bca-cd80-4357-aae5-dacb000b7a9f.svg"
+        },
+        {
+          "id": "49",
+          "type": "TEXT",
+          "text": "이 모든 일에서 팀장으로 일했습니다.",
+          "blank": true
+        },
+        {
+          "id": "50",
+          "type": "HEADING3",
+          "text": "세메스 (3년)"
+        },
+        {
+          "id": "51",
+          "type": "TEXT",
+          "text": "LCD 화면을 만드는 장비를 개발했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "LCD",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "액정 디스플레이의 영어 줄임말",
+              "simplifiedDefinition": "텔레비전이나 컴퓨터 화면에 쓰이는 평평한 화면",
+              "examples": [
+                "우리 집 텔레비전은 LCD 화면이에요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "52",
+          "type": "TEXT",
+          "text": "FPD는 평평한 화면을 만드는 기술입니다."
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "3년 동안 이런 장비를 만드는 일을 했습니다.",
+          "blank": true
+        },
+        {
+          "id": "54",
+          "type": "HEADING3",
+          "text": "나래나노텍 (2년)"
+        },
+        {
+          "id": "55",
+          "type": "TEXT",
+          "text": "반도체를 만드는 장비를 개발했습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "반도체",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "전기가 반만 통하는 특수한 물질로 만든 부품",
+              "simplifiedDefinition": "컴퓨터와 스마트폰의 두뇌 역할을 하는 작은 부품",
+              "examples": [
+                "스마트폰 안에는 반도체가 들어있어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "반도체를 만든 후에 검사하고 포장하는 장비였습니다."
+        },
+        {
+          "id": "57",
+          "type": "TEXT",
+          "text": "2년 동안 이 회사에서 일했습니다."
+        },
+        {
+          "id": "58",
+          "type": "TEXT",
+          "text": "송세환 대표는 총 22년간 로봇 개발 경험이 있습니다."
+        },
+        {
+          "id": "59",
+          "type": "TEXT",
+          "text": "여러 분야에서 다양한 로봇을 만들어왔습니다."
+        },
+        {
+          "id": "60",
+          "type": "TEXT",
+          "text": "이런 경험을 바탕으로 씨엠지를 설립했습니다."
+        },
+        {
+          "id": "61",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 기술 발전 타임라인 이미지. 반도체, LCD 화면, 로봇들이 시간 순서대로 배열된 모습. 밝은 색상, 미래적이지만 친근한 느낌, 만화풍",
+          "concept": "기술 발전 과정",
+          "alt": "다양한 기술들의 발전 과정을 보여주는 타임라인",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/895da3b3-275e-4cce-860c-be69664b8860.svg"
+        }
+      ]
+    }
+  ]
+}

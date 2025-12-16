@@ -1,0 +1,281 @@
+// Dyslexia Educational Platform - Database Schema
+// Generated for dbdiagram.io
+// 난독증 교육 플랫폼 데이터베이스 설계
+
+Table teachers {
+  id bigint [PK, increment]
+  teacher_code varchar [unique, not null]
+  name varchar [not null]
+  email varchar
+  phone varchar
+  school_name varchar
+  department varchar
+  is_active boolean [default: true]
+}
+
+Table guardians {
+  id bigint [PK, increment]
+  client_id varchar
+  name varchar [not null]
+  organization varchar
+  email varchar
+  profile_image_url varchar
+  guardian_role enum
+  match_code varchar [unique]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+}
+
+Table students {
+  id bigint [PK, increment]
+  client_id varchar
+  name varchar [not null]
+  guardian_id bigint
+  grade enum
+  type varchar
+  state varchar
+  profile_image_url varchar
+
+  // 접근성 기본 설정
+  default_font_size int [default: 16]
+  default_line_spacing float [default: 1.5]
+  default_letter_spacing float [default: 0.1]
+  default_color_scheme enum [default: 'LIGHT']
+  default_text_to_speech_enabled boolean [default: false]
+  default_reading_highlight_enabled boolean [default: true]
+  default_background_color varchar [default: '#FFFFFF']
+  default_text_color varchar [default: '#000000']
+
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+}
+
+Table interests {
+  id bigint [PK, increment]
+  name varchar [not null]
+}
+
+// 학생-관심사 연결 테이블
+Table student_interest {
+  student_id bigint
+  interest_id bigint
+
+  Indexes {
+    (student_id, interest_id) [unique]
+  }
+}
+
+Table courses {
+  id bigint [PK, increment]
+  course_name varchar [not null]
+  course_code varchar
+  description text
+  credit_hours int
+  instructor varchar
+  is_active boolean [default: true]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+}
+
+Table documents {
+  id bigint [PK, increment]
+  guardian_id bigint
+  title varchar [not null]
+  original_filename varchar [not null]
+  file_path varchar [length: 500]
+  file_size bigint
+  mime_type varchar [length: 100]
+  uploaded_at timestamp [not null]
+  metadata jsonb
+  job_id varchar [unique, length: 36]
+  processing_status enum [default: 'PENDING']
+  progress int [default: 0]
+  error_message text
+  completed_at timestamp
+}
+
+Table textbooks {
+  id bigint [PK, increment]
+  document_id bigint
+  guardian_id bigint
+  title varchar [not null]
+  page_count int
+  learn_rate int
+  convert_process_status enum [not null]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+}
+
+Table pages {
+  id bigint [PK, increment]
+  textbook_id bigint
+  page_number int [not null]
+  original_content text
+  processed_content jsonb [not null]
+  processing_status enum [not null]
+  section_title text
+  reading_level int
+  word_count int
+  complexity_score float
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    (textbook_id, page_number) [unique]
+  }
+}
+
+Table page_images {
+  id bigint [PK, increment]
+  page_id bigint
+  image_url varchar [not null]
+  image_type varchar
+  position_order int
+  alt_text varchar
+  created_at timestamp [default: `now()`]
+}
+
+Table page_tips {
+  id bigint [PK, increment]
+  page_id bigint
+  tip_content text [not null]
+  tip_type varchar
+  position_x float
+  position_y float
+  is_active boolean [default: true]
+  created_at timestamp [default: `now()`]
+}
+
+Table page_accessibility_settings {
+  id bigint [PK, increment]
+  page_id bigint
+  student_id bigint
+  font_size int
+  line_spacing float
+  letter_spacing float
+  color_scheme enum
+  text_to_speech_enabled boolean
+  reading_highlight_enabled boolean
+  background_color varchar
+  text_color varchar
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+
+  Indexes {
+    (page_id, student_id) [unique]
+  }
+}
+
+Table student_page_progress {
+  id bigint [PK, increment]
+  student_id bigint
+  page_id bigint
+  reading_time_seconds int [default: 0]
+  completion_status enum [default: 'NOT_STARTED']
+  last_accessed_at timestamp
+  reading_comprehension_score float
+  notes text
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: `now()`]
+
+  Indexes {
+    (student_id, page_id) [unique]
+  }
+}
+
+Table student_textbook_assignments {
+  id bigint [PK, increment]
+  student_id bigint
+  textbook_id bigint
+  assigned_by bigint
+  current_page_number int [default: 1]
+  assigned_at timestamp [not null]
+  notes text
+  completion_status enum [not null]
+  total_learning_time int [default: 0]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    (student_id, textbook_id) [unique]
+  }
+}
+
+Table ai_responses {
+  id bigint [PK, increment]
+  page_id bigint
+  student_id bigint
+  request_type varchar [not null]
+  request_content text
+  response_content jsonb
+  response_time_ms int
+  created_at timestamp [default: `now()`]
+}
+
+Table ai_requests {
+  id bigint [PK, increment]
+  student_id bigint
+  page_id bigint
+  request_type varchar [not null]
+  request_content text
+  status enum [default: 'PENDING']
+  processing_time_ms int
+  created_at timestamp [default: `now()`]
+  completed_at timestamp
+}
+
+// 어휘 분석 테이블 (Page와 직접 관계로 개선)
+Table vocabulary_analysis {
+  id bigint [PK, increment]
+  page_id bigint [not null]  // Page 테이블과 직접 외래 키 관계
+  block_id varchar [not null]
+  word varchar [not null]
+  start_index int
+  end_index int
+  definition text
+  simplified_definition text
+  examples text
+  difficulty_level varchar
+  reason text
+  grade_level int
+  phoneme_analysis_json text
+  created_at timestamp [default: `now()`]
+
+  Indexes {
+    (page_id, block_id, word, start_index, end_index) [unique]
+    (page_id)
+    (word)
+    (block_id)
+  }
+}
+
+// 관계 정의
+Ref: guardians.id < students.guardian_id
+Ref: students.id > student_interest.student_id
+Ref: interests.id < student_interest.interest_id
+Ref: guardians.id < documents.guardian_id
+Ref: documents.id < textbooks.document_id
+Ref: guardians.id < textbooks.guardian_id
+Ref: textbooks.id < pages.textbook_id
+Ref: pages.id < page_images.page_id
+Ref: pages.id < page_tips.page_id
+Ref: pages.id > page_accessibility_settings.page_id
+Ref: students.id > page_accessibility_settings.student_id
+Ref: students.id > student_page_progress.student_id
+Ref: pages.id > student_page_progress.page_id
+Ref: students.id > student_textbook_assignments.student_id
+Ref: textbooks.id > student_textbook_assignments.textbook_id
+Ref: guardians.id > student_textbook_assignments.assigned_by
+Ref: pages.id > ai_responses.page_id
+Ref: students.id > ai_responses.student_id
+Ref: pages.id > ai_requests.page_id
+Ref: students.id > ai_requests.student_id
+
+// 어휘 분석 관계 (개선됨)
+Ref: pages.id < vocabulary_analysis.page_id
+
+// 설정
+Setting: {
+  postgres_version: 15
+  note: "난독증 교육 플랫폼 데이터베이스 스키마입니다."
+}

@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.env
+.venv/
+venv/
+env/
+
+# IDEs
+.idea/
+.vscode/
+
+# Environment variables
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+temp/
+*.tmp
+
+# OS generated files (Windows)
+Thumbs.db
+ehthumbs.db
+
+# Claude settings
+.claude/

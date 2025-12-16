@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    container_name: dyslexia-ai-app
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "10300:10300"
+    # Use named volumes by default to avoid host bind-mount issues on /Volumes
+    volumes:
+      - dyslexia_temp:/app/temp
+      - dyslexia_output:/app/output
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10300"]
+
+volumes:
+  dyslexia_temp:
+  dyslexia_output:

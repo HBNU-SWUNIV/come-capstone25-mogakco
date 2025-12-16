@@ -1,0 +1,577 @@
+{
+  "job_completed_at": "2025-09-17T11:10:15.900792",
+  "content_type": "dyslexia_teaching_material",
+  "total_chunks": 1,
+  "content": [
+    {
+      "chunk_index": 0,
+      "text": "온디바이스 sLLM 기반 정신건강 지원 챗봇 프로토타입 개발 가이드 (React Native Expo) 본 문서는 React Native Expo 환경에서 소형 거대 언어 모델(sLLM)을 디바이스에 직접 탑재하여, 한국어로 우울증 환자의 정서적 지원을 돕는 채팅 프로토타입 개발의 요구사항, 기술 스택, 아키텍처 및 상세 절차를 정의합니다.\n\nI. 프로젝트 개요 목표: 서버 통신 없이 디바이스 내에서 독립적으로 구동되는(On-device) AI 챗봇 프로토타입 구 현. 핵심 기능: 사용자의 한국어 입력을 이해하고, 공감적이고 안정적인 어조로 대화 수행. 핵심 전략: 한국어 성능이 검증된 sLLM(Phi-3 Mini)을 사용하고, 를 react-native-llama 통해 통합하며, 시스템 프롬프트와 애플리케이션 레벨의 안전장치를 통해 대화를 제어합니다. 주의사항: 본 프로토타입은 기술 검증(PoC) 목적이며, 전문적인 의료 상담이나 치료를 절대 대체 할 수 없습니다.\n\nII. 요구사항 정의 1. 기능적 요구사항 F-01: 모든 대화 생성은 사용자의 디바이스 내에서 이루어져야 합니다 (온디바이스 추론).\n\nF-02: 자연스러운 한국어 이해 및 응답 생성이 가능해야 합니다.\n\nF-03: 챗봇은 사용자의 감정을 경청하고 공감하는 어조를 유지해야 합니다.\n\nF-04: 응답은 스트리밍 방식(글자가 순차적으로 나타남)으로 표시되어야 합니다.\n\n2. 비기능적(기술) 요구사항 N-01 (성능): 초당 8 토큰 이상의 생성 속도(TPS)를 목표로 합니다.\n\nN-02 (환경): 네이티브 모듈 통합을 위해 Expo EAS Build 사용이 필수입니다 ( 지 Expo Go 원 불가).\n\n3. 안전 및 윤리 요구사항 (Critical) S-01: 챗봇은 어떠한 경우에도 진단, 치료법 제안, 요청하지 않은 조언을 제공해서는 안 됩니다.\n\nS-02: 사용자가 자해/자살 등 위험 신호를 보일 경우, LLM 응답 대신 즉시 전문가 도움 요청 안 내(예: 1393 연락처)를 표시해야 합니다 (하드코딩된 안전장치).\n\nS-03: 앱 시작 시 서비스의 한계와 면책 조항을 명확히 고지해야 합니다.\n\n1. 모델 선정 TinyLlama(1.1B)는 한국어 능력이 매우 부족하고 복잡한 감정을 이해하기 어려워 본 프로젝트에 부 적합합니다. 선정 모델: Microsoft Phi-3 Mini (3.8B Instruct) 이유: 4B 이하 sLLM 중 최고 성능(SOTA)이며, 우수한 한국어 처리 능력 및 지시 이행 능력 을 보유. 모델 포맷: GGUF (Q4 양자화) 이유: 메모리 효율성과 추론 속도에 최적화. 크기(약 2.3GB)와 성능의 균형이 우수.\n\n2. 기술 스택 영역 기술 스택 설명 프레임워크 React Native (Expo) 크로스 플랫폼 지원. (언어: TypeScript 권장) 추론 엔진 Llama.cpp C++ 기반 고성능 온디바이스 추론 엔진. 브릿지 라이브러리 react-native-llama RN과 Llama.cpp를 JSI로 효율적으로 연결. 빌드 시스템 EAS Build 네이티브 코드 포함을 위한 필수 빌드 방식.\n\n3. 아키텍처 다이어그램 JavaScript 스레드(UI)와 네이티브 스레드(추론 엔진) 간의 효율적인 통신이 핵심입니다. 코드 스니펫 graph TD A[React Native UI (JS/TS Thread)] -- JSI 호출 --> B(react-native- llama Bridge); B --> C(Llama.cpp Engine (C++ Native Thread)); C -- 모델 로드 --> D[(Phi-3 Mini.gguf)]; C -- 추론 수행 --> E{GPU Acceleration (Metal/Vulkan/CPU)}; C -- 토큰 스트리밍 콜백 --> B; B -- UI 업데이트 이벤트 --> A;",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "온디바이스 sLLM 기반 정신건강 지원 챗봇 프로토타입 개발 가이드"
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "text": "이 문서는 React Native Expo 환경에서 작은 언어 모델을 사용하는 방법을 설명합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "React Native Expo",
+              "startIndex": 7,
+              "endIndex": 24,
+              "definition": "모바일 앱을 만드는 개발 도구",
+              "simplifiedDefinition": "휴대폰 앱을 쉽게 만들 수 있는 프로그램",
+              "examples": [
+                "React Native Expo로 아이폰과 안드로이드 앱을 동시에 만들 수 있어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 개발 용어"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "소형 거대 언어 모델을 휴대폰에 직접 설치합니다."
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "이 모델은 한국어로 우울증 환자를 도와주는 채팅 프로그램입니다."
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "text": "이 가이드는 개발 방법과 필요한 기술을 자세히 설명합니다.",
+          "blank": true
+        },
+        {
+          "id": "6",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세를 위한 모바일 앱 개발 개념도. 휴대폰 화면에 친근한 챗봇 캐릭터가 있고, 주변에 코딩 블록들과 개발 도구들이 간단한 아이콘으로 표현됨. 밝은 파란색과 초록색 톤, 만화풍 스타일",
+          "concept": "모바일 앱 개발",
+          "alt": "휴대폰 앱 개발 과정을 보여주는 그림"
+        },
+        {
+          "id": "7",
+          "type": "HEADING2",
+          "text": "I. 프로젝트 개요"
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "목표: 서버 없이 휴대폰에서 독립적으로 작동하는 AI 챗봇을 만듭니다."
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "이 챗봇은 온디바이스 방식으로 작동합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "온디바이스",
+              "startIndex": 8,
+              "endIndex": 13,
+              "definition": "기기 내부에서 직접 처리하는 방식",
+              "simplifiedDefinition": "휴대폰 안에서 바로 일을 처리하는 것",
+              "examples": [
+                "온디바이스 방식은 인터넷 없이도 작동해요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "핵심 기능: 사용자의 한국어 입력을 이해합니다."
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "공감적이고 안정적인 어조로 대화를 합니다."
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "text": "핵심 전략: 한국어 성능이 검증된 작은 언어 모델을 사용합니다.",
+          "blank": true
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "Phi-3 Mini 모델을 react-native-llama를 통해 연결합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "Phi-3 Mini",
+              "startIndex": 0,
+              "endIndex": 9,
+              "definition": "마이크로소프트에서 만든 작은 인공지능 언어 모델",
+              "simplifiedDefinition": "작지만 똑똑한 AI 언어 프로그램",
+              "examples": [
+                "Phi-3 Mini는 휴대폰에서도 빠르게 작동해요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 모델명"
+            }
+          ]
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "시스템 프롬프트와 안전장치로 대화를 제어합니다."
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "주의사항: 이 프로그램은 기술 검증 목적입니다."
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "text": "전문적인 의료 상담이나 치료를 절대 대체할 수 없습니다."
+        },
+        {
+          "id": "17",
+          "type": "TEXT",
+          "text": "실제 치료가 필요하면 반드시 전문의를 찾아야 합니다.",
+          "blank": true
+        },
+        {
+          "id": "18",
+          "type": "PAGE_IMAGE",
+          "prompt": "의료진과 AI 챗봇의 역할 구분을 보여주는 이미지. 왼쪽에 친근한 의사 캐릭터(전문 치료), 오른쪽에 로봇 캐릭터(기술 지원). 중간에 명확한 구분선. 따뜻한 색상, 만화풍",
+          "concept": "AI와 의료진의 역할 구분",
+          "alt": "AI 챗봇과 의사의 다른 역할을 보여주는 그림"
+        },
+        {
+          "id": "19",
+          "type": "HEADING2",
+          "text": "II. 요구사항 정의"
+        },
+        {
+          "id": "20",
+          "type": "HEADING3",
+          "text": "1. 기능적 요구사항"
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "F-01: 모든 대화 생성은 사용자의 휴대폰 안에서 이루어져야 합니다."
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "이것을 온디바이스 추론이라고 합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "추론",
+              "startIndex": 12,
+              "endIndex": 14,
+              "definition": "정보를 분석하여 결론을 내리는 과정",
+              "simplifiedDefinition": "생각해서 답을 찾아내는 것",
+              "examples": [
+                "AI가 질문을 듣고 추론해서 답변을 만들어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념"
+            }
+          ]
+        },
+        {
+          "id": "23",
+          "type": "TEXT",
+          "text": "F-02: 자연스러운 한국어 이해와 응답 생성이 가능해야 합니다."
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "F-03: 챗봇은 사용자의 감정을 경청하고 공감하는 어조를 유지해야 합니다."
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "F-04: 응답은 스트리밍 방식으로 표시되어야 합니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "글자가 순차적으로 나타나는 방식입니다.",
+          "blank": true
+        },
+        {
+          "id": "27",
+          "type": "HEADING3",
+          "text": "2. 비기능적(기술) 요구사항"
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "N-01 (성능): 초당 8 토큰 이상의 생성 속도를 목표로 합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "토큰",
+              "startIndex": 13,
+              "endIndex": 15,
+              "definition": "AI가 처리하는 언어의 최소 단위",
+              "simplifiedDefinition": "AI가 이해하는 글자나 단어 조각",
+              "examples": [
+                "'안녕하세요'는 여러 개의 토큰으로 나뉘어져요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "AI 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "TPS는 초당 토큰 생성 속도를 의미합니다."
+        },
+        {
+          "id": "30",
+          "type": "TEXT",
+          "text": "N-02 (환경): 네이티브 모듈 통합을 위해 Expo EAS Build를 사용해야 합니다."
+        },
+        {
+          "id": "31",
+          "type": "TEXT",
+          "text": "Expo Go는 지원하지 않습니다."
+        },
+        {
+          "id": "32",
+          "type": "TEXT",
+          "text": "EAS Build는 더 복잡한 기능을 지원하는 빌드 방식입니다.",
+          "blank": true
+        },
+        {
+          "id": "33",
+          "type": "PAGE_IMAGE",
+          "prompt": "기술 요구사항을 보여주는 인포그래픽. 속도계(TPS 8+), 빌드 도구 아이콘들, 성능 지표들이 간단한 차트와 아이콘으로 표현됨. 파란색과 회색 톤, 깔끔한 디자인",
+          "concept": "기술 성능 요구사항",
+          "alt": "앱의 기술적 성능 기준을 보여주는 그래프"
+        },
+        {
+          "id": "34",
+          "type": "HEADING3",
+          "text": "3. 안전 및 윤리 요구사항 (매우 중요)"
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "S-01: 챗봇은 어떤 경우에도 진단을 해서는 안 됩니다."
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "치료법 제안이나 요청하지 않은 조언도 제공하면 안 됩니다."
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "S-02: 사용자가 자해나 자살 등 위험 신호를 보일 경우를 대비합니다."
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "LLM 응답 대신 즉시 전문가 도움 요청 안내를 표시해야 합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "LLM",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "Large Language Model, 거대 언어 모델",
+              "simplifiedDefinition": "사람처럼 말할 수 있는 큰 AI 프로그램",
+              "examples": [
+                "LLM은 질문에 답하고 대화할 수 있어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "AI 전문 약어"
+            }
+          ]
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "예를 들어 1393 연락처 같은 하드코딩된 안전장치를 사용합니다."
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "S-03: 앱 시작 시 서비스의 한계와 면책 조항을 명확히 알려야 합니다."
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "사용자가 이 앱의 제한사항을 정확히 이해하도록 해야 합니다.",
+          "blank": true
+        },
+        {
+          "id": "42",
+          "type": "HEADING3",
+          "text": "1. 모델 선정"
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "TinyLlama(1.1B)는 한국어 능력이 매우 부족합니다."
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "복잡한 감정을 이해하기 어려워 이 프로젝트에 맞지 않습니다."
+        },
+        {
+          "id": "45",
+          "type": "TEXT",
+          "text": "선정 모델: Microsoft Phi-3 Mini (3.8B Instruct)"
+        },
+        {
+          "id": "46",
+          "type": "TEXT",
+          "text": "이유: 4B 이하 작은 언어 모델 중 최고 성능입니다."
+        },
+        {
+          "id": "47",
+          "type": "TEXT",
+          "text": "SOTA는 최고 수준 기술을 의미합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "SOTA",
+              "startIndex": 0,
+              "endIndex": 4,
+              "definition": "State Of The Art, 현재 최고 수준의 기술",
+              "simplifiedDefinition": "지금까지 나온 것 중에서 가장 좋은 기술",
+              "examples": [
+                "SOTA 모델은 다른 모델들보다 성능이 뛰어나요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "기술 전문 약어"
+            }
+          ]
+        },
+        {
+          "id": "48",
+          "type": "PAGE_IMAGE",
+          "prompt": "AI 모델 비교 차트. 여러 AI 모델들이 막대그래프로 성능 비교됨. Phi-3 Mini가 가장 높은 막대로 표시. 한국어 능력, 감정 이해도 등의 지표들. 초록색과 파란색 톤",
+          "concept": "AI 모델 성능 비교",
+          "alt": "다양한 AI 모델의 성능을 비교한 차트"
+        },
+        {
+          "id": "49",
+          "type": "TEXT",
+          "text": "우수한 한국어 처리 능력과 지시 이행 능력을 가지고 있습니다."
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "모델 포맷: GGUF (Q4 양자화)"
+        },
+        {
+          "id": "51",
+          "type": "TEXT",
+          "text": "이유: 메모리 효율성과 추론 속도에 최적화되어 있습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "양자화",
+              "startIndex": 15,
+              "endIndex": 18,
+              "definition": "AI 모델을 더 작고 빠르게 만드는 기술",
+              "simplifiedDefinition": "큰 프로그램을 작게 줄여서 빠르게 만드는 방법",
+              "examples": [
+                "양자화하면 휴대폰에서도 AI가 빠르게 작동해요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "AI 최적화 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "52",
+          "type": "TEXT",
+          "text": "크기는 약 2.3GB이고 성능의 균형이 우수합니다.",
+          "blank": true
+        },
+        {
+          "id": "53",
+          "type": "HEADING3",
+          "text": "2. 기술 스택"
+        },
+        {
+          "id": "54",
+          "type": "TABLE",
+          "headers": [
+            "영역",
+            "기술 스택",
+            "설명"
+          ],
+          "rows": [
+            [
+              "프레임워크",
+              "React Native (Expo)",
+              "크로스 플랫폼 지원 (언어: TypeScript 권장)"
+            ],
+            [
+              "추론 엔진",
+              "Llama.cpp",
+              "C++ 기반 고성능 온디바이스 추론 엔진"
+            ],
+            [
+              "브릿지 라이브러리",
+              "react-native-llama",
+              "RN과 Llama.cpp를 JSI로 효율적 연결"
+            ],
+            [
+              "빌드 시스템",
+              "EAS Build",
+              "네이티브 코드 포함을 위한 필수 빌드 방식"
+            ]
+          ]
+        },
+        {
+          "id": "55",
+          "type": "TEXT",
+          "text": "크로스 플랫폼은 여러 운영체제에서 작동한다는 의미입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "크로스 플랫폼",
+              "startIndex": 0,
+              "endIndex": 7,
+              "definition": "여러 운영체제나 기기에서 동시에 작동하는 기술",
+              "simplifiedDefinition": "아이폰과 안드로이드 둘 다에서 쓸 수 있는 것",
+              "examples": [
+                "크로스 플랫폼 앱은 한 번 만들면 여러 휴대폰에서 써요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "개발 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "TypeScript는 JavaScript를 더 안전하게 만든 프로그래밍 언어입니다."
+        },
+        {
+          "id": "57",
+          "type": "TEXT",
+          "text": "Llama.cpp는 C++ 언어로 만든 고성능 추론 엔진입니다."
+        },
+        {
+          "id": "58",
+          "type": "TEXT",
+          "text": "JSI는 JavaScript와 네이티브 코드를 연결하는 기술입니다.",
+          "blank": true
+        },
+        {
+          "id": "59",
+          "type": "HEADING3",
+          "text": "3. 아키텍처 다이어그램"
+        },
+        {
+          "id": "60",
+          "type": "TEXT",
+          "text": "JavaScript 스레드(UI)와 네이티브 스레드(추론 엔진) 간의 효율적인 통신이 핵심입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "스레드",
+              "startIndex": 11,
+              "endIndex": 14,
+              "definition": "컴퓨터가 여러 작업을 동시에 처리하는 단위",
+              "simplifiedDefinition": "컴퓨터가 일을 나누어서 동시에 하는 방법",
+              "examples": [
+                "UI 스레드는 화면을 그리고, 다른 스레드는 계산을 해요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "컴퓨터 과학 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "61",
+          "type": "TEXT",
+          "text": "UI는 사용자 인터페이스로 화면에 보이는 부분입니다."
+        },
+        {
+          "id": "62",
+          "type": "TEXT",
+          "text": "네이티브는 휴대폰의 기본 시스템을 직접 사용하는 방식입니다."
+        },
+        {
+          "id": "63",
+          "type": "PAGE_IMAGE",
+          "prompt": "앱 아키텍처 다이어그램을 단순화한 그림. 화면(UI) 부분과 AI 엔진 부분이 화살표로 연결됨. 데이터가 양방향으로 흐르는 모습. 밝은 색상, 간단한 블록 다이어그램 스타일",
+          "concept": "앱 구조와 데이터 흐름",
+          "alt": "앱의 구조와 정보가 흐르는 방식을 보여주는 그림"
+        },
+        {
+          "id": "64",
+          "type": "TEXT",
+          "text": "코드 스니펫 예시:"
+        },
+        {
+          "id": "65",
+          "type": "TEXT",
+          "text": "React Native UI (JS/TS Thread)에서 JSI 호출을 합니다."
+        },
+        {
+          "id": "66",
+          "type": "TEXT",
+          "text": "react-native-llama Bridge를 통해 연결됩니다."
+        },
+        {
+          "id": "67",
+          "type": "TEXT",
+          "text": "Llama.cpp Engine (C++ Native Thread)에서 실제 처리를 합니다."
+        },
+        {
+          "id": "68",
+          "type": "TEXT",
+          "text": "Phi-3 Mini.gguf 모델을 로드합니다."
+        },
+        {
+          "id": "69",
+          "type": "TEXT",
+          "text": "GPU 가속(Metal/Vulkan/CPU)으로 추론을 수행합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "GPU 가속",
+              "startIndex": 0,
+              "endIndex": 6,
+              "definition": "그래픽 처리 장치를 사용해 계산을 빠르게 하는 기술",
+              "simplifiedDefinition": "게임용 칩을 써서 AI를 더 빠르게 만드는 방법",
+              "examples": [
+                "GPU 가속을 쓰면 AI가 훨씬 빠르게 답변해요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "하드웨어 가속 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "70",
+          "type": "TEXT",
+          "text": "토큰 스트리밍 콜백을 통해 Bridge로 결과를 전달합니다."
+        },
+        {
+          "id": "71",
+          "type": "TEXT",
+          "text": "UI 업데이트 이벤트로 화면에 결과를 표시합니다."
+        },
+        {
+          "id": "72",
+          "type": "TEXT",
+          "text": "이런 방식으로 사용자가 입력한 내용이 AI 답변으로 변환됩니다."
+        }
+      ],
+      "block_count": 72
+    }
+  ],
+  "processing_summary": {
+    "preprocessed_chunks": 1,
+    "transformed_chunks": 1,
+    "success_rate": 100.0
+  }
+}

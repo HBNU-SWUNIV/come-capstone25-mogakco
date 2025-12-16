@@ -1,0 +1,418 @@
+{
+  "jobId": "7c3c35aa-cb3c-40f6-aab1-662f1263a296",
+  "fileName": "전자영수증(E-receipt) (1).pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-18T11:21:03.045392",
+  "completedAt": "2025-09-18T11:21:57.057787",
+  "processingTimeSeconds": 54.012395,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 4,
+    "total_chunks": 1,
+    "total_blocks": 56
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "Trip.com Travel Singapore Pte. Ltd.\n\nCompany No/GST Reg. No: 201613701E 예약번호 1400820669819822 예약일: 2025년 8월 22일 13:48 (GMT+8) 영수증 연락처 정보 연락처 이름 이현동 이메일 주소 lhd***721@naver.com 탑승객 & e티켓 번호 LEE HYUN DONG 718-2942465748 항공권 서울 - 나고야 2025년 9월 18일 일반석 진에어 LJ345 나고야 - 서울 2025년 9월 22일 일반석 진에어 LJ348 요금 내역 금액 운임 107,100원 세금 및 수수료 93,500원 트립닷컴 발권수수료 10,000원 수하물 지연 보험 7,000원 여행자 보험 13,160원 트립코인 -529원 총금액 230,231원 해당 영수증은 자동으로 생성됩니다.\n\nTrip.com Travel Singapore Pte. Ltd. 1/4\n\nTrip.com Travel Singapore Pte. Ltd. 2/4\n\nTrip.com Travel Singapore Pte. Ltd.\n\nCompany No/GST Reg. No: 201613701E Booking No. 1400820669819822 Date of Booking: 1:48 PM, August 22, 2025 (GMT+8) Receipt Contact Info Contact Name 이현동 Email lhd***721@naver.com Passenger & E-ticket No.\n\nHYUN DONG LEE 718-2942465748 Flights Seoul - Nagoya September 18, 2025 Economy class Jin Air LJ345 Nagoya - Seoul September 22, 2025 Economy class Jin Air LJ348 Price Summary Amount Fare KRW 107,100 Taxes & fees KRW 93,500 Trip.com booking fee KRW 10,000 Delayed Baggage Protection KRW 7,000 Travel Insurance KRW 13,160 Trip Coins KRW -529 Total KRW 230,231 This receipt is automatically generated.\n\nTrip.com Travel Singapore Pte. Ltd. 3/4\n\nTrip.com Travel Singapore Pte. Ltd. 4/4",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "항공권 예약 영수증"
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "text": "트립닷컴에서 발행한 항공권 영수증입니다."
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "회사 이름은 트립닷컴 트래블 싱가포르입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "트래블",
+              "startIndex": 10,
+              "endIndex": 13,
+              "definition": "여행을 뜻하는 영어 단어",
+              "simplifiedDefinition": "여행이라는 뜻의 외국어",
+              "examples": [
+                "트래블 가방은 여행용 가방이에요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "외래어"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "회사 등록 번호는 201613701E입니다.",
+          "blank": true
+        },
+        {
+          "id": "5",
+          "type": "HEADING2",
+          "text": "예약 정보"
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "text": "예약 번호: 1400820669819822"
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "예약한 날짜: 2025년 8월 22일"
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "예약한 시간: 오후 1시 48분"
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "시간대는 GMT+8입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "GMT",
+              "startIndex": 4,
+              "endIndex": 7,
+              "definition": "그리니치 표준시의 줄임말",
+              "simplifiedDefinition": "세계 표준 시간",
+              "examples": [
+                "GMT+9는 한국 시간이에요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "이것은 싱가포르 시간입니다.",
+          "blank": true
+        },
+        {
+          "id": "11",
+          "type": "HEADING2",
+          "text": "연락처 정보"
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "text": "예약자 이름: 이현동"
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "이메일 주소: lhd***721@naver.com"
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "개인정보 보호를 위해 일부가 가려져 있습니다.",
+          "blank": true
+        },
+        {
+          "id": "15",
+          "type": "HEADING2",
+          "text": "탑승객과 전자 항공권"
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "text": "탑승객 이름: LEE HYUN DONG"
+        },
+        {
+          "id": "17",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 항공권 예약 정보 이미지. 비행기, 여권, 예약 확인서가 깔끔하게 배치된 모습. 밝은 파란색과 흰색 배경, 만화풍 스타일, 텍스트 없음",
+          "concept": "항공권 예약",
+          "alt": "항공권 예약 정보를 나타내는 이미지",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/d53e1605-2866-4cb0-910d-72e017a69a1c.svg"
+        },
+        {
+          "id": "18",
+          "type": "TEXT",
+          "text": "전자 항공권 번호: 718-2942465748"
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "전자 항공권은 종이가 아닌 컴퓨터로 만든 항공권입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "전자 항공권",
+              "startIndex": 0,
+              "endIndex": 5,
+              "definition": "컴퓨터로 발행한 디지털 항공권",
+              "simplifiedDefinition": "종이가 아닌 컴퓨터로 만든 항공권",
+              "examples": [
+                "전자 항공권은 휴대폰으로 볼 수 있어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "기술 용어"
+            }
+          ]
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "휴대폰이나 컴퓨터로 확인할 수 있습니다.",
+          "blank": true
+        },
+        {
+          "id": "21",
+          "type": "HEADING2",
+          "text": "항공편 정보"
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "첫 번째 비행: 서울에서 나고야로"
+        },
+        {
+          "id": "23",
+          "type": "TEXT",
+          "text": "날짜: 2025년 9월 18일"
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "좌석: 일반석"
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "항공사: 진에어"
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "항공편 번호: LJ345",
+          "blank": true
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "두 번째 비행: 나고야에서 서울로"
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "날짜: 2025년 9월 22일"
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "좌석: 일반석"
+        },
+        {
+          "id": "30",
+          "type": "TEXT",
+          "text": "항공사: 진에어"
+        },
+        {
+          "id": "31",
+          "type": "TEXT",
+          "text": "항공편 번호: LJ348",
+          "vocabularyAnalysis": [
+            {
+              "word": "항공편",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "정해진 시간에 운항하는 비행기",
+              "simplifiedDefinition": "정해진 시간에 다니는 비행기",
+              "examples": [
+                "오전 10시 항공편을 탔어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "교통 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "32",
+          "type": "TEXT",
+          "text": "왕복 항공권입니다.",
+          "blank": true
+        },
+        {
+          "id": "33",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 비행기 여행 경로 이미지. 서울과 나고야를 연결하는 비행기 경로, 양방향 화살표, 두 도시의 랜드마크, 밝은 색상, 만화풍",
+          "concept": "서울-나고야 항공 경로",
+          "alt": "서울과 나고야를 오가는 비행기 경로",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/c90715e5-ff4d-4169-92c4-d7d949bb2574.svg"
+        },
+        {
+          "id": "34",
+          "type": "HEADING2",
+          "text": "요금 내역"
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "항공료: 107,100원"
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "세금과 수수료: 93,500원"
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "트립닷컴 발권 수수료: 10,000원",
+          "vocabularyAnalysis": [
+            {
+              "word": "발권",
+              "startIndex": 5,
+              "endIndex": 7,
+              "definition": "항공권을 발행하는 것",
+              "simplifiedDefinition": "항공권을 만들어 주는 것",
+              "examples": [
+                "여행사에서 발권을 해줬어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "업무 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "수하물 지연 보험: 7,000원"
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "여행자 보험: 13,160원"
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "트립코인 할인: -529원"
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "총 금액: 230,231원",
+          "vocabularyAnalysis": [
+            {
+              "word": "수하물",
+              "startIndex": 0,
+              "endIndex": 3,
+              "definition": "여행할 때 가져가는 짐",
+              "simplifiedDefinition": "여행 갈 때 가져가는 가방이나 짐",
+              "examples": [
+                "수하물을 비행기에 맡겼어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "교통 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "42",
+          "type": "TEXT",
+          "text": "이 영수증은 자동으로 만들어졌습니다.",
+          "blank": true
+        },
+        {
+          "id": "43",
+          "type": "HEADING2",
+          "text": "보험 설명"
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "수하물 지연 보험은 짐이 늦게 도착할 때 도움을 줍니다."
+        },
+        {
+          "id": "45",
+          "type": "TEXT",
+          "text": "여행자 보험은 여행 중 문제가 생겼을 때 도움을 줍니다."
+        },
+        {
+          "id": "46",
+          "type": "TEXT",
+          "text": "안전한 여행을 위한 보험입니다.",
+          "blank": true
+        },
+        {
+          "id": "47",
+          "type": "HEADING2",
+          "text": "트립코인이란?"
+        },
+        {
+          "id": "48",
+          "type": "TEXT",
+          "text": "트립코인은 트립닷컴에서 주는 적립금입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "적립금",
+              "startIndex": 16,
+              "endIndex": 19,
+              "definition": "쌓아둔 돈이나 포인트",
+              "simplifiedDefinition": "모아둔 돈이나 점수",
+              "examples": [
+                "적립금으로 물건을 샀어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "금융 용어"
+            }
+          ]
+        },
+        {
+          "id": "49",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 여행 보험과 적립금 개념 이미지. 보호막, 동전, 안전 표시, 밝은 초록색과 금색, 만화풍 스타일",
+          "concept": "여행 보험과 적립금",
+          "alt": "여행 보험과 적립금을 나타내는 이미지",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/18/817f52b9-e70d-40e1-854c-e60ecf1c0d8b.svg"
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "다음 예약할 때 돈 대신 사용할 수 있습니다."
+        },
+        {
+          "id": "51",
+          "type": "TEXT",
+          "text": "이번에는 529원을 할인받았습니다.",
+          "blank": true
+        },
+        {
+          "id": "52",
+          "type": "HEADING2",
+          "text": "중요한 안내"
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "공항에 갈 때 이 영수증을 가져가세요."
+        },
+        {
+          "id": "54",
+          "type": "TEXT",
+          "text": "신분증도 함께 가져가야 합니다."
+        },
+        {
+          "id": "55",
+          "type": "TEXT",
+          "text": "출발 2시간 전에 공항에 도착하세요."
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "즐거운 여행 되세요!"
+        }
+      ]
+    }
+  ]
+}

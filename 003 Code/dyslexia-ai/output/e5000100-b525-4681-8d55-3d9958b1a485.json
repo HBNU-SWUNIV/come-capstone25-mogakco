@@ -1,0 +1,460 @@
+{
+  "jobId": "e5000100-b525-4681-8d55-3d9958b1a485",
+  "fileName": "FedEx 발송 라벨.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-21T16:27:33.493308",
+  "completedAt": "2025-09-21T16:28:44.111243",
+  "processingTimeSeconds": 70.617935,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 7,
+    "total_chunks": 1,
+    "total_blocks": 65
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "1G0Y7E, OGNAGRGAMI-D-ROO 116BEON-GIL DIMS: 60x40x40 CM PAJU-SI, 10896 BILL SENDER KR TOPETER KIM (CALIFORNIA) KAIROS P31 INC 241 E IMPERIAL HWY UNIT 310 FULLERTON CA 92835 (US) (714) 889-9981 REF: GSN ORDER09122025 INV: PO: DEPT: VPDGPLWR 1 of 6 TRK# 0430 ## MASTER ## WZ FULA 2F95/E087/3JG85 5:00P 8843 1416 5238 IP EOD ETD 92835 SNA CA-US vu203260520352J\n\n1G0y7e,o Gngagrai-mdo-ro 116beon-gil DIMS: 60x40x40 CM PAJU-SI, 10896 BILL SENDER KR EIN/VAT: TOPeter Kim (California) (714) 889-9981 KAIROS P31 INC 241 E IMPERIAL HWY UNIT 310 FULLERTON, CA 92835 (US) US AWB WZ FULA ETD PKG:YOUR PKG TRK# 8843 1416 5238 Form 0430 1 of 6 5:00P IP EOD REF: GSN ORDER09122025 DESC1:Korean Books DESC2: DESC3: DESC4: CTRY/TERR MFR: KR SIGN: PETER KIM CARRIAGE VALUE: T/C: S 200785537 CUSTOMS VALUE: 471900.00 WON D/T: O 880680161 For all commodities, technology or software previously exported from the United States, this was done in accordance with the Export Administration Regulations. Diversion of these items contrary to U.S. law or any other applicable country's law is prohibited.\n\nThe Montreal or Warsaw Convention may apply and will govern and in most cases limit the liability of Federal Express for loss or delay of or damage to your shipment. Subject to the conditions of the contract on the reverse. vu023260520352J\n\n1G0Y7E, OGNAGRGAMI-D-ROO 116BEON-GIL DIMS: 60x40x40 CM PAJU-SI, 10896 BILL SENDER KR TOPETER KIM (CALIFORNIA) KAIROS P31 INC 241 E IMPERIAL HWY UNIT 310 FULLERTON CA 92835 (US) (714) 889-9981 REF: GSN ORDER09122025 INV: PO: DEPT: VPDGPLWR 2 of 6 MPS# 0441 Mstr# 8843 1416 5238 0430 WZ FULA 2F95/E087/3JG85 5:00P 8843 1416 5249 IP EOD ETD 92835 SNA CA-US vu203260520352J\n\n1G0Y7E, OGNAGRGAMI-D-ROO 116BEON-GIL DIMS: 60x40x40 CM PAJU-SI, 10896 BILL SENDER KR TOPETER KIM (CALIFORNIA) KAIROS P31 INC 241 E IMPERIAL HWY UNIT 310 FULLERTON CA 92835 (US) (714) 889-9981 REF: GSN ORDER09122025 INV: PO: DEPT: VPDGPLWR 3 of 6 MPS# 0441 Mstr# 8843 1416 5238 0430 WZ FULA 2F95/E087/3JG85 5:00P 8843 1416 5250 IP EOD ETD 92835 SNA CA-US vu203260520352J\n\n1G0Y7E, OGNAGRGAMI-D-ROO 116BEON-GIL DIMS: 45x35x18 CM PAJU-SI, 10896 BILL SENDER KR TOPETER KIM (CALIFORNIA) KAIROS P31 INC 241 E IMPERIAL HWY UNIT 310 FULLERTON CA 92835 (US) (714) 889-9981 REF: GSN ORDER09122025 INV: PO: DEPT: VPDGPLWR 4 of 6 MPS# 0441 Mstr# 8843 1416 5238 0430 WZ FULA 2F95/E087/3JG85 5:00P 8843 1416 5260 IP EOD ETD 92835 SNA CA-US vu203260520352J\n\n1G0Y7E, OGNAGRGAMI-D-ROO 116BEON-GIL DIMS: 40x30x20 CM PAJU-SI, 10896 BILL SENDER KR TOPETER KIM (CALIFORNIA) KAIROS P31 INC 241 E IMPERIAL HWY UNIT 310 FULLERTON CA 92835 (US) (714) 889-9981 REF: GSN ORDER09122025 INV: PO: DEPT: VPDGPLWR 5 of 6 MPS# 0441 Mstr# 8843 1416 5238 0430 WZ FULA 2F95/E087/3JG85 5:00P 8843 1416 5271 IP EOD ETD 92835 SNA CA-US vu203260520352J\n\n1G0Y7E, OGNAGRGAMI-D-ROO 116BEON-GIL DIMS: 30x30x20 CM PAJU-SI, 10896 BILL SENDER KR TOPETER KIM (CALIFORNIA) KAIROS P31 INC 241 E IMPERIAL HWY UNIT 310 FULLERTON CA 92835 (US) (714) 889-9981 REF: GSN ORDER09122025 INV: PO: DEPT: VPDGPLWR 6 of 6 MPS# 0441 Mstr# 8843 1416 5238 0430 WZ FULA 2F95/E087/3JG85 5:00P 8843 1416 5282 IP EOD ETD 92835 SNA CA-US vu203260520352J",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "국제 택배 배송 라벨"
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "text": "이것은 미국에서 한국으로 보내는 택배 라벨입니다."
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "text": "총 6개의 상자로 나누어 보냅니다."
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "상자 안에는 한국 책들이 들어있습니다."
+        },
+        {
+          "id": "5",
+          "type": "HEADING2",
+          "text": "보내는 사람 정보"
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "text": "보내는 사람은 피터 김입니다."
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "그는 미국 캘리포니아에 살고 있습니다."
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "회사 이름은 카이로스 P31입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "카이로스",
+              "startIndex": 6,
+              "endIndex": 10,
+              "definition": "그리스어에서 온 말로 적절한 시기를 뜻함",
+              "simplifiedDefinition": "회사 이름으로 사용된 특별한 단어",
+              "examples": [
+                "카이로스는 이 회사의 이름이에요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "외래어 회사명"
+            }
+          ]
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "주소는 풀러턴시 임페리얼 하이웨이 241번지입니다."
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "전화번호는 714-889-9981입니다."
+        },
+        {
+          "id": "11",
+          "type": "HEADING2",
+          "text": "받는 사람 정보"
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "text": "받는 곳은 한국 파주시입니다."
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "주소는 옥나그라미드로 116번길입니다."
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "우편번호는 10896입니다."
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "이곳으로 책들이 배달될 예정입니다.",
+          "blank": true
+        },
+        {
+          "id": "16",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 국제 택배 배송 과정 이미지. 미국에서 한국으로 가는 비행기, 택배 상자들, 지구본. 밝은 색상, 만화풍, 간단한 아이콘 사용",
+          "concept": "국제 택배 배송",
+          "alt": "미국에서 한국으로 택배를 보내는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/41287811-01eb-4cb8-9a14-5cf7678bc964.svg"
+        },
+        {
+          "id": "17",
+          "type": "HEADING2",
+          "text": "상자별 크기 정보"
+        },
+        {
+          "id": "18",
+          "type": "TEXT",
+          "text": "첫 번째 상자 크기는 60x40x40 센티미터입니다."
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "두 번째 상자도 같은 크기입니다."
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "세 번째 상자도 60x40x40 센티미터입니다."
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "네 번째 상자는 45x35x18 센티미터입니다."
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "다섯 번째 상자는 40x30x20 센티미터입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "센티미터",
+              "startIndex": 15,
+              "endIndex": 20,
+              "definition": "길이를 재는 단위로 1미터의 100분의 1",
+              "simplifiedDefinition": "길이를 재는 작은 단위",
+              "examples": [
+                "자의 작은 눈금이 센티미터예요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "측정 단위"
+            }
+          ]
+        },
+        {
+          "id": "23",
+          "type": "TEXT",
+          "text": "여섯 번째 상자는 30x30x20 센티미터입니다."
+        },
+        {
+          "id": "24",
+          "type": "TEXT",
+          "text": "상자마다 크기가 조금씩 다릅니다."
+        },
+        {
+          "id": "25",
+          "type": "HEADING2",
+          "text": "배송 추적 번호"
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "모든 상자의 기본 추적 번호는 8843 1416 5238입니다."
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "각 상자마다 마지막 번호가 다릅니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "추적",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "뒤를 따라가며 찾아내는 것",
+              "simplifiedDefinition": "택배가 어디에 있는지 찾아보는 것",
+              "examples": [
+                "추적 번호로 택배가 어디에 있는지 알 수 있어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념"
+            }
+          ]
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "첫 번째 상자는 끝번호가 5238입니다."
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "두 번째 상자는 5249입니다."
+        },
+        {
+          "id": "30",
+          "type": "TEXT",
+          "text": "세 번째 상자는 5250입니다."
+        },
+        {
+          "id": "31",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 택배 추적 시스템 이미지. 6개의 다른 크기 상자들, 각각에 번호 라벨, 컴퓨터 화면에 추적 정보. 밝은 색상, 만화풍",
+          "concept": "택배 추적 번호",
+          "alt": "각각 다른 번호를 가진 택배 상자들",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/467d2118-7356-40bf-88d1-fca47191c59a.svg"
+        },
+        {
+          "id": "32",
+          "type": "TEXT",
+          "text": "네 번째 상자는 5260입니다."
+        },
+        {
+          "id": "33",
+          "type": "TEXT",
+          "text": "다섯 번째 상자는 5271입니다."
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "여섯 번째 상자는 5282입니다."
+        },
+        {
+          "id": "35",
+          "type": "HEADING2",
+          "text": "배송 관련 정보"
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "주문 번호는 GSN ORDER09122025입니다."
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "배송 시간은 오후 5시입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "배송",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "물건을 목적지까지 보내는 것",
+              "simplifiedDefinition": "택배를 받는 사람에게 보내는 것",
+              "examples": [
+                "배송 기사님이 택배를 가져다 주세요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "물류 용어"
+            }
+          ]
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "출발 공항은 SNA입니다."
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "이것은 캘리포니아 존 웨인 공항입니다."
+        },
+        {
+          "id": "40",
+          "type": "HEADING2",
+          "text": "세관 신고 정보"
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "상품 설명은 한국 책들입니다."
+        },
+        {
+          "id": "42",
+          "type": "TEXT",
+          "text": "세관 신고 가격은 471,900원입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "세관",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "나라 간 물건 이동을 관리하는 정부 기관",
+              "simplifiedDefinition": "다른 나라에서 온 물건을 검사하는 곳",
+              "examples": [
+                "공항에서 세관 직원이 가방을 검사해요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "행정 용어"
+            }
+          ]
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "제조 국가는 한국입니다."
+        },
+        {
+          "id": "44",
+          "type": "TEXT",
+          "text": "서명자는 피터 김입니다."
+        },
+        {
+          "id": "45",
+          "type": "TEXT",
+          "text": "이 정보들은 세관 통과를 위해 필요합니다.",
+          "blank": true
+        },
+        {
+          "id": "46",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 세관 검사 과정 이미지. 공항 세관, 검사관이 상자를 확인하는 모습, 서류와 도장. 밝은 색상, 친근한 만화풍",
+          "concept": "세관 검사",
+          "alt": "공항에서 세관 직원이 택배를 검사하는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/617e276e-932f-4e4c-b1da-789419a23ec2.svg"
+        },
+        {
+          "id": "47",
+          "type": "HEADING2",
+          "text": "법적 고지사항"
+        },
+        {
+          "id": "48",
+          "type": "TEXT",
+          "text": "미국에서 수출된 물품들입니다."
+        },
+        {
+          "id": "49",
+          "type": "TEXT",
+          "text": "수출 관리 규정을 따랐습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "수출",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "자국의 물건을 다른 나라로 보내는 것",
+              "simplifiedDefinition": "우리나라 물건을 다른 나라로 보내는 것",
+              "examples": [
+                "한국에서 만든 자동차를 미국으로 수출해요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "경제 용어"
+            }
+          ]
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "법을 어기면 안 됩니다."
+        },
+        {
+          "id": "51",
+          "type": "TEXT",
+          "text": "몬트리올 협약이 적용될 수 있습니다."
+        },
+        {
+          "id": "52",
+          "type": "TEXT",
+          "text": "바르샤바 협약도 적용될 수 있습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "협약",
+              "startIndex": 4,
+              "endIndex": 6,
+              "definition": "여러 나라가 함께 정한 약속이나 규칙",
+              "simplifiedDefinition": "나라들이 함께 정한 약속",
+              "examples": [
+                "환경 보호 협약을 여러 나라가 맺었어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "법률 용어"
+            }
+          ]
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "이 협약들은 택배 회사의 책임을 정합니다."
+        },
+        {
+          "id": "54",
+          "type": "TEXT",
+          "text": "분실이나 손상 시 보상 범위를 제한합니다."
+        },
+        {
+          "id": "55",
+          "type": "TEXT",
+          "text": "계약서 뒷면에 자세한 조건이 있습니다."
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "이 모든 정보는 안전한 배송을 위한 것입니다.",
+          "blank": true
+        },
+        {
+          "id": "57",
+          "type": "HEADING2",
+          "text": "배송 완료까지의 과정"
+        },
+        {
+          "id": "58",
+          "type": "TEXT",
+          "text": "상자들은 미국에서 출발합니다."
+        },
+        {
+          "id": "59",
+          "type": "TEXT",
+          "text": "비행기를 타고 한국으로 옵니다."
+        },
+        {
+          "id": "60",
+          "type": "TEXT",
+          "text": "인천공항에 도착합니다."
+        },
+        {
+          "id": "61",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 국제 택배 여행 과정 이미지. 미국→비행기→한국→트럭→집 순서로 화살표 연결. 각 단계마다 간단한 아이콘, 밝은 색상",
+          "concept": "택배 배송 과정",
+          "alt": "택배가 미국에서 한국 집까지 오는 여행 과정",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/22/fc132273-7118-43db-acab-07e848458ca7.svg"
+        },
+        {
+          "id": "62",
+          "type": "TEXT",
+          "text": "세관에서 검사를 받습니다."
+        },
+        {
+          "id": "63",
+          "type": "TEXT",
+          "text": "검사가 끝나면 파주시로 갑니다."
+        },
+        {
+          "id": "64",
+          "type": "TEXT",
+          "text": "마침내 받는 사람에게 도착합니다."
+        },
+        {
+          "id": "65",
+          "type": "TEXT",
+          "text": "이렇게 해서 한국 책들이 집에 도착하게 됩니다."
+        }
+      ]
+    }
+  ]
+}

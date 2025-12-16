@@ -1,0 +1,721 @@
+{
+  "jobId": "4bd8d6fd-5672-40ba-b2ed-3e30fd698168",
+  "fileName": "리딩브릿지 교안 시나리오.pdf",
+  "status": "COMPLETED",
+  "createdAt": "2025-09-24T01:41:43.344134",
+  "completedAt": "2025-09-24T01:43:42.263019",
+  "processingTimeSeconds": 118.918885,
+  "metadata": {
+    "model": "claude-sonnet-4-20250514",
+    "total_pages_from_pdf": 2,
+    "total_chunks": 1,
+    "total_blocks": 96
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "original_content": "리딩브릿지 교안 시나리오 ReadingBridge 영상 시나리오 컨셉 기획 파트 1: 배경 및 캐릭터 시나리오 컨셉 제시해주신 나레이션 각본의 감정선을 극대화하고, 시청자의 공감을 이끌어내기 위한 파트 1의 상세 컨셉입니다.\n\n1. 배경 (Setting) 컨셉 주요 컨셉: 따뜻함과 고뇌가 공존하는 해질녘의 교실 시간대: 방과 후, 해가 저물어가는 늦은 오후 (골든 아워). 창문으로는 따뜻한 주황빛 노을이 부드 럽게 들어오지만, 교실 내부는 점차 어두워져 스탠드 조명에 의지하고 있는 상황을 연출합니다. 이는 선생님의 따뜻한 마음과 막막한 현실의 대비를 시각적으로 보여줍니다. 장소: 저학년(1~2학년) 교실 한편에 마련된 선생님의 책상. 교실 전체보다는 선생님 개인의 공간 에 집중하여 내면의 고뇌를 부각합니다. 핵심 소품: 노트북 화면: 여러 개의 브라우저 탭이 열려있고, 그 중 하나가 클로즈업됩니다. 화면에는 '읽기 부진 아동 맞춤 교재', '특수 교안 제작 업체' 등의 검색 결과와 함께 '건당 30만원', '제 작 기간 최소 2주' 와 같은 문구가 선명하게 보입니다. 학생의 그림: 책상 한 켠에 붙어있는 삐뚤빼뚤하지만 정성 가득한 그림. \"선생님 사랑해요\" 같은 문구가 선생님이 이 일을 하는 이유를 암시합니다. 식은 커피: 오랜 시간 자리를 지키며 고민했음을 보여주는 장치입니다. 쌓인 서류: 처리해야 할 다른 업무들 사이에서 아이들을 위해 추가적인 노력을 하고 있음을 보여줍니다.\n\n2. 캐릭터 (Character) 컨셉 주요 컨셉: 열정적이지만 현실의 벽 앞에서 지쳐있는, 진심을 다하는 초임 교사 설정: 이지혜 선생님 (31세). 교직 3년차의 열정 넘치는 초등학교 저학년 담임. 아이들에게 진심 을 다하지만, 아직은 시스템과 현실의 벽에 부딪히며 해결책을 홀로 찾아 고군분투하고 있습니다. 외모 및 스타일: 헤어스타일: 긴 머리를 편안하게 하나로 묶었지만, 하루 종일 아이들과 씨름하느라 잔머리가 자연스럽게 흘러내려 있습니다. 의상: 활동하기 편한 니트나 블라우스 차림. 베이지, 아이보리 등 따뜻하고 부드러운 색감의 옷으로 따뜻한 성품을 표현합니다.\n\n 회상과 다짐: 시선을 돌려 책상에 붙은 아이의 그림을 잠시 바라볼 때, 입가에 희미한 미소가 번지지만 이내 다시 굳어집니다. (아이를 생각하는 마음과 현실의 무게감)  좌절: 마우스를 스크롤하며 다른 업체를 찾아보지만, 비슷한 가격과 기간에 결국 체념한 듯 두 손으로 잠시 얼굴을 감쌉니다. 파트 2: 3개 화면 전환을 위한 스크립트 3개의 화면(영어 원문, 한글 번역본, 리딩브릿지 교안)이 순서대로 전환되는 것을 가정하여 각본을 재 구성했습니다. 각 나레이션은 해당 화면이 보일 때 재생됩니다. # SCENE 1. 영어 원문 PDF 화면 (화면 설명: 빽빽한 영어 텍스트로 가득 찬 고전 문학 PDF의 첫 페이지가 화면에 나타난다. 일반 학생 조차 쉽게 읽기 어려운 딱딱한 형태이다.) 나레이션: 이제, 그 긴 기다림과 고민을 기술로 해결합니다. 리딩브릿지는 저작권 걱정 없는 전 세 계의 우수 문학 자료를, # SCENE 2. 한글 번역본 화면 (화면 설명: 화면이 전환되며, 영어 원문이 단순 번역된 한글 텍스트 덩어리로 바뀐다. 글자는 작고 여 전히 읽기에는 불편함이 남아있다.) 나레이션: 우리 아이만을 위한 맞춤 교재로 재탄생시킵니다. 딱딱한 원문 PDF가, 복잡한 번역 과정 을 거쳐, # SCENE 3. 리딩브릿지 난독 변환 교안 화면 (화면 설명: 이전 화면에서 화려한 애니메이션 효과와 함께 리딩브릿지 서비스 화면으로 변환된다. 난 독 친화 폰트, 넓은 자간과 줄 간격, 그리고 AI가 생성한 삽화가 포함된 최종 결과물이 보인다.) 나레이션: 마침내 아이들의 눈높이에 맞는 디지털 교재로 변하기까지. 이 모든 과정이, 단 2분 안에 이루어집니다.",
+      "blocks": [
+        {
+          "id": "1",
+          "type": "HEADING1",
+          "text": "리딩브릿지 교안 시나리오"
+        },
+        {
+          "id": "2",
+          "type": "HEADING2",
+          "text": "ReadingBridge 영상 시나리오 컨셉 기획"
+        },
+        {
+          "id": "3",
+          "type": "HEADING3",
+          "text": "파트 1: 배경 및 캐릭터 시나리오 컨셉"
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "text": "이 시나리오는 나레이션 각본의 감정을 크게 만듭니다."
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "text": "시청자가 공감할 수 있도록 파트 1의 자세한 컨셉을 제시합니다."
+        },
+        {
+          "id": "6",
+          "type": "HEADING3",
+          "text": "1. 배경 (Setting) 컨셉"
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "text": "주요 컨셉은 따뜻함과 고뇌가 함께 있는 해질녘 교실입니다."
+        },
+        {
+          "id": "8",
+          "type": "TEXT",
+          "text": "시간대는 방과 후입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "방과 후",
+              "startIndex": 4,
+              "endIndex": 8,
+              "definition": "학교 수업이 끝난 뒤의 시간",
+              "simplifiedDefinition": "학교가 끝나고 난 뒤 시간",
+              "examples": [
+                "방과 후에 친구들과 놀았어요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "일상 용어이지만 명확한 설명 필요"
+            }
+          ]
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "text": "해가 저물어가는 늦은 오후입니다."
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "text": "이 시간을 골든 아워라고 부릅니다."
+        },
+        {
+          "id": "11",
+          "type": "TEXT",
+          "text": "창문으로는 따뜻한 주황빛 노을이 들어옵니다."
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "text": "노을빛이 부드럽게 교실을 비춥니다."
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "text": "하지만 교실 안은 점점 어두워집니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "점점",
+              "startIndex": 8,
+              "endIndex": 10,
+              "definition": "조금씩 계속해서",
+              "simplifiedDefinition": "천천히 계속",
+              "examples": [
+                "날씨가 점점 추워져요"
+              ],
+              "difficultyLevel": "easy",
+              "reason": "시간 변화 표현"
+            }
+          ]
+        },
+        {
+          "id": "14",
+          "type": "TEXT",
+          "text": "그래서 스탠드 조명에 의지하고 있습니다."
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "text": "이것은 선생님의 따뜻한 마음을 보여줍니다."
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "text": "동시에 막막한 현실과의 대비도 나타냅니다."
+        },
+        {
+          "id": "17",
+          "type": "TEXT",
+          "text": "이런 모습을 시각적으로 표현합니다.",
+          "blank": true
+        },
+        {
+          "id": "18",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 해질녘 교실 이미지. 창문으로 들어오는 따뜻한 주황빛 노을과 어두워지는 교실 내부, 스탠드 조명이 켜진 선생님 책상. 따뜻하면서도 고민이 느껴지는 분위기, 만화풍",
+          "concept": "해질녘 교실의 따뜻함과 고뇌",
+          "alt": "노을이 지는 교실에서 스탠드 조명을 켜고 있는 모습",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/efd977f2-072d-4f1f-a88d-7002d87469e8.jpg"
+        },
+        {
+          "id": "19",
+          "type": "TEXT",
+          "text": "장소는 저학년 교실입니다."
+        },
+        {
+          "id": "20",
+          "type": "TEXT",
+          "text": "1학년과 2학년이 공부하는 교실입니다."
+        },
+        {
+          "id": "21",
+          "type": "TEXT",
+          "text": "교실 한편에 선생님의 책상이 있습니다."
+        },
+        {
+          "id": "22",
+          "type": "TEXT",
+          "text": "교실 전체보다는 선생님 개인 공간에 집중합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "개인 공간",
+              "startIndex": 11,
+              "endIndex": 16,
+              "definition": "한 사람만의 사적인 장소",
+              "simplifiedDefinition": "혼자만 쓰는 자리",
+              "examples": [
+                "내 방은 나만의 개인 공간이에요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 개념"
+            }
+          ]
+        },
+        {
+          "id": "23",
+          "type": "TEXT",
+          "text": "이렇게 해서 선생님의 내면 고뇌를 부각합니다."
+        },
+        {
+          "id": "24",
+          "type": "HEADING3",
+          "text": "핵심 소품들"
+        },
+        {
+          "id": "25",
+          "type": "TEXT",
+          "text": "노트북 화면이 중요한 소품입니다."
+        },
+        {
+          "id": "26",
+          "type": "TEXT",
+          "text": "여러 개의 브라우저 탭이 열려있습니다."
+        },
+        {
+          "id": "27",
+          "type": "TEXT",
+          "text": "그 중 하나가 클로즈업됩니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "클로즈업",
+              "startIndex": 6,
+              "endIndex": 10,
+              "definition": "카메라로 가까이 찍는 것",
+              "simplifiedDefinition": "아주 가까이에서 찍는 것",
+              "examples": [
+                "얼굴을 클로즈업해서 찍었어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "영상 용어"
+            }
+          ]
+        },
+        {
+          "id": "28",
+          "type": "TEXT",
+          "text": "화면에는 여러 검색 결과가 보입니다."
+        },
+        {
+          "id": "29",
+          "type": "TEXT",
+          "text": "'읽기 부진 아동 맞춤 교재'라는 글이 있습니다."
+        },
+        {
+          "id": "30",
+          "type": "TEXT",
+          "text": "'특수 교안 제작 업체'도 검색되어 있습니다."
+        },
+        {
+          "id": "31",
+          "type": "TEXT",
+          "text": "'건당 30만원'이라는 문구가 선명하게 보입니다."
+        },
+        {
+          "id": "32",
+          "type": "TEXT",
+          "text": "'제작 기간 최소 2주'라는 글도 있습니다.",
+          "blank": true
+        },
+        {
+          "id": "33",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 노트북 화면 이미지. 여러 브라우저 탭이 열려있고 '읽기 부진 아동 맞춤 교재', '특수 교안 제작 업체', '건당 30만원', '제작 기간 최소 2주' 등의 검색 결과가 보이는 화면. 현실적이고 선명한 텍스트",
+          "concept": "교재 제작 업체 검색 화면",
+          "alt": "비싼 교재 제작 비용을 보여주는 노트북 화면",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/b585840e-f72a-42f6-8515-4bb7eefb54fe.jpg"
+        },
+        {
+          "id": "34",
+          "type": "TEXT",
+          "text": "학생의 그림도 중요한 소품입니다."
+        },
+        {
+          "id": "35",
+          "type": "TEXT",
+          "text": "책상 한 켠에 붙어있는 그림입니다."
+        },
+        {
+          "id": "36",
+          "type": "TEXT",
+          "text": "삐뚤빼뚤하지만 정성이 가득합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "삐뚤빼뚤",
+              "startIndex": 0,
+              "endIndex": 5,
+              "definition": "곧지 않고 구부러진 모양",
+              "simplifiedDefinition": "똑바르지 않고 구불구불한 모양",
+              "examples": [
+                "글씨를 삐뚤빼뚤하게 썼어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "의성어/의태어"
+            }
+          ]
+        },
+        {
+          "id": "37",
+          "type": "TEXT",
+          "text": "'선생님 사랑해요' 같은 문구가 있습니다."
+        },
+        {
+          "id": "38",
+          "type": "TEXT",
+          "text": "이것은 선생님이 이 일을 하는 이유를 보여줍니다."
+        },
+        {
+          "id": "39",
+          "type": "TEXT",
+          "text": "식은 커피도 의미 있는 소품입니다."
+        },
+        {
+          "id": "40",
+          "type": "TEXT",
+          "text": "오랜 시간 자리를 지키며 고민했음을 보여줍니다."
+        },
+        {
+          "id": "41",
+          "type": "TEXT",
+          "text": "쌓인 서류들도 있습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "서류",
+              "startIndex": 3,
+              "endIndex": 5,
+              "definition": "업무에 필요한 문서들",
+              "simplifiedDefinition": "일할 때 쓰는 종이들",
+              "examples": [
+                "선생님이 서류를 정리하고 있어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "업무 관련 용어"
+            }
+          ]
+        },
+        {
+          "id": "42",
+          "type": "TEXT",
+          "text": "처리해야 할 다른 업무들 사이에서도"
+        },
+        {
+          "id": "43",
+          "type": "TEXT",
+          "text": "아이들을 위해 추가 노력을 하고 있음을 보여줍니다.",
+          "blank": true
+        },
+        {
+          "id": "44",
+          "type": "HEADING3",
+          "text": "2. 캐릭터 (Character) 컨셉"
+        },
+        {
+          "id": "45",
+          "type": "TEXT",
+          "text": "주요 컨셉은 열정적이지만 지친 초임 교사입니다."
+        },
+        {
+          "id": "46",
+          "type": "TEXT",
+          "text": "현실의 벽 앞에서 어려움을 겪고 있습니다."
+        },
+        {
+          "id": "47",
+          "type": "TEXT",
+          "text": "하지만 진심을 다하는 선생님입니다."
+        },
+        {
+          "id": "48",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 초등학교 여교사 캐릭터 이미지. 31세 이지혜 선생님, 긴 머리를 하나로 묶고 잔머리가 자연스럽게 흘러내린 모습. 베이지색 니트 착용, 따뜻하고 부드러운 인상, 약간 지쳐보이지만 따뜻한 눈빛",
+          "concept": "열정적이지만 지친 초임 교사",
+          "alt": "따뜻하지만 고민이 많은 초등학교 여교사",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/d0a9944c-c894-46a9-8e31-30de09ba6517.jpg"
+        },
+        {
+          "id": "49",
+          "type": "TEXT",
+          "text": "설정: 이지혜 선생님, 31세입니다."
+        },
+        {
+          "id": "50",
+          "type": "TEXT",
+          "text": "교직 3년차의 열정 넘치는 선생님입니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "교직",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "교사라는 직업",
+              "simplifiedDefinition": "선생님이라는 일",
+              "examples": [
+                "교직에 몸담고 있어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "직업 관련 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "51",
+          "type": "TEXT",
+          "text": "초등학교 저학년 담임을 맡고 있습니다."
+        },
+        {
+          "id": "52",
+          "type": "TEXT",
+          "text": "아이들에게 진심을 다합니다."
+        },
+        {
+          "id": "53",
+          "type": "TEXT",
+          "text": "하지만 시스템과 현실의 벽에 부딪힙니다."
+        },
+        {
+          "id": "54",
+          "type": "TEXT",
+          "text": "해결책을 혼자서 찾으려고 고군분투합니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "고군분투",
+              "startIndex": 11,
+              "endIndex": 15,
+              "definition": "어려운 상황에서 혼자 힘들게 싸우는 것",
+              "simplifiedDefinition": "혼자서 열심히 노력하는 것",
+              "examples": [
+                "시험 공부를 위해 고군분투했어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "한자어, 추상적 개념"
+            }
+          ]
+        },
+        {
+          "id": "55",
+          "type": "HEADING3",
+          "text": "외모 및 스타일"
+        },
+        {
+          "id": "56",
+          "type": "TEXT",
+          "text": "헤어스타일: 긴 머리를 편안하게 하나로 묶었습니다."
+        },
+        {
+          "id": "57",
+          "type": "TEXT",
+          "text": "하루 종일 아이들과 씨름하느라"
+        },
+        {
+          "id": "58",
+          "type": "TEXT",
+          "text": "잔머리가 자연스럽게 흘러내려 있습니다."
+        },
+        {
+          "id": "59",
+          "type": "TEXT",
+          "text": "의상: 활동하기 편한 니트나 블라우스를 입습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "블라우스",
+              "startIndex": 15,
+              "endIndex": 19,
+              "definition": "여성용 윗옷의 한 종류",
+              "simplifiedDefinition": "여자가 입는 예쁜 윗옷",
+              "examples": [
+                "엄마가 하얀 블라우스를 입었어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "의류 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "60",
+          "type": "TEXT",
+          "text": "베이지, 아이보리 등 따뜻한 색감의 옷을 입습니다."
+        },
+        {
+          "id": "61",
+          "type": "TEXT",
+          "text": "부드러운 색깔로 따뜻한 성품을 표현합니다."
+        },
+        {
+          "id": "62",
+          "type": "TEXT",
+          "text": "회상과 다짐: 시선을 돌려 책상의 아이 그림을 봅니다.",
+          "blank": true
+        },
+        {
+          "id": "63",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 선생님이 학생 그림을 바라보는 이미지. 책상에 붙은 아이의 삐뚤빼뚤한 그림을 보며 희미한 미소를 짓는 선생님. 따뜻한 조명, 감동적인 분위기, 만화풍",
+          "concept": "학생 그림을 보며 미소짓는 선생님",
+          "alt": "아이가 그린 그림을 보며 미소짓는 선생님",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/c2fe3c3e-9295-417c-ae0a-704d30b79a0a.jpg"
+        },
+        {
+          "id": "64",
+          "type": "TEXT",
+          "text": "그림을 잠시 바라볼 때 입가에 희미한 미소가 번집니다."
+        },
+        {
+          "id": "65",
+          "type": "TEXT",
+          "text": "하지만 이내 다시 굳어집니다."
+        },
+        {
+          "id": "66",
+          "type": "TEXT",
+          "text": "아이를 생각하는 마음과 현실의 무게감을 보여줍니다."
+        },
+        {
+          "id": "67",
+          "type": "TEXT",
+          "text": "좌절: 마우스를 스크롤하며 다른 업체를 찾아봅니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "좌절",
+              "startIndex": 0,
+              "endIndex": 2,
+              "definition": "뜻한 대로 되지 않아 실망하는 것",
+              "simplifiedDefinition": "일이 잘 안 되어서 속상한 것",
+              "examples": [
+                "시험에서 떨어져서 좌절했어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "감정 표현 용어"
+            }
+          ]
+        },
+        {
+          "id": "68",
+          "type": "TEXT",
+          "text": "하지만 비슷한 가격과 기간을 봅니다."
+        },
+        {
+          "id": "69",
+          "type": "TEXT",
+          "text": "결국 체념한 듯 두 손으로 잠시 얼굴을 감쌉니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "체념",
+              "startIndex": 3,
+              "endIndex": 5,
+              "definition": "포기하고 받아들이는 것",
+              "simplifiedDefinition": "어쩔 수 없다고 생각하며 포기하는 것",
+              "examples": [
+                "비가 와서 소풍을 체념했어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "추상적 감정 표현"
+            }
+          ]
+        },
+        {
+          "id": "70",
+          "type": "HEADING3",
+          "text": "파트 2: 3개 화면 전환을 위한 스크립트",
+          "blank": true
+        },
+        {
+          "id": "71",
+          "type": "TEXT",
+          "text": "3개의 화면이 순서대로 전환됩니다."
+        },
+        {
+          "id": "72",
+          "type": "TEXT",
+          "text": "영어 원문, 한글 번역본, 리딩브릿지 교안 순서입니다."
+        },
+        {
+          "id": "73",
+          "type": "TEXT",
+          "text": "각본을 다시 구성했습니다."
+        },
+        {
+          "id": "74",
+          "type": "TEXT",
+          "text": "각 나레이션은 해당 화면이 보일 때 재생됩니다."
+        },
+        {
+          "id": "75",
+          "type": "HEADING3",
+          "text": "SCENE 1. 영어 원문 PDF 화면"
+        },
+        {
+          "id": "76",
+          "type": "TEXT",
+          "text": "화면 설명: 빽빽한 영어 텍스트로 가득 찬 화면입니다."
+        },
+        {
+          "id": "77",
+          "type": "TEXT",
+          "text": "고전 문학 PDF의 첫 페이지가 나타납니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "고전 문학",
+              "startIndex": 0,
+              "endIndex": 5,
+              "definition": "오래전부터 전해져 내려오는 훌륭한 문학 작품",
+              "simplifiedDefinition": "옛날부터 유명한 좋은 책들",
+              "examples": [
+                "셰익스피어는 고전 문학의 대표 작가예요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "문학 전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "78",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 영어 원문 PDF 화면 이미지. 빽빽하고 작은 영어 텍스트로 가득 찬 고전 문학 페이지. 읽기 어려워 보이는 딱딱한 형태, 흑백 텍스트",
+          "concept": "읽기 어려운 영어 원문 PDF",
+          "alt": "빽빽한 영어 텍스트로 가득한 PDF 화면",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/d74c733e-ca9d-4292-ae77-9a20c358b4de.jpg"
+        },
+        {
+          "id": "79",
+          "type": "TEXT",
+          "text": "일반 학생조차 쉽게 읽기 어려운 딱딱한 형태입니다."
+        },
+        {
+          "id": "80",
+          "type": "TEXT",
+          "text": "나레이션: '이제, 그 긴 기다림과 고민을 기술로 해결합니다.'"
+        },
+        {
+          "id": "81",
+          "type": "TEXT",
+          "text": "'리딩브릿지는 저작권 걱정 없는 전 세계의 우수 문학 자료를,'"
+        },
+        {
+          "id": "82",
+          "type": "HEADING3",
+          "text": "SCENE 2. 한글 번역본 화면"
+        },
+        {
+          "id": "83",
+          "type": "TEXT",
+          "text": "화면 설명: 화면이 전환됩니다."
+        },
+        {
+          "id": "84",
+          "type": "TEXT",
+          "text": "영어 원문이 단순 번역된 한글 텍스트 덩어리로 바뀝니다."
+        },
+        {
+          "id": "85",
+          "type": "TEXT",
+          "text": "글자는 작고 여전히 읽기에 불편함이 남아있습니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "불편함",
+              "startIndex": 14,
+              "endIndex": 17,
+              "definition": "편하지 않은 상태",
+              "simplifiedDefinition": "불편한 느낌",
+              "examples": [
+                "의자가 딱딱해서 불편함을 느꼈어요"
+              ],
+              "difficultyLevel": "medium",
+              "reason": "추상적 감정 표현"
+            }
+          ]
+        },
+        {
+          "id": "86",
+          "type": "TEXT",
+          "text": "나레이션: '우리 아이만을 위한 맞춤 교재로 재탄생시킵니다.'"
+        },
+        {
+          "id": "87",
+          "type": "TEXT",
+          "text": "'딱딱한 원문 PDF가, 복잡한 번역 과정을 거쳐,'"
+        },
+        {
+          "id": "88",
+          "type": "HEADING3",
+          "text": "SCENE 3. 리딩브릿지 난독 변환 교안 화면"
+        },
+        {
+          "id": "89",
+          "type": "TEXT",
+          "text": "화면 설명: 이전 화면에서 화려한 애니메이션 효과가 나타납니다."
+        },
+        {
+          "id": "90",
+          "type": "TEXT",
+          "text": "리딩브릿지 서비스 화면으로 변환됩니다."
+        },
+        {
+          "id": "91",
+          "type": "TEXT",
+          "text": "난독 친화 폰트가 사용됩니다.",
+          "vocabularyAnalysis": [
+            {
+              "word": "난독 친화",
+              "startIndex": 0,
+              "endIndex": 5,
+              "definition": "난독증 환자가 읽기 쉽도록 만든",
+              "simplifiedDefinition": "글 읽기가 어려운 사람도 쉽게 읽을 수 있는",
+              "examples": [
+                "난독 친화 폰트로 책을 만들었어요"
+              ],
+              "difficultyLevel": "hard",
+              "reason": "전문 용어"
+            }
+          ]
+        },
+        {
+          "id": "92",
+          "type": "TEXT",
+          "text": "넓은 자간과 줄 간격이 적용됩니다."
+        },
+        {
+          "id": "93",
+          "type": "PAGE_IMAGE",
+          "prompt": "9-13세 난독증 아동을 위한 리딩브릿지 변환 결과 화면. 난독 친화 폰트, 넓은 자간과 줄간격, AI가 생성한 컬러풀한 삽화가 포함된 디지털 교재. 밝고 읽기 쉬운 레이아웃",
+          "concept": "난독증 친화적 디지털 교재",
+          "alt": "읽기 쉽게 변환된 리딩브릿지 교재 화면",
+          "url": "https://dyslexia-pdf.s3.ap-northeast-2.amazonaws.com/resources/2025/09/24/40f10b2a-13f6-4944-a613-55031e8cc725.jpg"
+        },
+        {
+          "id": "94",
+          "type": "TEXT",
+          "text": "AI가 생성한 삽화가 포함된 최종 결과물이 보입니다."
+        },
+        {
+          "id": "95",
+          "type": "TEXT",
+          "text": "나레이션: '마침내 아이들의 눈높이에 맞는 디지털 교재로 변하기까지.'"
+        },
+        {
+          "id": "96",
+          "type": "TEXT",
+          "text": "'이 모든 과정이, 단 2분 안에 이루어집니다.'"
+        }
+      ]
+    }
+  ]
+}

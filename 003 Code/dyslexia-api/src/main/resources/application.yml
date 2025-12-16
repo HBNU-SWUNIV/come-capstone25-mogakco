@@ -1,0 +1,119 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+      default_batch_fetch_size: 100
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      file-size-threshold: 2KB
+
+jwt:
+  secret: ${JWT_SECRET}
+  access-token-validity-in-seconds: 604800  # 1주일
+  refresh-token-validity-in-seconds: 2592000  # 30일
+
+kakao:
+  client:
+    id: ${KAKAO_CLIENT_ID}
+    secret: ${KAKAO_CLIENT_SECRET}
+    redirect-uri: ${KAKAO_REDIRECT_URI}
+
+server:
+  servlet:
+    context-path: /api
+  port: 8084
+  address: 0.0.0.0
+  forward-headers-strategy: framework
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  packages-to-scan: com.dyslexia.dyslexia.controller
+  default-produces-media-type: application/json
+  paths-to-match:
+    - /**
+  show-actuator: true
+
+logging:
+  level:
+    org.hibernate.SQL: off
+    org.hibernate.orm.jdbc.bind: off
+    org.hibernate.type.descriptor.sql.BasicBinder: off
+
+ai:
+  api:
+    url: https://api.openai.com/v1/chat/completions
+    key: ${OPENAI_API_KEY}
+  tts:
+    url: https://api.openai.com/v1/audio/speech
+
+deepl:
+  api:
+    url: https://api-free.deepl.com
+    key: ${DEEPL_SECRET}
+
+replicate:
+  api:
+    url: https://api.replicate.com/v1/predictions
+    key: ${REPLICATE_API_KEY}
+    model: recraft-ai/recraft-v3
+
+cloud:
+  aws:
+    s3:
+      bucket: ${AWS_S3_BUCKET_NAME}
+    stack:
+      auto: false
+    region:
+      static: ${AWS_REGION}
+    credentials:
+      access-key: ${AWS_ACCESS_KEY}
+      secret-key: ${AWS_SECRET_KEY}
+
+external:
+  fastapi:
+    url: ${FASTAPI_URL:http://localhost:8000}
+    endpoints:
+      process: /api/v2/process/async
+  callback:
+    token: ${CALLBACK_TOKEN:}
+
+redis:
+  channels:
+    progress: progress-channel
+    result: result-channel
+    failure: failure-channel
